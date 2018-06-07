@@ -32,7 +32,7 @@ class VDKLineChartRenderer: VDChartRenderer {
     /// Style
     var borderWidth: CGFloat = CGFloatFromPixel(pixel: 1)
     var borderColor: UIColor = #colorLiteral(red: 0.8904301524, green: 0.88513726, blue: 0.8944990039, alpha: 1)
-    private let borderLayer = CAShapeLayer()
+    let borderLayer = CAShapeLayer()
     /// ChartRenderer
     var numberOfNodes: Int = 0
     var mainChartFrame: CGRect = .zero
@@ -75,7 +75,7 @@ class VDKLineChartRenderer: VDChartRenderer {
     /// status
     private var isTouching: Bool = false
     private var touchingTargetPoint: CGPoint = CGPoint()
-    var selectedNodeIndex: Int = -1
+    internal var selectedNodeIndex: Int = -1
     
     init(container: VDChartContainer, dataSource: VDKLineChartRendererDataSource) {
         self.container = container
@@ -235,13 +235,25 @@ class VDKLineChartRenderer: VDChartRenderer {
     
     func renderingTouchTarget(point: CGPoint) {
         
-        let point = CGPoint(x: point.x - borderLayer.frame.minX, y: point.y - borderLayer.frame.minY)
+        var point = CGPoint(x: point.x - borderLayer.frame.minX, y: point.y - borderLayer.frame.minY)
         isTouching = true
         touchingTargetPoint = point
         reRendering()
         
-        if point.x < 0 || point.x > borderLayer.bounds.width { return }
-        if point.y < 0 || point.y > borderLayer.bounds.height { return }
+//        if point.x < 0 || point.x > borderLayer.bounds.width { return }
+//        if point.y < 0 || point.y > borderLayer.bounds.height { return }
+        if point.x < 0 {
+            point.x = 0
+        }
+        if point.x > borderLayer.bounds.width {
+            point.x = borderLayer.bounds.width
+        }
+        if point.y < 0 {
+            point.y = 0
+        }
+        if point.y > borderLayer.bounds.height {
+            point.y = borderLayer.bounds.height
+        }
         let path = UIBezierPath()
         path.lineWidth = 1
         
@@ -261,7 +273,7 @@ class VDKLineChartRenderer: VDChartRenderer {
                 break
             }
             let pNext = candlestickDataSet.points[i - lIndex + 1]
-            if point.x > p.x && point.x < pNext.x && pNext.x != 0 {
+            if point.x >= p.x && point.x < pNext.x && pNext.x != 0 {
                 targetPointX = p.x
                 node = dataSource?.klineChartRenderer(self, nodeAt: i)
                 selectedNodeIndex = i
