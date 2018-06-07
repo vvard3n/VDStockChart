@@ -9,6 +9,7 @@
 import UIKit
 
 protocol VDChartRenderer: class {
+    var borderLayer: CAShapeLayer { get }
     var layers: [CALayer] { get }
     var views: [UIView] { get }
     var container: VDChartContainer { get }
