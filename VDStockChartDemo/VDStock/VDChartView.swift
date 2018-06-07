@@ -23,18 +23,19 @@ class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VD
             oldValue?.layers.forEach { $0.removeFromSuperlayer() }
             oldValue?.views.forEach { $0.removeFromSuperview() }
             guard let renderer = renderer else { return }
-//            if renderer is VDTimeChartLineRenderer {
-//                isAllowScale = false
-//                isAllowScroll = false
-//            }
-//            else {
-//                isAllowScale = true
-//                isAllowScroll = true
-//            }
+            if renderer is VDTimeChartLineRenderer {
+                isAllowScale = false
+                isAllowScroll = false
+            }
+            else {
+                isAllowScale = true
+                isAllowScroll = true
+            }
             renderer.layers.forEach { layer.addSublayer($0) }
             renderer.views.forEach { addSubview($0) }
 //            scrollView.contentOffset = CGPoint(x: renderer.contentWidth - renderer.container.bounds.width, y: 0)
             scrollView.contentOffset = CGPoint(x: renderer.contentWidth - renderer.container.bounds.width + 5 + 5, y: 0)
+            scrollView.backgroundColor = UIColor(white: 1, alpha: 0.1)
             renderer.reload()
             scrollView.contentSize = CGSize(width: renderer.contentWidth, height: 1)
             setNeedsLayout()
@@ -107,15 +108,14 @@ class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VD
     
     @objc private func longPressGestureAction(_ gesture: UILongPressGestureRecognizer) {
         guard let renderer = renderer else { return }
-        renderer.renderingTouchTarget(point: gesture.location(in: self))
         
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(cancelTouchTarget), object: nil)
-        self.perform(#selector(cancelTouchTarget), with: nil, afterDelay: 5)
-        
-//        guard let delegate = delegate else {
-//            delegate.chartViewDidTouchTarget()
+//        if renderer.borderLayer.frame.contains(gesture.location(in: self)) {
+            renderer.renderingTouchTarget(point: gesture.location(in: self))
+            
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(cancelTouchTarget), object: nil)
+            self.perform(#selector(cancelTouchTarget), with: nil, afterDelay: 5)
+            delegate?.chartViewDidTouchTarget(self, touchPoint: gesture.location(in: self), nodeIndex: renderer.selectedNodeIndex)
 //        }
-        delegate?.chartViewDidTouchTarget(self, touchPoint: gesture.location(in: self), nodeIndex: renderer.selectedNodeIndex)
     }
     
     @objc private func cancelTouchTarget() {
@@ -144,7 +144,17 @@ class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VD
     // MARK: - UIGestureRecognizerDelegate
     
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return isAllowScale
+//        return isAllowScale
+        if gestureRecognizer is UILongPressGestureRecognizer {
+            guard let renderer = renderer else { return false }
+            if renderer.borderLayer.frame.contains(gestureRecognizer.location(in: self)) {
+                return true
+            }
+        }
+        else {
+            return true
+        }
+        return false
     }
     
     // MARK: - UIScrollViewDelegate
@@ -184,6 +194,7 @@ class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VD
         addGestureRecognizer(pinchGesture)
         //
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureAction(_:)))
+        longPressGesture.delegate = self
         addGestureRecognizer(longPressGesture)
     }
 }
