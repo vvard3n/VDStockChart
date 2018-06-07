@@ -107,8 +107,8 @@ extension ViewController: VDChartViewDelegate {
             priceView.nodeData = strArr
         }
         if chartView.renderer is VDTimeChartLineRenderer {
-            let nodeData = kLineNodes[nodeIndex]
-            let strArr = [String(format: "%.2f", nodeData.open), String(format: "%.2f", nodeData.high), String(format: "%.2f", nodeData.open), String(format: "%@手")]
+            let nodeData = timeLineNodes[nodeIndex]
+            let strArr = [String(format: "%@", nodeData.time), String(format: "%.2f", nodeData.avgPrice), String(format: "%.2f", nodeData.price), String(format: "%.2f手", nodeData.businessAmount)]
             priceView.nodeData = strArr
         }
     }
