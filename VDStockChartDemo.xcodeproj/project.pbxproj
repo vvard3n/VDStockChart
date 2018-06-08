@@ -96,6 +96,7 @@
 		76A2F40C20BBF5D400CB7FC6 = {
 			isa = PBXGroup;
 			children = (
+				76A2F42A20BBF6AA00CB7FC6 /* VDStockChart */,
 				76A2F41720BBF5D400CB7FC6 /* VDStockChartDemo */,
 				76A2F41620BBF5D400CB7FC6 /* Products */,
 			);
@@ -112,7 +113,6 @@
 		76A2F41720BBF5D400CB7FC6 /* VDStockChartDemo */ = {
 			isa = PBXGroup;
 			children = (
-				76A2F42A20BBF6AA00CB7FC6 /* VDStock */,
 				76A2F41820BBF5D400CB7FC6 /* AppDelegate.swift */,
 				76A2F41A20BBF5D400CB7FC6 /* ViewController.swift */,
 				76A2F41C20BBF5D400CB7FC6 /* Main.storyboard */,
@@ -127,7 +127,7 @@
 			path = VDStockChartDemo;
 			sourceTree = "<group>";
 		};
-		76A2F42A20BBF6AA00CB7FC6 /* VDStock */ = {
+		76A2F42A20BBF6AA00CB7FC6 /* VDStockChart */ = {
 			isa = PBXGroup;
 			children = (
 				76A2F46120BC28A300CB7FC6 /* Extension */,
@@ -144,7 +144,7 @@
 				76A2F45320BC251C00CB7FC6 /* VDChartView.swift */,
 				764413A120C695AB00BEA5C7 /* VDChartPriceView.swift */,
 			);
-			path = VDStock;
+			path = VDStockChart;
 			sourceTree = "<group>";
 		};
 		76A2F42D20BBFA8600CB7FC6 /* StockBackgroundView */ = {

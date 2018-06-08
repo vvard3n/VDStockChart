@@ -197,12 +197,7 @@ class VDKLineChartRenderer: VDChartRenderer {
             calculateMA(node.MA5, maxPrice: result.maxPrice, x: maLineX, yLength: yLength) { ma5LineDataSet.points.append($0) }
             calculateMA(node.MA10, maxPrice: result.maxPrice, x: maLineX, yLength: yLength) { ma10LineDataSet.points.append($0) }
             calculateMA(node.MA20, maxPrice: result.maxPrice, x: maLineX, yLength: yLength) { ma20LineDataSet.points.append($0) }
-//            if isTouching {
-//                calculateTouchingXAxis(centerX: touchingTargetPoint.x, text: node.time)
-//            }
-//            else {
             calculateXAxis(centerX: maLineX, index: i)
-//            }
             
             switch indicatorType {
             case .businessAmount:
@@ -407,12 +402,6 @@ class VDKLineChartRenderer: VDChartRenderer {
             let point = AxisPoint(centerX: centerX, text: text)
             xAxisDataSet.points.append(point)
         }
-    }
-    
-    private func calculateTouchingXAxis(centerX: CGFloat, text: String) {
-//        xAxisDataSet.points.removeAll()
-//        let point = AxisPoint(centerX: centerX, text: text)
-//        xAxisDataSet.points.append(point)
     }
     
     private func calculateBusinessAmount(result: KlineCalculateResult, node: KlineNode, x: CGFloat, yLength: CGFloat, width: CGFloat) {
