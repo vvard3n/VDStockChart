@@ -29,7 +29,7 @@ public class VDStockCharBasicView: UIView {
         initSubviews()
     }
     
-    init(frame: CGRect, dataSource: VDStockCharBasicViewDataSource, delegate: VDStockCharBasicViewDelegate) {
+    public init(frame: CGRect, dataSource: VDStockCharBasicViewDataSource, delegate: VDStockCharBasicViewDelegate) {
         super.init(frame: frame)
         self.delegate = delegate
         self.dataSource = dataSource
