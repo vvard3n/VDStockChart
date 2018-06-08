@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		764413A220C695AB00BEA5C7 /* VDChartPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764413A120C695AB00BEA5C7 /* VDChartPriceView.swift */; };
+		768B3AB920CA6D11003A115B /* VDStockCharBasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768B3AB820CA6D11003A115B /* VDStockCharBasicView.swift */; };
 		76A2F41920BBF5D400CB7FC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2F41820BBF5D400CB7FC6 /* AppDelegate.swift */; };
 		76A2F41B20BBF5D400CB7FC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2F41A20BBF5D400CB7FC6 /* ViewController.swift */; };
 		76A2F41E20BBF5D400CB7FC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A2F41C20BBF5D400CB7FC6 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		764413A120C695AB00BEA5C7 /* VDChartPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDChartPriceView.swift; sourceTree = "<group>"; };
+		768B3AB820CA6D11003A115B /* VDStockCharBasicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDStockCharBasicView.swift; sourceTree = "<group>"; };
 		76A2F41520BBF5D400CB7FC6 /* VDStockChartDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VDStockChartDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A2F41820BBF5D400CB7FC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A2F41A20BBF5D400CB7FC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,14 +137,15 @@
 				76A2F43D20BC172400CB7FC6 /* DataSet */,
 				76A2F43820BC158800CB7FC6 /* Layers */,
 				76A2F42D20BBFA8600CB7FC6 /* StockBackgroundView */,
+				76A2F46720BC2C1A00CB7FC6 /* Renderer */,
 				76A2F42B20BBF77C00CB7FC6 /* VDTabView.swift */,
 				76C6BC3220BE83CD0071CA39 /* StockDealInfoView.swift */,
 				76A2F43020BBFBB600CB7FC6 /* VDStockChartConstant.swift */,
 				76A2F43220BC144500CB7FC6 /* VDStockChartView.swift */,
-				76A2F46720BC2C1A00CB7FC6 /* Renderer */,
 				76A2F43620BC153000CB7FC6 /* VDChartContainer.swift */,
-				76A2F45320BC251C00CB7FC6 /* VDChartView.swift */,
 				764413A120C695AB00BEA5C7 /* VDChartPriceView.swift */,
+				76A2F45320BC251C00CB7FC6 /* VDChartView.swift */,
+				768B3AB820CA6D11003A115B /* VDStockCharBasicView.swift */,
 			);
 			path = VDStockChart;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				76A2F43C20BC16B500CB7FC6 /* LineChartLayer.swift in Sources */,
 				76A2F46020BC27F900CB7FC6 /* SwiftyJSON.swift in Sources */,
 				76A2F44820BC1BED00CB7FC6 /* VDStockDataHandle.swift in Sources */,
+				768B3AB920CA6D11003A115B /* VDStockCharBasicView.swift in Sources */,
 				76A2F44520BC1B7C00CB7FC6 /* CandleChartDataSet.swift in Sources */,
 				76A2F44A20BC1D4A00CB7FC6 /* AxisLayer.swift in Sources */,
 				76A2F44320BC1B0100CB7FC6 /* CandleChartLayer.swift in Sources */,

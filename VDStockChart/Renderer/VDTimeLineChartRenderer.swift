@@ -15,7 +15,7 @@ protocol VDTimeLineChartRendererDataSource: class {
     func yesterdayClosePrice(in renderer: VDTimeChartLineRenderer) -> Float
 }
 
-class VDTimeChartLineRenderer: VDChartRenderer {
+public class VDTimeChartLineRenderer: VDChartRenderer {
 
     private(set) var container: VDChartContainer
     /// 数据源

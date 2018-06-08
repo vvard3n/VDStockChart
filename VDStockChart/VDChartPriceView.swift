@@ -12,7 +12,7 @@ private let titleLblWidth: CGFloat = 25
 private let rowCount: Int = 2
 private let locCount: Int = 4
 
-class VDChartPriceView: UIView {
+public class VDChartPriceView: UIView {
     
     var titles: [String] = [] { //["开", "高", "幅", "成交", "收", "低", "额", "振幅"]
         didSet {
@@ -79,7 +79,7 @@ class VDChartPriceView: UIView {
         setupSubviews()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

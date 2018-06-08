@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var timeLineRenderer: VDChartRenderer!
     var chartView: VDChartView!
     var priceView: VDChartPriceView!
+    var stockView: VDStockCharBasicView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,9 @@ class ViewController: UIViewController {
         priceView.backgroundColor = UIColor.white
         priceView.isHidden = true
         view.addSubview(priceView)
+        
+        stockView = VDStockCharBasicView(frame: CGRect(x: 0, y: 400, width: UIScreen.main.bounds.size.width, height: 330), dataSource: self, delegate: self)
+        view.addSubview(stockView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -164,4 +168,8 @@ extension ViewController: VDTimeLineChartRendererDataSource {
     func yesterdayClosePrice(in renderer: VDTimeChartLineRenderer) -> Float {
         return 3190.32
     }
+}
+
+extension ViewController: VDStockCharBasicViewDataSource, VDStockCharBasicViewDelegate {
+    
 }

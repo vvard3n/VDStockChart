@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -90,9 +90,9 @@ Pod::Spec.new do |s|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
-  swift_version = 4.1
-  s.source_files  = "VDStockChart", "VDStockChart/**/*.{swift}"
+  s.source_files  = "VDStockChart", "VDStockChart/**/*.{h,m,swift}"
   s.exclude_files = "Classes/Exclude"
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.1' }
 
   # s.public_header_files = "Classes/**/*.h"
 

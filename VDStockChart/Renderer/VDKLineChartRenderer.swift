@@ -22,7 +22,7 @@ protocol VDKLineChartRendererDataSource: class {
     func klineChartRenderer(_ renderer: VDKLineChartRenderer, xAxisTextAt index: Int) -> String?
 }
 
-class VDKLineChartRenderer: VDChartRenderer {
+public class VDKLineChartRenderer: VDChartRenderer {
     
 
     private(set) var container: VDChartContainer

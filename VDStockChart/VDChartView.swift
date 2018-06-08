@@ -13,7 +13,7 @@ protocol VDChartViewDelegate {
     func chartViewDidCancelTouchTarget(_ chartView: VDChartView)
 }
 
-class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VDChartContainer {
+public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VDChartContainer {
     var delegate: VDChartViewDelegate? = nil
     var timer = Timer()
     
@@ -128,7 +128,7 @@ class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VD
     
     // MARK: - Override
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         guard let renderer = renderer else { return }
         renderer.layout()
@@ -143,7 +143,7 @@ class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VD
     
     // MARK: - UIGestureRecognizerDelegate
     
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    override public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
 //        return isAllowScale
         if gestureRecognizer is UILongPressGestureRecognizer {
             guard let renderer = renderer else { return false }
@@ -159,7 +159,7 @@ class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VD
     
     // MARK: - UIScrollViewDelegate
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.isDragging || scrollView.isDecelerating {
             delegate?.chartViewDidCancelTouchTarget(self)
             renderer?.clearTouchTarget()
@@ -175,7 +175,7 @@ class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VD
         initialize()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }

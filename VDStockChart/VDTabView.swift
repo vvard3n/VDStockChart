@@ -13,7 +13,7 @@ enum VDTopBarDistributionStyle {
     case outScreen
 }
 
-class VDTabView: UIView {
+public class VDTabView: UIView {
     
     public var titles = [String]() {
         didSet {
@@ -47,14 +47,14 @@ class VDTabView: UIView {
         setupSubviews()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
 }
 
 extension VDTabView {
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         scrollView.frame = bounds
         reload()

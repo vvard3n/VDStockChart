@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VDStockDataHandle {
+public class VDStockDataHandle {
     /// 统计节点信息
     static func calculate(_ nodes: [KlineNode]) -> KlineCalculateResult {
         var minPrice = Float.greatestFiniteMagnitude
@@ -246,7 +246,7 @@ struct TimeLineCalculateResult {
     let minBusinessAmount: Float
 }
 
-class KlineNode {
+public class KlineNode {
     /// 时间
     var time = ""
     /// 最高价格
@@ -295,7 +295,7 @@ class KlineNode {
     var isIncrease: Bool { return close >= open }
 }
 
-class TimeLineNode {
+public class TimeLineNode {
     /// 时间
     var time = ""
     /// 分时均价
