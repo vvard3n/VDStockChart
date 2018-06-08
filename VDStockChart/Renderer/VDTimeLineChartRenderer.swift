@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol VDTimeLineChartRendererDataSource: class {
+public protocol VDTimeLineChartRendererDataSource: class {
     func numberOfNodes(in renderer: VDTimeChartLineRenderer) -> Int
     func timeLineChartRenderer(_ renderer: VDTimeChartLineRenderer, nodeAt index: Int) -> TimeLineNode
     func timeLineChartRenderer(_ renderer: VDTimeChartLineRenderer, xAxisTextAt index: Int) -> String?

@@ -8,9 +8,11 @@
 
 import UIKit
 
-protocol VDChartViewDelegate {
-    func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int)
-    func chartViewDidCancelTouchTarget(_ chartView: VDChartView)
+public protocol VDChartViewDelegate { }
+
+extension VDChartViewDelegate {
+    func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {}
+    func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {}
 }
 
 public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VDChartContainer {

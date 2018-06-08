@@ -16,7 +16,7 @@ enum VDKLineChartIndicatorType {
     case RSI
 }
 
-protocol VDKLineChartRendererDataSource: class {
+public protocol VDKLineChartRendererDataSource: class {
     func numberOfNodes(in renderer: VDKLineChartRenderer) -> Int
     func klineChartRenderer(_ renderer: VDKLineChartRenderer, nodeAt index: Int) -> KlineNode
     func klineChartRenderer(_ renderer: VDKLineChartRenderer, xAxisTextAt index: Int) -> String?

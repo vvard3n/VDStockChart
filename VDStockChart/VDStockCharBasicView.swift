@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol VDStockCharBasicViewDelegate: VDChartViewDelegate {}
+public protocol VDStockCharBasicViewDelegate: VDChartViewDelegate {}
 
-protocol VDStockCharBasicViewDataSource: VDKLineChartRendererDataSource, VDTimeLineChartRendererDataSource {}
+public protocol VDStockCharBasicViewDataSource: VDKLineChartRendererDataSource, VDTimeLineChartRendererDataSource {}
 
 public class VDStockCharBasicView: UIView {
     var delegate: VDStockCharBasicViewDelegate? = nil
@@ -77,43 +77,43 @@ public class VDStockCharBasicView: UIView {
 }
 
 extension VDStockCharBasicView: VDChartViewDelegate {
-    func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {
+    public func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {
         delegate?.chartViewDidTouchTarget(chartView, touchPoint: touchPoint, nodeIndex: nodeIndex)
     }
     
-    func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {
+    public func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {
         delegate?.chartViewDidCancelTouchTarget(chartView)
     }
 }
 
 extension VDStockCharBasicView: VDKLineChartRendererDataSource {
-    func numberOfNodes(in renderer: VDKLineChartRenderer) -> Int {
+    public func numberOfNodes(in renderer: VDKLineChartRenderer) -> Int {
         return dataSource?.numberOfNodes(in: renderer) ?? 0
     }
     
-    func klineChartRenderer(_ renderer: VDKLineChartRenderer, nodeAt index: Int) -> KlineNode {
+    public func klineChartRenderer(_ renderer: VDKLineChartRenderer, nodeAt index: Int) -> KlineNode {
         return dataSource?.klineChartRenderer(renderer, nodeAt: index) ?? KlineNode()
     }
     
-    func klineChartRenderer(_ renderer: VDKLineChartRenderer, xAxisTextAt index: Int) -> String? {
+    public func klineChartRenderer(_ renderer: VDKLineChartRenderer, xAxisTextAt index: Int) -> String? {
         return dataSource?.klineChartRenderer(renderer, xAxisTextAt: index)
     }
 }
 
 extension VDStockCharBasicView: VDStockCharBasicViewDataSource {
-    func numberOfNodes(in renderer: VDTimeChartLineRenderer) -> Int {
+    public func numberOfNodes(in renderer: VDTimeChartLineRenderer) -> Int {
         return dataSource?.numberOfNodes(in: renderer) ?? 0
     }
     
-    func timeLineChartRenderer(_ renderer: VDTimeChartLineRenderer, nodeAt index: Int) -> TimeLineNode {
+    public func timeLineChartRenderer(_ renderer: VDTimeChartLineRenderer, nodeAt index: Int) -> TimeLineNode {
         return dataSource?.timeLineChartRenderer(renderer, nodeAt: index) ?? TimeLineNode()
     }
     
-    func timeLineChartRenderer(_ renderer: VDTimeChartLineRenderer, xAxisTextAt index: Int) -> String? {
+    public func timeLineChartRenderer(_ renderer: VDTimeChartLineRenderer, xAxisTextAt index: Int) -> String? {
         return dataSource?.timeLineChartRenderer(renderer, xAxisTextAt: index)
     }
     
-    func yesterdayClosePrice(in renderer: VDTimeChartLineRenderer) -> Float {
+    public func yesterdayClosePrice(in renderer: VDTimeChartLineRenderer) -> Float {
         return dataSource?.yesterdayClosePrice(in: renderer) ?? 0
     }
 }

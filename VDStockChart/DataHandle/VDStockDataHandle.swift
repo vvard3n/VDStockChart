@@ -10,7 +10,7 @@ import UIKit
 
 public class VDStockDataHandle {
     /// 统计节点信息
-    static func calculate(_ nodes: [KlineNode]) -> KlineCalculateResult {
+    public static func calculate(_ nodes: [KlineNode]) -> KlineCalculateResult {
         var minPrice = Float.greatestFiniteMagnitude
         var maxPrice = -Float.greatestFiniteMagnitude
         var maxHigh = -Float.greatestFiniteMagnitude
@@ -45,7 +45,7 @@ public class VDStockDataHandle {
         return KlineCalculateResult(minPrice: minPrice, maxPrice: maxPrice, minLow: minLow, maxHigh: maxHigh, maxBusinessAmount: maxBusinessAmount, minBusinessAmount: minBusinessAmount, minMACD: minMACD, maxMACD: maxMACD, minKDJ: minKDJ, maxKDJ: maxKDJ, minWR: minWR, maxWR: maxWR, minRSI: minRSI, maxRSI: maxRSI)
     }
     
-    static func calculate(_ nodes: [TimeLineNode]) -> TimeLineCalculateResult {
+    public static func calculate(_ nodes: [TimeLineNode]) -> TimeLineCalculateResult {
         var minPrice = Float.greatestFiniteMagnitude
         var maxPrice = -Float.greatestFiniteMagnitude
         var minBusinessAmount = Float.greatestFiniteMagnitude
@@ -60,7 +60,7 @@ public class VDStockDataHandle {
         return TimeLineCalculateResult(minPrice: minPrice, maxPrice: maxPrice, maxBusinessAmount: maxBusinessAmount, minBusinessAmount: minBusinessAmount)
     }
     
-    static func calculateIndicator(_ nodes: [KlineNode]) {
+    public static func calculateIndicator(_ nodes: [KlineNode]) {
         nodes.enumerated().forEach { index, node in
             node.MA5 = MA(5, currentIndex: index, in: nodes)
             node.MA10 = MA(10, currentIndex: index, in: nodes)
@@ -84,7 +84,7 @@ public class VDStockDataHandle {
         }
     }
     
-    static func calculateAvgTimeLine(_ nodes: [TimeLineNode]) {
+    public static func calculateAvgTimeLine(_ nodes: [TimeLineNode]) {
         var priceSum: Float = 0
         var volumeSum: Float = 0
         nodes.enumerated().forEach { index, node in
@@ -209,7 +209,7 @@ public class VDStockDataHandle {
     }
 }
 
-struct KlineCalculateResult {
+public struct KlineCalculateResult {
     /// 节点中最低价格
     let minPrice: Float
     /// 节点中最高价格
@@ -236,7 +236,7 @@ struct KlineCalculateResult {
     let maxRSI: Double
 }
 
-struct TimeLineCalculateResult {
+public struct TimeLineCalculateResult {
     /// 节点中最低价格
     let minPrice: Float
     /// 节点中最高价格
@@ -248,60 +248,64 @@ struct TimeLineCalculateResult {
 
 public class KlineNode {
     /// 时间
-    var time = ""
+    public var time = ""
     /// 最高价格
-    var high: Float = 0
+    public var high: Float = 0
     /// 最低价格
-    var low: Float = 0
+    public var low: Float = 0
     /// 开盘价
-    var open: Float = 0
+    public var open: Float = 0
     /// 收盘价
-    var close: Float = 0
+    public var close: Float = 0
     /// 成交量
-    var businessAmount: Float = 0
+    public var businessAmount: Float = 0
     /// 振幅
-    var amplitude: Float = -Float.greatestFiniteMagnitude
+    public var amplitude: Float = -Float.greatestFiniteMagnitude
     /// 换手率
-    var turnoverRate: Float = -Float.greatestFiniteMagnitude
+    public var turnoverRate: Float = -Float.greatestFiniteMagnitude
     
     /// 五日均价
-    var MA5: Float = 0
+    public var MA5: Float = 0
     /// 十日均价
-    var MA10: Float = 0
+    public var MA10: Float = 0
     /// 二十日均价
-    var MA20: Float = 0
+    public var MA20: Float = 0
     
     /// EMA12
-    var EMA1: Double = 0
+    public var EMA1: Double = 0
     /// EMA26
-    var EMA2: Double = 0
-    var DIFF: Double = 0
-    var DEA: Double = 0
-    var MACD: Double = 0
+    public var EMA2: Double = 0
+    public var DIFF: Double = 0
+    public var DEA: Double = 0
+    public var MACD: Double = 0
     
     /// KDJ
-    var K: Double = 0
-    var D: Double = 0
-    var J: Double = 0
+    public var K: Double = 0
+    public var D: Double = 0
+    public var J: Double = 0
     
     /// WR
-    var WR: Double = 0
+    public var WR: Double = 0
     
     /// RSI指标
-    var RSI6: Double = 0
-    var RSI12: Double = 0
-    var RSI24: Double = 0
+    public var RSI6: Double = 0
+    public var RSI12: Double = 0
+    public var RSI24: Double = 0
     
-    var isIncrease: Bool { return close >= open }
+    public var isIncrease: Bool { return close >= open }
+    
+    public init() { }
 }
 
 public class TimeLineNode {
     /// 时间
-    var time = ""
+    public var time = ""
     /// 分时均价
-    var avgPrice: Float = 0
+    public var avgPrice: Float = 0
     /// 价格
-    var price: Float = 0
+    public var price: Float = 0
     /// 成交量
-    var businessAmount: Float = 0
+    public var businessAmount: Float = 0
+    
+    public init() { }
 }
