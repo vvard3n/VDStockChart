@@ -16,159 +16,7 @@ protocol VDTimeLineChartRendererDataSource: class {
 }
 
 class VDTimeChartLineRenderer: VDChartRenderer {
-    
-    func clearTouchTarget() {
-        isTouching = false
-        touchingTargetPoint = CGPoint()
-        targetLayer.path = nil
-        targetLayer.sublayers?.removeAll()
-    }
-    
-    func renderingTouchTarget(point: CGPoint) {
-        var point = CGPoint(x: point.x - borderLayer.frame.minX, y: point.y - borderLayer.frame.minY)
-//        print(point)
-        isTouching = true
-        touchingTargetPoint = point
-        reRendering()
-        
-//        if point.x < 0 || point.x > borderLayer.bounds.width { return }
-//        if point.y < 0 || point.y > borderLayer.bounds.height { return }
-        if point.x < 0 {
-            point.x = 0
-        }
-        if point.x > borderLayer.bounds.width {
-            point.x = borderLayer.bounds.width
-        }
-        if point.y < 0 {
-            point.y = 0
-        }
-        if point.y > borderLayer.bounds.height {
-            point.y = borderLayer.bounds.height
-        }
-        let path = UIBezierPath()
-        path.lineWidth = 1
-        
-        path.move(to: CGPoint(x: 0, y: point.y))
-        path.addLine(to: CGPoint(x: borderLayer.bounds.width, y: point.y))
-        
-        var node : TimeLineNode? = nil
-        var targetPointX: CGFloat = 0
-        for i in 0..<numberOfNodes {
-            let p = timeLineDataSet.points[i]
-            guard i + 1 < timeLineDataSet.points.count else {
-                targetPointX = p.x
-                node = dataSource?.timeLineChartRenderer(self, nodeAt: i)
-                selectedNodeIndex = i
-                break
-            }
-            let pNext = timeLineDataSet.points[i + 1]
-            if point.x >= p.x && point.x < pNext.x && pNext.x != 0 {
-                targetPointX = p.x
-                node = dataSource?.timeLineChartRenderer(self, nodeAt: i)
-                selectedNodeIndex = i
-                break
-            }
-        }
-        
-        guard selectedNodeIndex != -1 else { return }
-        guard let selectedNode = node else { return }
-        
-        let x = targetPointX + widthOfNode * container.scale * 0.5
-        if x < 0 || x > borderLayer.bounds.width { return }
-        
-        targetLayer.sublayers?.removeAll()
-        
-        path.move(to: CGPoint(x: x, y: 0))
-        path.addLine(to: CGPoint(x: x, y: borderLayer.bounds.height))
-        
-        targetLayer.path = path.cgPath
-        
-        let dateBackgroundLayer = CALayer()
-        dateBackgroundLayer.backgroundColor = #colorLiteral(red: 0.8904301524, green: 0.88513726, blue: 0.8944990039, alpha: 1)
-        dateBackgroundLayer.frame = CGRect(x: 0, y: xAxisLayer.frame.maxY - 14 - borderLayer.frame.minY, width: xAxisLayer.bounds.width, height: 14)
-        targetLayer.addSublayer(dateBackgroundLayer)
 
-        let dateText = selectedNode.time
-        let dateTextLayer = CATextLayer()
-        dateTextLayer.contentsScale = UIScreen.main.scale
-        dateTextLayer.alignmentMode = kCAAlignmentCenter
-        dateTextLayer.fontSize = 10
-        let dateStr = "\(dateText[..<dateText.index(dateText.startIndex, offsetBy: 2)]):\(dateText[dateText.index(dateText.startIndex, offsetBy: 2)...])"
-        dateTextLayer.string = dateStr
-        dateTextLayer.foregroundColor = UIColor.black.cgColor
-        let textWidth = NSString(string: dateStr).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 14), options: .usesLineFragmentOrigin, attributes: [.font : UIFont.systemFont(ofSize: 10)], context: nil).size.width
-        var dateX = x - textWidth * 0.5
-        if dateX + textWidth > mainChartFrame.width {
-            dateX = dateBackgroundLayer.bounds.width - textWidth
-        }
-        if dateX < 0 {
-            dateX = 0
-        }
-        
-        dateTextLayer.frame = CGRect(x: dateX, y: 0, width: textWidth, height: 14)
-        dateBackgroundLayer.addSublayer(dateTextLayer)
-        
-        if point.y < 5 + timeLineChart.bounds.height + 5 {
-            let priceForPt = (maxPrice - minPrice) / Float(timeLineChart.bounds.height)
-            let price = maxPrice + priceForPt * 5 - priceForPt * Float(point.y)
-            let priceTextLayer = CATextLayer()
-            priceTextLayer.contentsScale = UIScreen.main.scale
-            priceTextLayer.alignmentMode = kCAAlignmentCenter
-            priceTextLayer.fontSize = 10
-            priceTextLayer.string = "\(price)"
-            priceTextLayer.foregroundColor = UIColor.black.cgColor
-            priceTextLayer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            priceTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: point.y - 7.5, width: 50, height: 15)
-            targetLayer.addSublayer(priceTextLayer)
-        }
-        if point.y > 5 + timeLineChart.bounds.height + 5 + 14 {
-            let businessAmountForPt = maxBusinessAmount / Float(barLineChart.bounds.height)
-            print(point.y - xAxisLayer.bounds.height)
-            let businessAmount = maxBusinessAmount + businessAmountForPt * 3 - businessAmountForPt * Float(point.y - xAxisLayer.bounds.height)
-            let businessAmountTextLayer = CATextLayer()
-            businessAmountTextLayer.contentsScale = UIScreen.main.scale
-            businessAmountTextLayer.alignmentMode = kCAAlignmentCenter
-            businessAmountTextLayer.fontSize = 10
-            var businessAmountText = ""
-            if maxBusinessAmount >= 10000 && maxBusinessAmount < 100000000  {
-                businessAmountText = String(format: "%.2f", businessAmount / 10000)
-            }
-            if maxBusinessAmount >= 100000000 && maxBusinessAmount < 1000000000000 {
-                businessAmountText = String(format: "%.2f", businessAmount / 100000000)
-            }
-            if maxBusinessAmount >= 1000000000000 {
-                businessAmountText = String(format: "%.2f", businessAmount / 1000000000000)
-            }
-            businessAmountTextLayer.string = businessAmountText
-            businessAmountTextLayer.foregroundColor = UIColor.black.cgColor
-            businessAmountTextLayer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            businessAmountTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: point.y - 7.5, width: 50, height: 15)
-            targetLayer.addSublayer(businessAmountTextLayer)
-        }
-        
-//        let maText = CATextLayer()
-//        maText.contentsScale = UIScreen.main.scale
-//        maText.alignmentMode = kCAAlignmentCenter
-//        maText.fontSize = 10
-//        maText.string = "MA5"
-//        maText.foregroundColor = #colorLiteral(red: 0.7233663201, green: 0.7233663201, blue: 0.7233663201, alpha: 1)
-//        let maTextWidth = (maText.string as! NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 14), options: .usesLineFragmentOrigin, attributes: [.font : UIFont.systemFont(ofSize: 10)], context: nil).size.width
-//        maText.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - maTextWidth : 0, y: 0, width: maTextWidth, height: 15)
-//        targetLayer.addSublayer(maText)
-//
-//        let businessAmountText = VDStockDataHandle.converNumberToString(number: selectedNode.businessAmount)
-//        let businessAmountTextLayer = CATextLayer()
-//        businessAmountTextLayer.contentsScale = UIScreen.main.scale
-//        businessAmountTextLayer.alignmentMode = kCAAlignmentCenter
-//        businessAmountTextLayer.fontSize = 10
-//        businessAmountTextLayer.string = "\(businessAmountText)手"
-//        businessAmountTextLayer.foregroundColor = #colorLiteral(red: 0.7233663201, green: 0.7233663201, blue: 0.7233663201, alpha: 1)
-//        let businessTextWidth = (businessAmountTextLayer.string as! NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 14), options: .usesLineFragmentOrigin, attributes: [.font : UIFont.systemFont(ofSize: 10)], context: nil).size.width
-//        businessAmountTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - businessTextWidth : 0, y: xAxisLayer.bounds.maxY, width: businessTextWidth, height: 15)
-//        targetLayer.addSublayer(businessAmountTextLayer)
-    }
-    
-    
     private(set) var container: VDChartContainer
     /// 数据源
     weak var dataSource: VDTimeLineChartRendererDataSource?
@@ -343,6 +191,139 @@ class VDTimeChartLineRenderer: VDChartRenderer {
     func reRendering() {
         prepareRendering()
         rendering()
+    }
+    
+    
+    func clearTouchTarget() {
+        isTouching = false
+        touchingTargetPoint = CGPoint()
+        targetLayer.path = nil
+        targetLayer.sublayers?.removeAll()
+    }
+    
+    func renderingTouchTarget(point: CGPoint) {
+        var point = CGPoint(x: point.x - borderLayer.frame.minX, y: point.y - borderLayer.frame.minY)
+        //        print(point)
+        isTouching = true
+        touchingTargetPoint = point
+        reRendering()
+        
+        if point.x < 0 {
+            point.x = 0
+        }
+        if point.x > borderLayer.bounds.width {
+            point.x = borderLayer.bounds.width
+        }
+        if point.y < 0 {
+            point.y = 0
+        }
+        if point.y > borderLayer.bounds.height {
+            point.y = borderLayer.bounds.height
+        }
+        let path = UIBezierPath()
+        path.lineWidth = 1
+        
+        path.move(to: CGPoint(x: 0, y: point.y))
+        path.addLine(to: CGPoint(x: borderLayer.bounds.width, y: point.y))
+        
+        var node : TimeLineNode? = nil
+        var targetPointX: CGFloat = 0
+        for i in 0..<numberOfNodes {
+            let p = timeLineDataSet.points[i]
+            guard i + 1 < timeLineDataSet.points.count else {
+                targetPointX = p.x
+                node = dataSource?.timeLineChartRenderer(self, nodeAt: i)
+                selectedNodeIndex = i
+                break
+            }
+            let pNext = timeLineDataSet.points[i + 1]
+            if point.x >= p.x && point.x < pNext.x && pNext.x != 0 {
+                targetPointX = p.x
+                node = dataSource?.timeLineChartRenderer(self, nodeAt: i)
+                selectedNodeIndex = i
+                break
+            }
+        }
+        
+        guard selectedNodeIndex != -1 else { return }
+        guard let selectedNode = node else { return }
+        
+        let x = targetPointX + widthOfNode * container.scale * 0.5
+        if x < 0 || x > borderLayer.bounds.width { return }
+        
+        targetLayer.sublayers?.removeAll()
+        
+        path.move(to: CGPoint(x: x, y: 0))
+        path.addLine(to: CGPoint(x: x, y: borderLayer.bounds.height))
+        
+        targetLayer.path = path.cgPath
+        
+        let dateBackgroundLayer = CALayer()
+        dateBackgroundLayer.backgroundColor = #colorLiteral(red: 0.8904301524, green: 0.88513726, blue: 0.8944990039, alpha: 1)
+        dateBackgroundLayer.frame = CGRect(x: 0, y: xAxisLayer.frame.maxY - 14 - borderLayer.frame.minY, width: xAxisLayer.bounds.width, height: 14)
+        targetLayer.addSublayer(dateBackgroundLayer)
+        
+        let dateText = selectedNode.time
+        let dateTextLayer = CATextLayer()
+        dateTextLayer.contentsScale = UIScreen.main.scale
+        dateTextLayer.alignmentMode = kCAAlignmentCenter
+        dateTextLayer.fontSize = 10
+        let dateStr = "\(dateText[..<dateText.index(dateText.startIndex, offsetBy: 2)]):\(dateText[dateText.index(dateText.startIndex, offsetBy: 2)...])"
+        dateTextLayer.string = dateStr
+        dateTextLayer.foregroundColor = UIColor.black.cgColor
+        let textWidth = NSString(string: dateStr).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 14), options: .usesLineFragmentOrigin, attributes: [.font : UIFont.systemFont(ofSize: 10)], context: nil).size.width
+        var dateX = x - textWidth * 0.5
+        if dateX + textWidth > mainChartFrame.width {
+            dateX = dateBackgroundLayer.bounds.width - textWidth
+        }
+        if dateX < 0 {
+            dateX = 0
+        }
+        
+        dateTextLayer.frame = CGRect(x: dateX, y: 0, width: textWidth, height: 14)
+        dateBackgroundLayer.addSublayer(dateTextLayer)
+        
+        if point.y < 5 + timeLineChart.bounds.height + 5 {
+            let priceForPt = (maxPrice - minPrice) / Float(timeLineChart.bounds.height)
+            let price = maxPrice + priceForPt * 5 - priceForPt * Float(point.y)
+            let priceTextLayer = CATextLayer()
+            priceTextLayer.contentsScale = UIScreen.main.scale
+            priceTextLayer.alignmentMode = kCAAlignmentCenter
+            priceTextLayer.fontSize = 10
+            priceTextLayer.string = "\(price)"
+            priceTextLayer.foregroundColor = UIColor.black.cgColor
+            priceTextLayer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            var y = point.y - 7.5
+            if y < 0 { y = 0 }
+            priceTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: y, width: 50, height: 15)
+            targetLayer.addSublayer(priceTextLayer)
+        }
+        if point.y > 5 + timeLineChart.bounds.height + 5 + 14 {
+            let businessAmountForPt = maxBusinessAmount / Float(barLineChart.bounds.height)
+//            print(point.y - xAxisLayer.bounds.height)
+            let businessAmount = maxBusinessAmount + businessAmountForPt * 3 - businessAmountForPt * Float(point.y - xAxisLayer.bounds.height)
+            let businessAmountTextLayer = CATextLayer()
+            businessAmountTextLayer.contentsScale = UIScreen.main.scale
+            businessAmountTextLayer.alignmentMode = kCAAlignmentCenter
+            businessAmountTextLayer.fontSize = 10
+            var businessAmountText = ""
+            if maxBusinessAmount >= 10000 && maxBusinessAmount < 100000000  {
+                businessAmountText = String(format: "%.2f", businessAmount / 10000)
+            }
+            if maxBusinessAmount >= 100000000 && maxBusinessAmount < 1000000000000 {
+                businessAmountText = String(format: "%.2f", businessAmount / 100000000)
+            }
+            if maxBusinessAmount >= 1000000000000 {
+                businessAmountText = String(format: "%.2f", businessAmount / 1000000000000)
+            }
+            businessAmountTextLayer.string = businessAmountText
+            businessAmountTextLayer.foregroundColor = UIColor.black.cgColor
+            businessAmountTextLayer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            var y = point.y - 7.5
+            if y + 15 > targetLayer.bounds.height { y = targetLayer.bounds.height - 15 }
+            businessAmountTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: y, width: 50, height: 15)
+            targetLayer.addSublayer(businessAmountTextLayer)
+        }
     }
     
     func reload() {

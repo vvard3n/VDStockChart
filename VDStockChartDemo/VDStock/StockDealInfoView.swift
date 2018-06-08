@@ -23,15 +23,15 @@ class StockDealInfoView: UIView {
         
         for i in 0..<10 {
             let labelLeft = UILabel()
-            labelLeft.layer.borderWidth = 0.5
-            labelLeft.layer.borderColor = UIColor.green.cgColor
+//            labelLeft.layer.borderWidth = 0.5
+//            labelLeft.layer.borderColor = UIColor.green.cgColor
             labelLeft.attributedText = leftText
             labelLeft.textAlignment = .left
             addSubview(labelLeft)
             
             let labelCenter = UILabel()
-            labelCenter.layer.borderWidth = 0.5
-            labelCenter.layer.borderColor = UIColor.green.cgColor
+//            labelCenter.layer.borderWidth = 0.5
+//            labelCenter.layer.borderColor = UIColor.green.cgColor
             labelCenter.attributedText = centerText
             labelCenter.textAlignment = .center
             labelCenter.tag = i
@@ -39,8 +39,8 @@ class StockDealInfoView: UIView {
             addSubview(labelCenter)
             
             let labelRight = UILabel()
-            labelRight.layer.borderWidth = 0.5
-            labelRight.layer.borderColor = UIColor.green.cgColor
+//            labelRight.layer.borderWidth = 0.5
+//            labelRight.layer.borderColor = UIColor.green.cgColor
             labelRight.attributedText = rightText
             labelRight.textAlignment = .right
             addSubview(labelRight)

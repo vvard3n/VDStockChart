@@ -328,6 +328,8 @@ class VDKLineChartRenderer: VDChartRenderer {
             priceTextLayer.string = "\(price)"
             priceTextLayer.foregroundColor = UIColor.black.cgColor
             priceTextLayer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            var y = point.y - 7.5
+            if y < 0 { y = 0 }
             priceTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: point.y - 7.5, width: 50, height: 15)
             targetLayer.addSublayer(priceTextLayer)
         }
@@ -351,6 +353,8 @@ class VDKLineChartRenderer: VDChartRenderer {
             businessAmountTextLayer.string = businessAmountText
             businessAmountTextLayer.foregroundColor = UIColor.black.cgColor
             businessAmountTextLayer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            var y = point.y - 7.5
+            if y + 15 > targetLayer.bounds.height { y = targetLayer.bounds.height - 15 }
             businessAmountTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: point.y - 7.5, width: 50, height: 15)
             targetLayer.addSublayer(businessAmountTextLayer)
         }
