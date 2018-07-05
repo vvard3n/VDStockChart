@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol VDChartViewDelegate { }
+public protocol VDChartViewDelegate: NSObjectProtocol { }
 
 extension VDChartViewDelegate {
     func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {}
@@ -16,7 +16,7 @@ extension VDChartViewDelegate {
 }
 
 public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VDChartContainer {
-    var delegate: VDChartViewDelegate? = nil
+    weak var delegate: VDChartViewDelegate? = nil
     var timer = Timer()
     
     /// 图表渲染器

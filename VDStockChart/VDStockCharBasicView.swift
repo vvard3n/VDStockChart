@@ -13,7 +13,7 @@ public protocol VDStockCharBasicViewDelegate: VDChartViewDelegate {}
 public protocol VDStockCharBasicViewDataSource: VDKLineChartRendererDataSource, VDTimeLineChartRendererDataSource {}
 
 public class VDStockCharBasicView: UIView {
-    var delegate: VDStockCharBasicViewDelegate? = nil
+    weak var delegate: VDStockCharBasicViewDelegate? = nil
     var dataSource: VDStockCharBasicViewDataSource? = nil
     
     var kLineNodes = [KlineNode]()
