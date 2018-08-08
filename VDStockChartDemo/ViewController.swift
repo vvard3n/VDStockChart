@@ -88,14 +88,32 @@ class ViewController: UIViewController {
     func loadTimeLineData(filename: String) {
         let jsonData = try! Data(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: filename, ofType: nil)!))
         let json = try! JSON(data: jsonData)
-        timeLineNodes = json["data"]["line"].map({ key, json -> TimeLineNode in
+//        var beforeNode =
+        var nodes: [TimeLineNode] = []
+        for i in 0..<json["data"]["line"].count {
+            let json = json["data"]["line"][i]
             let value = json.stringValue.split(separator: " ")
             let node = TimeLineNode()
             node.time = String(value[0])
             node.price = Float(value[1]) ?? 0
             node.businessAmount = Float(value[2]) ?? 0
-            return node
-        })
+            if i == 0 {
+                node.closePrice = 1000
+            }
+            else {
+                node.beforeNode = nodes[i - 1]
+            }
+            nodes.append(node)
+        }
+        timeLineNodes = nodes
+//        timeLineNodes = json["data"]["line"].map({ key, json -> TimeLineNode in
+//            let value = json.stringValue.split(separator: " ")
+//            let node = TimeLineNode()
+//            node.time = String(value[0])
+//            node.price = Float(value[1]) ?? 0
+//            node.businessAmount = Float(value[2]) ?? 0
+//            return node
+//        })
         
         VDStockDataHandle.calculateAvgTimeLine(timeLineNodes)
     }

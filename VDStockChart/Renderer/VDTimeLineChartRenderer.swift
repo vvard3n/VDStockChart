@@ -47,7 +47,9 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
     /// DataSet
     private var timeLineDataSet = LineChartDataSet()
     private var avgTimeLineDataSet = LineChartDataSet()
-    private var timeLineBusinessAmountDataSet = BarLineChartDataSet()
+//    private var timeLineBusinessAmountDataSet = BarLineChartDataSet()
+    private var increaseBusinessAmountDataSet = BarLineChartDataSet()
+    private var decreaseBusinessAmountDataSet = BarLineChartDataSet()
     private var xAxisDataSet = AxisDataSet()
     private var maxPrice: Float = 0
     private var minPrice: Float = 0
@@ -87,7 +89,10 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         
         xAxisTextBackLayer.backgroundColor = #colorLiteral(red: 0.8904301524, green: 0.88513726, blue: 0.8944990039, alpha: 1)
         
-        timeLineBusinessAmountDataSet.fillcolor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+//        timeLineBusinessAmountDataSet.fillcolor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        
+        increaseBusinessAmountDataSet.fillcolor = increaseBusinessAmountDataSet.increaseColor
+        decreaseBusinessAmountDataSet.fillcolor = decreaseBusinessAmountDataSet.decreaseColor
         timeLineDataSet.lineColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         avgTimeLineDataSet.lineColor = #colorLiteral(red: 0.9221601486, green: 0.5313889384, blue: 0.1086233929, alpha: 1)
     }
@@ -123,7 +128,9 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         timeLineDataSet.points = []
         avgTimeLineDataSet.points = []
         xAxisDataSet.points = []
-        timeLineBusinessAmountDataSet.frames = []
+//        timeLineBusinessAmountDataSet.frames = []
+        increaseBusinessAmountDataSet.frames = []
+        decreaseBusinessAmountDataSet.frames = []
         
         let nodes = (0..<numberOfNodes).map { dataSource.timeLineChartRenderer(self, nodeAt: $0) }
         let result = VDStockDataHandle.calculate(nodes)
@@ -184,7 +191,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         renderingBorder()
         timeLineChart.draw([timeLineDataSet, avgTimeLineDataSet])
         xAxisLayer.draw(xAxisDataSet)
-        barLineChart.draw([timeLineBusinessAmountDataSet])
+        barLineChart.draw([increaseBusinessAmountDataSet, decreaseBusinessAmountDataSet])
 //        bottomLineChart.draw([DEADataSet, DIFFDataSet, KLineDataSet, DLineDataSet, JLineDataSet, WRDataSet, RSI6DataSet, RSI12DataSet, RSI24DataSet])
     }
     
@@ -347,9 +354,17 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
     }
     
     private func calculateBusinessAmount(result: TimeLineCalculateResult, node: TimeLineNode, x: CGFloat, yLength: CGFloat, width: CGFloat) {
+//        let y = CGFloat(result.maxBusinessAmount - node.businessAmount) * yLength
+//        let frame = CGRect(x: x, y: y, width: width, height: barLineChart.bounds.height - y)
+//        timeLineBusinessAmountDataSet.frames.append(frame)
+        
         let y = CGFloat(result.maxBusinessAmount - node.businessAmount) * yLength
-        let frame = CGRect(x: x, y: y, width: width, height: barLineChart.bounds.height - y)
-        timeLineBusinessAmountDataSet.frames.append(frame)
+        let frame = CGRect(x: x, y: CGFloat(y), width: width, height: barLineChart.bounds.height - CGFloat(y))
+        if node.isIncrease {
+            increaseBusinessAmountDataSet.frames.append(frame)
+        } else {
+            decreaseBusinessAmountDataSet.frames.append(frame)
+        }
     }
     
     private func calculateAvgTimeLine(_ avgPrice: Float, maxPrice: Float, x: CGFloat, yLength: CGFloat, completion: (CGPoint) -> Void) {

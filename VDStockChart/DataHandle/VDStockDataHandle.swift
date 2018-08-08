@@ -298,6 +298,10 @@ public class KlineNode {
 }
 
 public class TimeLineNode {
+    /// 昨收
+    public var closePrice: Float = 0
+    /// 前一个节点的价格（如果是第一个节点，使用昨收价）
+    public var beforeNode: TimeLineNode?
     /// 时间
     public var time = ""
     /// 分时均价
@@ -306,6 +310,24 @@ public class TimeLineNode {
     public var price: Float = 0
     /// 成交量
     public var businessAmount: Float = 0
+    
+    /// 涨 跌
+    public var isIncrease: Bool {
+        if let beforeNode = beforeNode {
+            if price > beforeNode.price {
+                return true
+            }
+            else if price == beforeNode.price {
+                return beforeNode.isIncrease
+            }
+            else {
+                return false
+            }
+        }
+        else {
+            return price >= closePrice
+        }
+    }
     
     public init() { }
 }
