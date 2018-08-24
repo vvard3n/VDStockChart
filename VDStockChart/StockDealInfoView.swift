@@ -12,14 +12,12 @@ class StockDealInfoView: UIView {
 
     var labels = [UILabel]()
     
-    let tabView = VDTabView()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let leftText = NSMutableAttributedString(string: "买1", attributes: [.foregroundColor:UIColor.black, .font:UIFont.systemFont(ofSize: 10)])
-        let centerText = NSAttributedString(string: "8.88", attributes: [.foregroundColor:UIColor.green, .font:UIFont.systemFont(ofSize: 10)])
-        let rightText = NSAttributedString(string: "8888", attributes: [.foregroundColor:UIColor.black, .font:UIFont.systemFont(ofSize: 10)])
+        let leftText = NSMutableAttributedString(string: "买1", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
+        let centerText = NSAttributedString(string: "8.88", attributes: [.foregroundColor:#colorLiteral(red: 0.05490196078, green: 0.6823529412, blue: 0.3058823529, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
+        let rightText = NSAttributedString(string: "8888", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
         
         for i in 0..<10 {
             let labelLeft = UILabel()
@@ -45,13 +43,6 @@ class StockDealInfoView: UIView {
             labelRight.textAlignment = .right
             addSubview(labelRight)
         }
-        
-        //Tab
-        tabView.isScrollEnabled = false
-        tabView.didTapTabLabel = {
-            print($0)
-        }
-        addSubview(tabView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,13 +52,10 @@ class StockDealInfoView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let itemHeight = (frame.height - 30) / 10
+        let itemHeight = frame.height / 10
         subviews.enumerated().forEach { (index, label) in
             guard let label : UILabel = label as? UILabel else { return }
-            label.frame = CGRect(x: 0, y: CGFloat(index / 3) * itemHeight, width: frame.width, height: itemHeight)
+            label.frame = CGRect(x: 5, y: CGFloat(index / 3) * itemHeight, width: frame.width - 5 * 2, height: itemHeight)
         }
-        
-        tabView.frame = CGRect(x: 0, y: frame.height - 30, width: frame.width, height: 30)
-        tabView.titles = ["五档", "明细", "大单"]
     }
 }

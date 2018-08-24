@@ -12,7 +12,7 @@ class AxisDataSet {
     /// 网格线宽度
     var lineWidth: CGFloat = CGFloatFromPixel(pixel: 1)
     /// 网格线颜色
-    var lineColor: UIColor = #colorLiteral(red: 0.8904301524, green: 0.88513726, blue: 0.8944990039, alpha: 1)
+    var lineColor: UIColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
     /// 文本与网格线间距
     var textGap: CGFloat = 1
     /// 文本大小
@@ -20,7 +20,7 @@ class AxisDataSet {
     /// 文本字体大小
     var fontSize: CGFloat = 10
     /// 文本颜色
-    var textColor: UIColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+    var textColor: UIColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
     
     var points: [AxisPoint] = []
 }

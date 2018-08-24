@@ -71,9 +71,9 @@ extension VDTabView {
         indicatorView.backgroundColor = UIColor.red
         scrollView.addSubview(indicatorView)
         
-//        let line = UIView(frame: CGRect(x: 0, y: bounds.size.height - CGFloatFromPixel(1), width: bounds.size.width, height: CGFloatFromPixel(1)))
-//        line.backgroundColor = ThemeColor.LIGHT_LINE_COLOR_EEEEEE
-//        addSubview(line)
+        let line = UIView(frame: CGRect(x: 0, y: bounds.size.height - CGFloatFromPixel(pixel: 1), width: bounds.size.width, height: CGFloatFromPixel(pixel: 1)))
+        line.backgroundColor = ThemeColor.LIGHT_LINE_COLOR_EEEEEE
+        addSubview(line)
     }
     
     private func createTabs() {
