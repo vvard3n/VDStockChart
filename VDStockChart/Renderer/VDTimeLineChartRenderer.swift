@@ -45,6 +45,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
     private var bottomPriceRoteLabel = UILabel()
     private var centerPriceLabel = UILabel()
     private var centerPriceRoteLabel = UILabel()
+    private var topTurnoverLabel = UILabel()
     private var xAxisLayer = AxisLayer()
     private var xAxisTextBackLayer = CALayer()
     private var xAxisCenterTextBackLayer = CALayer()
@@ -116,6 +117,9 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         bottomPriceRoteLabel.textColor = #colorLiteral(red: 0.05490196078, green: 0.6823529412, blue: 0.3058823529, alpha: 1)
         bottomPriceRoteLabel.textAlignment = .right
         
+        topTurnoverLabel.font = UIFont.systemFont(ofSize: 10)
+        topTurnoverLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        
         targetLayer.fillColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
         targetLayer.strokeColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
         
@@ -137,7 +141,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
     }
     
     var views: [UIView] {
-        return [rightView, topInfoLabel, topPriceLabel, bottomPriceLabel, topPriceRoteLabel, bottomPriceRoteLabel, centerPriceLabel, centerPriceRoteLabel, turnoverLbl]
+        return [rightView, topInfoLabel, topPriceLabel, bottomPriceLabel, topPriceRoteLabel, bottomPriceRoteLabel, centerPriceLabel, centerPriceRoteLabel, turnoverLbl, topTurnoverLabel]
     }
     
     func layout() {
@@ -171,6 +175,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         xAxisCenterTextBackLayer.frame = CGRect(x: 0, y: timeLineChart.frame.maxY, width: mainChartFrame.width + 5, height: 14 + 3 * 2)
         barLineChart.frame = CGRect(x: borderLayer.frame.minX, y: mainChartFrame.maxY + 14 + 3 * 2, width: mainChartFrame.width, height: borderLayer.bounds.height - timeLineChart.bounds.height - 14 - 3 * 2)
 //        barLineChart.backgroundColor = UIColor.red.cgColor
+        topTurnoverLabel.frame = CGRect(x: borderLayer.frame.minX + 2, y: barLineChart.frame.minY, width: 100, height: 14)
         bottomLineChart.frame = barLineChart.frame
     }
     
@@ -225,7 +230,15 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         topPriceRoteLabel.text = String(format: "%.2f%%", (topPrice - yesterdayClosePrice) / yesterdayClosePrice * 100)
         centerPriceRoteLabel.text = "0.00%"
         bottomPriceRoteLabel.text = String(format: "%.2f%%", (bottomPrice - yesterdayClosePrice) / yesterdayClosePrice * 100)
-        
+        if result.maxBusinessAmount >= 10000 && result.maxBusinessAmount < 100000000  {
+            topTurnoverLabel.text = String(format: "%.2f万", result.maxBusinessAmount / 10000)
+        }
+        if result.maxBusinessAmount >= 100000000 && result.maxBusinessAmount < 1000000000000 {
+            topTurnoverLabel.text = String(format: "%.2f亿", result.maxBusinessAmount / 100000000)
+        }
+        if result.maxBusinessAmount >= 1000000000000 {
+            topTurnoverLabel.text = String(format: "%.2f万亿", result.maxBusinessAmount / 1000000000000)
+        }
         
         let yLength = timeLineChart.bounds.height / CGFloat(topPrice - bottomPrice)
         let businessAmountYLength = barLineChart.bounds.height / CGFloat(result.maxBusinessAmount)
