@@ -28,8 +28,8 @@ public class VDStockDataHandle {
         nodes.forEach {
             minLow = Swift.min(minLow, $0.low)
             maxHigh = Swift.max(maxHigh, $0.high)
-            minPrice = min(minPrice, $0.low, $0.MA5, $0.MA10, $0.MA20)
-            maxPrice = max(maxPrice, $0.high, $0.MA5, $0.MA10, $0.MA20)
+            minPrice = min(minPrice, $0.low, $0.MA5, $0.MA10, $0.MA30)
+            maxPrice = max(maxPrice, $0.high, $0.MA5, $0.MA10, $0.MA30)
             minBusinessAmount = Swift.min(minBusinessAmount, $0.businessAmount)
             maxBusinessAmount = Swift.max(maxBusinessAmount, $0.businessAmount)
             minMACD = min(minMACD, $0.DIFF, $0.DEA, $0.MACD)
@@ -64,7 +64,7 @@ public class VDStockDataHandle {
         nodes.enumerated().forEach { index, node in
             node.MA5 = MA(5, currentIndex: index, in: nodes)
             node.MA10 = MA(10, currentIndex: index, in: nodes)
-            node.MA20 = MA(20, currentIndex: index, in: nodes)
+            node.MA30 = MA(30, currentIndex: index, in: nodes)
             
             if index > 0 {
                 let yesterdayEMA1 = nodes[index - 1].EMA1 == 0 ? Double(nodes[index - 1].close) : nodes[index - 1].EMA1
@@ -268,8 +268,8 @@ public class KlineNode {
     public var MA5: Float = 0
     /// 十日均价
     public var MA10: Float = 0
-    /// 二十日均价
-    public var MA20: Float = 0
+    /// 三十日均价
+    public var MA30: Float = 0
     
     /// EMA12
     public var EMA1: Double = 0

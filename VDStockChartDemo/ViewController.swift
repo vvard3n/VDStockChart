@@ -23,35 +23,35 @@ class ViewController: UIViewController {
         
         view.backgroundColor = UIColor.black
         
-        let tabView = VDTabView(frame: CGRect(x: 0, y: 50, width: UIScreen.main.bounds.size.width, height: 30))
-        tabView.titles = ["分时", "五日", "日K", "周K", "月K", "季K", "年K", "分钟"]
-        tabView.isScrollEnabled = false
-        tabView.didTapTabLabel = { index in
-            if index == 0 {
-                self.chartView.renderer = self.timeLineRenderer
-                self.priceView.titles = ["开", "高", "幅", "成交"]
-            }
-            else if index == 1 {
-                self.chartView.renderer = self.klineRenderer
-                self.priceView.titles = ["开", "高", "幅", "成交", "收", "低", "额", "振幅"]
-            }
-            else {
-                self.chartView.renderer = self.klineRenderer
-                self.priceView.titles = ["开", "高", "幅", "成交", "收", "低", "额", "振幅"]
-            }
-        }
-        view.addSubview(tabView)
+//        let tabView = VDTabView(frame: CGRect(x: 0, y: 50, width: UIScreen.main.bounds.size.width, height: 30))
+//        tabView.titles = ["分时", "日K", "周K", "月K"]
+//        tabView.isScrollEnabled = false
+//        tabView.didTapTabLabel = { index in
+//            if index == 0 {
+//                self.chartView.renderer = self.timeLineRenderer
+//                self.priceView.titles = ["开", "高", "幅", "成交"]
+//            }
+//            else if index == 1 {
+//                self.chartView.renderer = self.klineRenderer
+//                self.priceView.titles = ["开", "高", "幅", "成交", "收", "低", "额", "振幅"]
+//            }
+//            else {
+//                self.chartView.renderer = self.klineRenderer
+//                self.priceView.titles = ["开", "高", "幅", "成交", "收", "低", "额", "振幅"]
+//            }
+//        }
+//        view.addSubview(tabView)
         
         loadKLineData(filename: "day_kline.json")
         loadTimeLineData(filename: "timeline.json")
-        chartView = VDChartView(frame: CGRect(x: 0, y: 80, width: UIScreen.main.bounds.size.width, height: 300))
-        chartView.delegate = self
-        chartView.backgroundColor = UIColor.white
-        klineRenderer = VDKLineChartRenderer(container: chartView, dataSource: self)
-        timeLineRenderer = VDTimeChartLineRenderer(container: chartView, dataSource: self)
-//        chartView.renderer = klineRenderer
-        chartView.renderer = timeLineRenderer
-        view.addSubview(chartView)
+//        chartView = VDChartView(frame: CGRect(x: 0, y: 80, width: UIScreen.main.bounds.size.width, height: 300))
+//        chartView.delegate = self
+//        chartView.backgroundColor = UIColor.white
+//        klineRenderer = VDKLineChartRenderer(container: chartView, dataSource: self)
+//        timeLineRenderer = VDTimeChartLineRenderer(container: chartView, dataSource: self)
+////        chartView.renderer = klineRenderer
+//        chartView.renderer = timeLineRenderer
+//        view.addSubview(chartView)
         
         priceView = VDChartPriceView(frame: CGRect(x: 0, y: 50, width: UIScreen.main.bounds.size.width, height: 44))
         priceView.titles = ["开", "高", "幅", "成交"]
@@ -60,6 +60,7 @@ class ViewController: UIViewController {
         view.addSubview(priceView)
         
         stockView = VDStockCharBasicView(frame: CGRect(x: 0, y: 400, width: UIScreen.main.bounds.size.width, height: 330), dataSource: self, delegate: self)
+        stockView.delegate = self
         view.addSubview(stockView)
     }
 
@@ -121,22 +122,22 @@ class ViewController: UIViewController {
 
 extension ViewController: VDChartViewDelegate {
     func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {
-        priceView.isHidden = false
-        
-        if chartView.renderer is VDKLineChartRenderer {
-            let nodeData = kLineNodes[nodeIndex]
-            let strArr = [String(format: "%.2f", nodeData.open), String(format: "%.2f", nodeData.high), String(format: "%.2f", nodeData.open), String(format: "%@手", VDStockDataHandle.converNumberToString(number: nodeData.businessAmount)), String(format: "%.2f", nodeData.close), String(format: "%.2f", nodeData.low), String(format: "%.2f", nodeData.open), String(format: "%.2f%%", nodeData.open)]
-            priceView.nodeData = strArr
-        }
-        if chartView.renderer is VDTimeChartLineRenderer {
-            let nodeData = timeLineNodes[nodeIndex]
-            let strArr = [String(format: "%@", nodeData.time), String(format: "%.2f", nodeData.avgPrice), String(format: "%.2f", nodeData.price), String(format: "%.2f手", nodeData.businessAmount)]
-            priceView.nodeData = strArr
-        }
+//        priceView.isHidden = false
+//
+//        if chartView.renderer is VDKLineChartRenderer {
+//            let nodeData = kLineNodes[nodeIndex]
+//            let strArr = [String(format: "%.2f", nodeData.open), String(format: "%.2f", nodeData.high), String(format: "%.2f", nodeData.open), String(format: "%@手", VDStockDataHandle.converNumberToString(number: nodeData.businessAmount)), String(format: "%.2f", nodeData.close), String(format: "%.2f", nodeData.low), String(format: "%.2f", nodeData.open), String(format: "%.2f%%", nodeData.open)]
+//            priceView.nodeData = strArr
+//        }
+//        if chartView.renderer is VDTimeChartLineRenderer {
+//            let nodeData = timeLineNodes[nodeIndex]
+//            let strArr = [String(format: "%@", nodeData.time), String(format: "%.2f", nodeData.avgPrice), String(format: "%.2f", nodeData.price), String(format: "%.2f手", nodeData.businessAmount)]
+//            priceView.nodeData = strArr
+//        }
     }
     
     func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {
-        priceView.isHidden = true
+//        priceView.isHidden = true
     }
 }
 

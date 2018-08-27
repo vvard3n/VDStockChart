@@ -27,7 +27,7 @@ public class VDChartPriceView: UIView {
             guard let nodeData = nodeData else {
                 return
             }
-            for i in 0..<nodeData.count {
+            for i in 0..<lbls.count {
                 lbls[i].text = nodeData[i]
             }
         }

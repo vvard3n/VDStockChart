@@ -8,12 +8,16 @@
 
 import UIKit
 
-public protocol VDChartViewDelegate: NSObjectProtocol { }
-
-extension VDChartViewDelegate {
-    func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {}
-    func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {}
+public protocol VDChartViewDelegate: NSObjectProtocol {
+    
+    func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int)
+    func chartViewDidCancelTouchTarget(_ chartView: VDChartView)
 }
+
+//extension VDChartViewDelegate {
+//    func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {}
+//    func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {}
+//}
 
 public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VDChartContainer {
     weak var delegate: VDChartViewDelegate? = nil

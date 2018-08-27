@@ -172,7 +172,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
 //        xAxisLayer.frame = mainChartFrame.zoomIn(UIEdgeInsets(top: 0, left: 0, bottom: 14, right: 0))
         xAxisLayer.frame = targetLayer.frame.zoomOut(UIEdgeInsets(top: 0, left: 0, bottom: -14, right: 0))
         xAxisTextBackLayer.frame = CGRect(x: xAxisLayer.frame.minX, y: xAxisLayer.frame.maxY - 14, width: xAxisLayer.bounds.width, height: 14)
-        xAxisCenterTextBackLayer.frame = CGRect(x: 0, y: timeLineChart.frame.maxY, width: mainChartFrame.width + 5, height: 14 + 3 * 2)
+        xAxisCenterTextBackLayer.frame = CGRect(x: 0, y: timeLineChart.frame.maxY + borderWidth * 0.5, width: mainChartFrame.width + 5, height: 14 + 3 * 2 - borderWidth)
         barLineChart.frame = CGRect(x: borderLayer.frame.minX, y: mainChartFrame.maxY + 14 + 3 * 2, width: mainChartFrame.width, height: borderLayer.bounds.height - timeLineChart.bounds.height - 14 - 3 * 2)
 //        barLineChart.backgroundColor = UIColor.red.cgColor
         topTurnoverLabel.frame = CGRect(x: borderLayer.frame.minX + 2, y: barLineChart.frame.minY, width: 100, height: 14)
@@ -381,7 +381,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
             priceTextLayer.borderWidth = CGFloatFromPixel(pixel: 1)
             priceTextLayer.cornerRadius = 2
             priceTextLayer.masksToBounds = true
-            var y = point.y - 7.5
+            var y = point.y - 7.5 // 减去label半高
             if y < 0 { y = 0 }
             if y + 15 > timeLineChart.bounds.height { y = timeLineChart.bounds.height - 15 }
             priceTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: y, width: 50, height: 15)
@@ -390,7 +390,8 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         if point.y > timeLineChart.bounds.height + 14 + 3 * 2 {
             let businessAmountForPt = maxBusinessAmount / Float(barLineChart.bounds.height)
 //            print(point.y - xAxisLayer.bounds.height)
-            let businessAmount = maxBusinessAmount - businessAmountForPt * Float(point.y - xAxisLayer.bounds.height)
+            var businessAmount = maxBusinessAmount - businessAmountForPt * Float(point.y - timeLineChart.bounds.height - xAxisCenterTextBackLayer.bounds.height)
+            if businessAmount < 0 { businessAmount = 0 }
             let businessAmountTextLayer = CATextLayer()
             businessAmountTextLayer.contentsScale = UIScreen.main.scale
             businessAmountTextLayer.alignmentMode = kCAAlignmentCenter
@@ -490,6 +491,8 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
     private func renderingBorder() {
         let path = UIBezierPath(rect: borderLayer.bounds.zoomIn(borderWidth * 0.5))
         
+        path.lineWidth = borderWidth
+        
         path.move(to: CGPoint(x: 0, y: timeLineChart.bounds.height * 0.25))
         path.addLine(to: CGPoint(x: timeLineChart.bounds.width, y: timeLineChart.bounds.height * 0.25))
         
@@ -509,10 +512,12 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         path.addLine(to: CGPoint(x: barLineChart.bounds.width, y: borderLayer.bounds.height - barLineChart.bounds.height + 0.5 * barLineChart.bounds.height))
         
         borderLayer.path = path.cgPath
+        borderLayer.lineWidth = borderWidth
         
         let pathRight = UIBezierPath(rect: rightViewBorderLayer.bounds.zoomIn(borderWidth * 0.5))
         pathRight.move(to: CGPoint(x: 0, y: rightViewBorderLayer.bounds.height * 0.5))
         pathRight.addLine(to: CGPoint(x: rightViewBorderLayer.bounds.width, y: rightViewBorderLayer.bounds.height * 0.5))
         rightViewBorderLayer.path = pathRight.cgPath
+        rightViewBorderLayer.lineWidth = borderWidth
     }
 }
