@@ -44,6 +44,9 @@ public class VDKLineChartRenderer: VDChartRenderer {
     private var barLineChart = BarLineChartLayer()
     private var bottomLineChart = LineChartLayer()
     private var topPriceLabel = UILabel()
+    private var centerTopPriceLabel = UILabel()
+    private var centerPriceLabel = UILabel()
+    private var centerBottomPriceLabel = UILabel()
     private var bottomPriceLabel = UILabel()
     private var turnoverTitleLbl = CATextLayer()
     private var turnoverLbl = UILabel()
@@ -124,8 +127,18 @@ public class VDKLineChartRenderer: VDChartRenderer {
         topPriceLabel.font = UIFont.systemFont(ofSize: 10)
         topPriceLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
         
+        centerTopPriceLabel.font = UIFont.systemFont(ofSize: 10)
+        centerTopPriceLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        
+        centerPriceLabel.font = UIFont.systemFont(ofSize: 10)
+        centerPriceLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        
+        centerBottomPriceLabel.font = UIFont.systemFont(ofSize: 10)
+        centerBottomPriceLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        
         bottomPriceLabel.font = UIFont.systemFont(ofSize: 10)
         bottomPriceLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        
         increaseBusinessAmountDataSet.fillcolor = candlestickDataSet.increaseColor
         decreaseBusinessAmountDataSet.fillcolor = candlestickDataSet.decreaseColor
         increaseMACDDataSet.fillcolor = candlestickDataSet.increaseColor
@@ -146,23 +159,21 @@ public class VDKLineChartRenderer: VDChartRenderer {
     }
     
     var views: [UIView] {
-        return [topPriceLabel, bottomPriceLabel, turnoverLbl, topInfoLabel, topTurnoverLabel]
+        return [topPriceLabel, centerTopPriceLabel, centerPriceLabel, centerBottomPriceLabel, bottomPriceLabel, turnoverLbl, topInfoLabel, topTurnoverLabel]
     }
     
     func layout() {
         borderLayer.frame = container.bounds.zoomOut(UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)).zoomOut(borderWidth)
         targetLayer.frame = borderLayer.frame
-//        mainChartFrame = CGRect(x: borderLayer.frame.minX, y: borderLayer.frame.minY + 14, width: borderLayer.bounds.width, height: borderLayer.bounds.height * 0.7)
         mainChartFrame = CGRect(x: borderLayer.frame.minX, y: borderLayer.frame.minY, width: borderLayer.bounds.width, height: borderLayer.bounds.height * 0.7)
         candlestickChart.frame = mainChartFrame
-//        candlestickChart.backgroundColor = UIColor.red.cgColor
         maLineChart.frame = mainChartFrame.zoomOut(UIEdgeInsets(top: candlestickDataSet.remarksSize.height, left: 0, bottom: candlestickDataSet.remarksSize.height, right: 0))
+        
         topPriceLabel.frame = CGRect(x: borderLayer.frame.minX + 2, y: borderLayer.frame.minY, width: 100, height: 14)
+        centerTopPriceLabel.frame = CGRect(x: borderLayer.frame.minX + 2, y: candlestickChart.frame.minY + candlestickChart.bounds.height * 0.25 - 14, width: 100, height: 14)
+        centerPriceLabel.frame = CGRect(x: borderLayer.frame.minX + 2, y: candlestickChart.frame.minY + candlestickChart.bounds.height * 0.5 - 14, width: 100, height: 14)
+        centerBottomPriceLabel.frame = CGRect(x: borderLayer.frame.minX + 2, y: candlestickChart.frame.minY + candlestickChart.bounds.height * 0.75 - 14, width: 100, height: 14)
         bottomPriceLabel.frame = CGRect(x: borderLayer.frame.minX + 2, y: candlestickChart.frame.maxY - 14, width: 100, height: 14)
-//        xAxisLayer.frame = mainChartFrame.zoomIn(UIEdgeInsets(top: 14, left: 0, bottom: 34, right: 0))
-//        xAxisTextBackLayer.frame = CGRect(x: xAxisLayer.frame.minX, y: xAxisLayer.frame.maxY - 14, width: xAxisLayer.bounds.width, height: 14)
-//        barLineChart.frame = CGRect(x: borderLayer.frame.minX, y: xAxisLayer.frame.maxY + 3, width: mainChartFrame.width, height: borderLayer.bounds.height - xAxisLayer.frame.height - 3)
-//        bottomLineChart.frame = barLineChart.frame
         
         turnoverTitleLbl.frame = CGRect(x: borderLayer.frame.minX, y: mainChartFrame.maxY + 3, width: 33, height: 14)
         turnoverLbl.frame = CGRect(x: turnoverTitleLbl.frame.maxX + 2, y: turnoverTitleLbl.frame.minY, width: 200, height: 14)
@@ -173,7 +184,6 @@ public class VDKLineChartRenderer: VDChartRenderer {
         xAxisTextBackLayer.frame = CGRect(x: xAxisLayer.frame.minX, y: xAxisLayer.frame.maxY - 14, width: xAxisLayer.bounds.width, height: 14)
         xAxisCenterTextBackLayer.frame = CGRect(x: 0, y: candlestickChart.frame.maxY + borderWidth * 0.5, width: mainChartFrame.width + 5, height: 14 + 3 * 2 - borderWidth)
         barLineChart.frame = CGRect(x: borderLayer.frame.minX, y: mainChartFrame.maxY + 14 + 3 * 2, width: mainChartFrame.width, height: borderLayer.bounds.height - candlestickChart.bounds.height - 14 - 3 * 2)
-        //        barLineChart.backgroundColor = UIColor.red.cgColor
         topTurnoverLabel.frame = CGRect(x: borderLayer.frame.minX + 2, y: barLineChart.frame.minY, width: 100, height: 14)
         bottomLineChart.frame = barLineChart.frame
     }
@@ -222,12 +232,18 @@ public class VDKLineChartRenderer: VDChartRenderer {
         // 使用CATextLayer这么用会出现BUG
         if isTouching {
             topPriceLabel.text = ""
+            centerTopPriceLabel.text = ""
+            centerPriceLabel.text = ""
+            centerBottomPriceLabel.text = ""
             bottomPriceLabel.text = ""
         }
         else {
-            let priceForPt = (maxPrice - minPrice) / Float(mainChartFrame.height - 14 * 2)
-            topPriceLabel.text = String(result.maxPrice + priceForPt * (14 + 14))
-            bottomPriceLabel.text = String(result.minPrice - priceForPt * Float(34))
+            let priceForPt = (maxPrice - minPrice) / Float(mainChartFrame.height)
+            topPriceLabel.text = String(result.maxPrice)
+            centerTopPriceLabel.text = String(maxPrice - Float(candlestickChart.bounds.height) * 0.25 * priceForPt)
+            centerPriceLabel.text = String(maxPrice - Float(candlestickChart.bounds.height) * 0.5 * priceForPt)
+            centerBottomPriceLabel.text = String(maxPrice - Float(candlestickChart.bounds.height) * 0.75 * priceForPt)
+            bottomPriceLabel.text = String(result.minPrice)
         }
         
         let mAttStr = NSMutableAttributedString()
@@ -260,15 +276,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
             }
         }
         
-        if result.maxBusinessAmount >= 10000 && result.maxBusinessAmount < 100000000  {
-            topTurnoverLabel.text = String(format: "%.2f万", result.maxBusinessAmount / 10000)
-        }
-        if result.maxBusinessAmount >= 100000000 && result.maxBusinessAmount < 1000000000000 {
-            topTurnoverLabel.text = String(format: "%.2f亿", result.maxBusinessAmount / 100000000)
-        }
-        if result.maxBusinessAmount >= 1000000000000 {
-            topTurnoverLabel.text = String(format: "%.2f万亿", result.maxBusinessAmount / 1000000000000)
-        }
+        topTurnoverLabel.text = String(VDStockDataHandle.converNumberToString(number: result.maxBusinessAmount))
     }
     
     func rendering() {
@@ -396,24 +404,15 @@ public class VDKLineChartRenderer: VDChartRenderer {
             priceTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: y, width: 50, height: 15)
             targetLayer.addSublayer(priceTextLayer)
         }
-        if point.y > candlestickChart.bounds.height + 14 + 3 * 2 {
+        if point.y > candlestickChart.bounds.height + xAxisCenterTextBackLayer.bounds.height + borderWidth {
             let businessAmountForPt = (maxBusinessAmount) / Float(barLineChart.bounds.height)
-            var businessAmount = maxBusinessAmount - businessAmountForPt * Float(point.y - candlestickChart.bounds.height - xAxisCenterTextBackLayer.bounds.height)
+            var businessAmount = maxBusinessAmount - businessAmountForPt * Float(point.y - candlestickChart.bounds.height - xAxisCenterTextBackLayer.bounds.height - borderWidth)
             if businessAmount < 0 { businessAmount = 0 }
             let businessAmountTextLayer = CATextLayer()
             businessAmountTextLayer.contentsScale = UIScreen.main.scale
             businessAmountTextLayer.alignmentMode = kCAAlignmentCenter
             businessAmountTextLayer.fontSize = 10
-            var businessAmountText = ""
-            if maxBusinessAmount >= 10000 && maxBusinessAmount < 100000000  {
-                businessAmountText = String(format: "%.2f", businessAmount / 10000)
-            }
-            if maxBusinessAmount >= 100000000 && maxBusinessAmount < 1000000000000 {
-                businessAmountText = String(format: "%.2f", businessAmount / 100000000)
-            }
-            if maxBusinessAmount >= 1000000000000 {
-                businessAmountText = String(format: "%.2f", businessAmount / 1000000000000)
-            }
+            let businessAmountText = String(VDStockDataHandle.converNumberToString(number: businessAmount))
             businessAmountTextLayer.string = businessAmountText
             businessAmountTextLayer.foregroundColor = #colorLiteral(red: 0.06666666667, green: 0.5450980392, blue: 1, alpha: 1)
             businessAmountTextLayer.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9921568627, blue: 1, alpha: 1)
@@ -422,31 +421,14 @@ public class VDKLineChartRenderer: VDChartRenderer {
             businessAmountTextLayer.cornerRadius = 2
             businessAmountTextLayer.masksToBounds = true
             var y = point.y - 7.5
-            if y < candlestickChart.bounds.height + 14 + 3 * 2 { y = candlestickChart.bounds.height + 14 + 3 * 2 }
+            if y < candlestickChart.bounds.height + xAxisCenterTextBackLayer.bounds.height + borderWidth { y = candlestickChart.bounds.height + xAxisCenterTextBackLayer.bounds.height + borderWidth }
             if y + 15 > targetLayer.bounds.height { y = targetLayer.bounds.height - 15 }
             businessAmountTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: y, width: 50, height: 15)
             targetLayer.addSublayer(businessAmountTextLayer)
         }
         
-//        let maText = CATextLayer()
-//        maText.contentsScale = UIScreen.main.scale
-//        maText.alignmentMode = kCAAlignmentCenter
-//        maText.fontSize = 10
-//        maText.string = "MA5:\(selectedNode.MA5) MA10:\(selectedNode.MA10) MA30:\(selectedNode.MA30)"
-//        maText.foregroundColor = #colorLiteral(red: 0.7233663201, green: 0.7233663201, blue: 0.7233663201, alpha: 1)
-//        let maTextWidth = (maText.string as! NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 14), options: .usesLineFragmentOrigin, attributes: [.font : UIFont.systemFont(ofSize: 10)], context: nil).size.width
-//        maText.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - maTextWidth : 0, y: 0, width: maTextWidth, height: 15)
-//        targetLayer.addSublayer(maText)
         let businessAmountText = VDStockDataHandle.converNumberToString(number: selectedNode.businessAmount)
-//        let businessAmountTextLayer = CATextLayer()
-//        businessAmountTextLayer.contentsScale = UIScreen.main.scale
-//        businessAmountTextLayer.alignmentMode = kCAAlignmentCenter
-//        businessAmountTextLayer.fontSize = 10
         turnoverLbl.text = "\(businessAmountText)"
-//        businessAmountTextLayer.foregroundColor = #colorLiteral(red: 0.7233663201, green: 0.7233663201, blue: 0.7233663201, alpha: 1)
-//        let businessTextWidth = (businessAmountTextLayer.string as! NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 14), options: .usesLineFragmentOrigin, attributes: [.font : UIFont.systemFont(ofSize: 10)], context: nil).size.width
-//        businessAmountTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - businessTextWidth : 0, y: xAxisLayer.bounds.maxY, width: businessTextWidth, height: 15)
-//        targetLayer.addSublayer(businessAmountTextLayer)
         
         let mAttStr = NSMutableAttributedString()
         mAttStr.append(NSAttributedString(string: String(format: "MA5:%.2f", selectedNode.MA5), attributes: [NSAttributedStringKey.foregroundColor : ma5LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))

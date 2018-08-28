@@ -46,7 +46,7 @@ public class VDChartPriceView: UIView {
         subviews.forEach { $0.removeFromSuperview() }
         lbls.removeAll()
         
-        let width = (frame.size.width - CGFloat(locCount) * titleLblWidth) / CGFloat(locCount)
+        let width = (frame.size.width - CGFloat(locCount) * titleLblWidth - 17 * 2) / CGFloat(locCount)
         let height = frame.size.height / 2
         
 //        let lblCount = rowCount * locCount
@@ -66,8 +66,8 @@ public class VDChartPriceView: UIView {
             let loc = CGFloat(i % locCount)
             let x = (titleLblWidth + width) * loc
             let y = row * height
-            titleLabel.frame = CGRect(x: x, y: y, width: titleLblWidth, height: height)
-            infoLbl.frame = CGRect(x: x + titleLblWidth, y: y, width: width, height: height)
+            titleLabel.frame = CGRect(x: 17 + x, y: y, width: titleLblWidth, height: height)
+            infoLbl.frame = CGRect(x: 17 + x + titleLblWidth, y: y, width: width, height: height)
             addSubview(titleLabel)
             addSubview(infoLbl)
         }

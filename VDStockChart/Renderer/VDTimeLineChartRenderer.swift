@@ -132,7 +132,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         increaseBusinessAmountDataSet.fillcolor = increaseBusinessAmountDataSet.increaseColor
         decreaseBusinessAmountDataSet.fillcolor = decreaseBusinessAmountDataSet.decreaseColor
         timeLineDataSet.lineColor = #colorLiteral(red: 0.06666666667, green: 0.5450980392, blue: 1, alpha: 1)
-        timeLineDataSet.fillColor = #colorLiteral(red: 0.06666666667, green: 0.5450980392, blue: 1, alpha: 0.1)
+        timeLineDataSet.fillColor = #colorLiteral(red: 0.06666666667, green: 0.5450980392, blue: 1, alpha: 0.05)
         avgTimeLineDataSet.lineColor = #colorLiteral(red: 1, green: 0.5843137255, blue: 0.03921568627, alpha: 1)
     }
     
@@ -230,15 +230,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         topPriceRoteLabel.text = String(format: "%.2f%%", (topPrice - yesterdayClosePrice) / yesterdayClosePrice * 100)
         centerPriceRoteLabel.text = "0.00%"
         bottomPriceRoteLabel.text = String(format: "%.2f%%", (bottomPrice - yesterdayClosePrice) / yesterdayClosePrice * 100)
-        if result.maxBusinessAmount >= 10000 && result.maxBusinessAmount < 100000000  {
-            topTurnoverLabel.text = String(format: "%.2f万", result.maxBusinessAmount / 10000)
-        }
-        if result.maxBusinessAmount >= 100000000 && result.maxBusinessAmount < 1000000000000 {
-            topTurnoverLabel.text = String(format: "%.2f亿", result.maxBusinessAmount / 100000000)
-        }
-        if result.maxBusinessAmount >= 1000000000000 {
-            topTurnoverLabel.text = String(format: "%.2f万亿", result.maxBusinessAmount / 1000000000000)
-        }
+        topTurnoverLabel.text = String(VDStockDataHandle.converNumberToString(number: result.maxBusinessAmount))
         
         let yLength = timeLineChart.bounds.height / CGFloat(topPrice - bottomPrice)
         let businessAmountYLength = barLineChart.bounds.height / CGFloat(result.maxBusinessAmount)
@@ -387,25 +379,26 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
             priceTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: y, width: 50, height: 15)
             targetLayer.addSublayer(priceTextLayer)
         }
-        if point.y > timeLineChart.bounds.height + 14 + 3 * 2 {
+        if point.y > timeLineChart.bounds.height + xAxisCenterTextBackLayer.bounds.height + borderWidth {
             let businessAmountForPt = maxBusinessAmount / Float(barLineChart.bounds.height)
 //            print(point.y - xAxisLayer.bounds.height)
-            var businessAmount = maxBusinessAmount - businessAmountForPt * Float(point.y - timeLineChart.bounds.height - xAxisCenterTextBackLayer.bounds.height)
+            var businessAmount = maxBusinessAmount - businessAmountForPt * Float(point.y - timeLineChart.bounds.height - xAxisCenterTextBackLayer.bounds.height - borderWidth)
             if businessAmount < 0 { businessAmount = 0 }
             let businessAmountTextLayer = CATextLayer()
             businessAmountTextLayer.contentsScale = UIScreen.main.scale
             businessAmountTextLayer.alignmentMode = kCAAlignmentCenter
             businessAmountTextLayer.fontSize = 10
-            var businessAmountText = ""
-            if maxBusinessAmount >= 10000 && maxBusinessAmount < 100000000  {
-                businessAmountText = String(format: "%.2f万", businessAmount / 10000)
-            }
-            if maxBusinessAmount >= 100000000 && maxBusinessAmount < 1000000000000 {
-                businessAmountText = String(format: "%.2f亿", businessAmount / 100000000)
-            }
-            if maxBusinessAmount >= 1000000000000 {
-                businessAmountText = String(format: "%.2f万亿", businessAmount / 1000000000000)
-            }
+//            var businessAmountText = ""
+//            if maxBusinessAmount >= 10000 && maxBusinessAmount < 100000000  {
+//                businessAmountText = String(format: "%.2f万", businessAmount / 10000)
+//            }
+//            if maxBusinessAmount >= 100000000 && maxBusinessAmount < 1000000000000 {
+//                businessAmountText = String(format: "%.2f亿", businessAmount / 100000000)
+//            }
+//            if maxBusinessAmount >= 1000000000000 {
+//                businessAmountText = String(format: "%.2f万亿", businessAmount / 1000000000000)
+//            }
+            let businessAmountText = String(VDStockDataHandle.converNumberToString(number: businessAmount))
             businessAmountTextLayer.string = businessAmountText
             businessAmountTextLayer.foregroundColor = #colorLiteral(red: 0.06666666667, green: 0.5450980392, blue: 1, alpha: 1)
             businessAmountTextLayer.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9921568627, blue: 1, alpha: 1)
@@ -414,7 +407,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
             businessAmountTextLayer.cornerRadius = 2
             businessAmountTextLayer.masksToBounds = true
             var y = point.y - 7.5
-            if y < timeLineChart.bounds.height + 14 + 3 * 2 { y = timeLineChart.bounds.height + 14 + 3 * 2 }
+            if y < timeLineChart.bounds.height + xAxisCenterTextBackLayer.bounds.height + borderWidth { y = timeLineChart.bounds.height + xAxisCenterTextBackLayer.bounds.height + borderWidth }
             if y + 15 > targetLayer.bounds.height { y = targetLayer.bounds.height - 15 }
             businessAmountTextLayer.frame = CGRect(x: point.x < borderLayer.frame.width * 0.5 ? borderLayer.frame.width - 50 : 0, y: y, width: 50, height: 15)
             targetLayer.addSublayer(businessAmountTextLayer)
