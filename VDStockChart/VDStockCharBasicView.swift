@@ -38,7 +38,7 @@ public class VDStockCharBasicView: UIView {
     
     private func initSubviews() {
         let tabView = VDTabView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 30))
-        tabView.titles = ["分时", "日K", "周K", "月K"]
+        tabView.titles = ["分时", "日K", "周K", "月K", "年K"]
         tabView.isScrollEnabled = false
         tabView.didTapTabLabel = { index in
             if index == 0 {
@@ -69,6 +69,12 @@ public class VDStockCharBasicView: UIView {
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension VDStockCharBasicView {
+    func reloadData() {
+        chartView.reload()
     }
 }
 

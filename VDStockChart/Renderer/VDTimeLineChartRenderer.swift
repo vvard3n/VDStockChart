@@ -190,6 +190,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         decreaseBusinessAmountDataSet.frames = []
         
         let nodes = (0..<numberOfNodes).map { dataSource.timeLineChartRenderer(self, nodeAt: $0) }
+        if nodes.isEmpty { return }
         let result = VDStockDataHandle.calculate(nodes)
         maxBusinessAmount = result.maxBusinessAmount
         minBusinessAmount = result.minBusinessAmount
