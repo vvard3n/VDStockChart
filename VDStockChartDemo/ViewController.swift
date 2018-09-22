@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         priceView.isHidden = true
         view.addSubview(priceView)
         
-        stockView = VDStockCharBasicView(frame: CGRect(x: 0, y: 400, width: UIScreen.main.bounds.size.width, height: 330), dataSource: self, delegate: self)
+        stockView = VDStockCharBasicView(frame: CGRect(x: 0, y: 200, width: UIScreen.main.bounds.size.width, height: 330), dataSource: self, delegate: self)
         stockView.delegate = self
         view.addSubview(stockView)
     }
