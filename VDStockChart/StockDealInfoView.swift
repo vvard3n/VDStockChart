@@ -18,7 +18,7 @@ class StockDealInfoView: UIView {
             guard let data = data else { return }
             //            let
             for i in 0..<10 {
-                let labelLeft = labels[i * 3]
+//                let labelLeft = labels[i * 3]
                 let labelCenter = labels[i * 3 + 1]
                 let labelRight = labels[i * 3 + 2]
                 
@@ -34,7 +34,7 @@ class StockDealInfoView: UIView {
                     }
                     
                     var centerText = NSAttributedString(string: String(format: "%@", data.offerGroup[i % 5].price), attributes: [.foregroundColor:color, .font:UIFont.systemFont(ofSize: 10)])
-                    var amount = data.offerGroup[i % 5].amount / Double(sharesPerHand)
+                    let amount = data.offerGroup[i % 5].amount / Double(sharesPerHand)
                     var amountStr = ""
                     if amount >= 10000 && amount < 100000000  {
                         amountStr = String(format: "%.2f万", amount / 10000)
@@ -67,7 +67,7 @@ class StockDealInfoView: UIView {
                     }
                     
                     var centerText = NSAttributedString(string: String(format: "%@", data.bigGroup[i % 5].price), attributes: [.foregroundColor:color, .font:UIFont.systemFont(ofSize: 10)])
-                    var amount = data.bigGroup[i % 5].amount / Double(sharesPerHand)
+                    let amount = data.bigGroup[i % 5].amount / Double(sharesPerHand)
                     var amountStr = ""
                     if amount >= 10000 && amount < 100000000  {
                         amountStr = String(format: "%.2f万", amount / 10000)
