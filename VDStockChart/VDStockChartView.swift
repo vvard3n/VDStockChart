@@ -9,7 +9,7 @@
 import UIKit
 
 class VDStockChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate {
-
+    
     /// 图表渲染器
     weak var renderer: VDChartRenderer? {
         didSet {
@@ -133,5 +133,5 @@ class VDStockChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegat
         //        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureAction(_:)))
         //        addGestureRecognizer(longPressGesture)
     }
-
+    
 }

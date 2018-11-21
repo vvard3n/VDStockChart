@@ -9,14 +9,13 @@
 import UIKit
 
 public protocol VDChartViewDelegate: NSObjectProtocol {
-    
     func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int)
     func chartViewDidCancelTouchTarget(_ chartView: VDChartView)
 }
 
 //extension VDChartViewDelegate {
-//    func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {}
-//    func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {}
+//    public func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {}
+//    public func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {}
 //}
 
 public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, VDChartContainer {
@@ -26,6 +25,14 @@ public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDeleg
     /// 图表渲染器
     weak var renderer: VDChartRenderer? {
         didSet {
+            //            var offset = scrollView.contentOffset
+            //            offset.x -= 1.0
+            //            offset.y -= 1.0
+            //            scrollView.setContentOffset(offset, animated: false)
+            //            offset.x += 1.0;
+            //            offset.y += 1.0;
+            //            scrollView.setContentOffset(offset, animated: false)
+            
             oldValue?.layers.forEach { $0.removeFromSuperlayer() }
             oldValue?.views.forEach { $0.removeFromSuperview() }
             guard let renderer = renderer else { return }
@@ -39,10 +46,15 @@ public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDeleg
             }
             renderer.layers.forEach { layer.addSublayer($0) }
             renderer.views.forEach { addSubview($0) }
-//            scrollView.contentOffset = CGPoint(x: renderer.contentWidth - renderer.container.bounds.width, y: 0)
-            scrollView.contentOffset = CGPoint(x: renderer.contentWidth - renderer.container.bounds.width + 5 + 5, y: 0)
+            
+            //            scrollView.contentOffset = CGPoint(x: renderer.contentWidth - renderer.container.bounds.width, y: 0)
+            
+            scrollView.contentSize = CGSize(width: renderer.contentWidth, height: 1)
+            scrollView.setContentOffset(CGPoint(x: renderer.contentWidth - renderer.container.bounds.width + 5 + 5, y: 0), animated: false)
+            //            scrollView.contentOffset = CGPoint(x: renderer.contentWidth - renderer.container.bounds.width + 5 + 5, y: 0)
             scrollView.backgroundColor = UIColor(white: 1, alpha: 0.1)
             renderer.reload()
+            scrollView.contentOffset = CGPoint(x: renderer.contentWidth - renderer.container.bounds.width + 5 + 5, y: 0)
             scrollView.contentSize = CGSize(width: renderer.contentWidth, height: 1)
             setNeedsLayout()
         }
@@ -115,13 +127,13 @@ public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDeleg
     @objc private func longPressGestureAction(_ gesture: UILongPressGestureRecognizer) {
         guard let renderer = renderer else { return }
         
-//        if renderer.borderLayer.frame.contains(gesture.location(in: self)) {
-            renderer.renderingTouchTarget(point: gesture.location(in: self))
-            
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(cancelTouchTarget), object: nil)
-            self.perform(#selector(cancelTouchTarget), with: nil, afterDelay: 5)
-            delegate?.chartViewDidTouchTarget(self, touchPoint: gesture.location(in: self), nodeIndex: renderer.selectedNodeIndex)
-//        }
+        //        if renderer.borderLayer.frame.contains(gesture.location(in: self)) {
+        renderer.renderingTouchTarget(point: gesture.location(in: self))
+        
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(cancelTouchTarget), object: nil)
+        self.perform(#selector(cancelTouchTarget), with: nil, afterDelay: 5)
+        delegate?.chartViewDidTouchTarget(self, touchPoint: gesture.location(in: self), nodeIndex: renderer.selectedNodeIndex)
+        //        }
     }
     
     @objc private func cancelTouchTarget() {
@@ -150,7 +162,7 @@ public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDeleg
     // MARK: - UIGestureRecognizerDelegate
     
     override public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-//        return isAllowScale
+        //        return isAllowScale
         if gestureRecognizer is UILongPressGestureRecognizer {
             guard let renderer = renderer else { return false }
             if renderer.borderLayer.frame.contains(gestureRecognizer.location(in: self)) {
@@ -174,6 +186,10 @@ public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         }
     }
     
+    public func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        scrollView.setContentOffset(scrollView.contentOffset, animated: false)
+    }
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -191,6 +207,8 @@ public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDeleg
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.delegate = self
+        //        scrollView.decelerationRate = 0.0
+        scrollView.bounces = false
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction(_:)))
         addGestureRecognizer(tapGesture)

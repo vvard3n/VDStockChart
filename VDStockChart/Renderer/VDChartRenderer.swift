@@ -19,6 +19,9 @@ protocol VDChartRenderer: class {
     var gapOfNode: CGFloat { get }
     var contentWidth: CGFloat { get }
     var selectedNodeIndex: Int { get }
+    var showRightView: Bool { get set }
+    var rendererType: StockChartRendererType { get set }
+    var showAvgLine: Bool { get set }
     
     /// 必要布局可在此方法中完成
     func layout()

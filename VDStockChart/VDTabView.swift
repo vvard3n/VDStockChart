@@ -28,6 +28,7 @@ public class VDTabView: UIView {
         }
     }
     
+    private(set) var selectedIndex : Int = 0
     public var titleFont : UIFont = UIFont.systemFont(ofSize: 15)
     public var titleAdjustsFontSizeToFitWidth : Bool = true
     
@@ -68,11 +69,11 @@ extension VDTabView {
         addSubview(scrollView)
         
         indicatorView.isHidden = true
-        indicatorView.backgroundColor = UIColor.red
+        indicatorView.backgroundColor = UIColor(hex: "E63130")
         scrollView.addSubview(indicatorView)
         
         let line = UIView(frame: CGRect(x: 0, y: bounds.size.height - CGFloatFromPixel(pixel: 1), width: bounds.size.width, height: CGFloatFromPixel(pixel: 1)))
-        line.backgroundColor = ThemeColor.LIGHT_LINE_COLOR_EEEEEE
+        line.backgroundColor = UIColor(hex: "EEEEEE")
         addSubview(line)
     }
     
@@ -94,7 +95,7 @@ extension VDTabView {
             titleLbl.frame = CGRect(x: x, y: 0, width: itemWidth, height: scrollView.bounds.size.height)
             titleLbl.text = titles[i]
             titleLbl.textAlignment = .center
-            titleLbl.textColor = UIColor.black
+            titleLbl.textColor = UIColor(red: 102/255.0, green: 96/255.0, blue: 96/255.0, alpha: 1)
             titleLbl.adjustsFontSizeToFitWidth = titleAdjustsFontSizeToFitWidth
             titleLbl.font = titleFont
             let tapGes = UITapGestureRecognizer(target: self, action: #selector(titleLblDidTap(tap:)))
@@ -106,6 +107,7 @@ extension VDTabView {
             scrollView.contentSize = CGSize(width: titleLbl.frame.maxX, height: 0)
             
             if i == 0 {
+                selectedIndex = 0
                 titleLbl.selected = true
                 selectedTitleLbl = titleLbl
                 indicatorView.isHidden = false
@@ -161,6 +163,8 @@ extension VDTabView {
             selectIndex = titles.count - 1
         }
         
+        selectedIndex = selectIndex
+        
         let titleLbl = titleLbls[selectIndex]
         guard let currentLbl = selectedTitleLbl else {
             return
@@ -203,10 +207,10 @@ class TabSelectorLabel: UILabel {
     var selected: Bool = false {
         didSet {
             if selected {
-                textColor = UIColor.red
+                textColor = UIColor(hex: "E63130")
             }
             else {
-                textColor = UIColor.black
+                textColor = UIColor(red: 102/255.0, green: 96/255.0, blue: 96/255.0, alpha: 1)
             }
         }
     }

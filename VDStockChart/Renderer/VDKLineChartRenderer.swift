@@ -20,20 +20,24 @@ public protocol VDKLineChartRendererDataSource: class {
     func numberOfNodes(in renderer: VDKLineChartRenderer) -> Int
     func klineChartRenderer(_ renderer: VDKLineChartRenderer, nodeAt index: Int) -> KlineNode
     func klineChartRenderer(_ renderer: VDKLineChartRenderer, xAxisTextAt index: Int) -> String?
+    func sharesPerHand(in renderer: VDKLineChartRenderer) -> Int
 }
 
 public class VDKLineChartRenderer: VDChartRenderer {
+    var rendererType: StockChartRendererType = .day
+    var showAvgLine: Bool = false // unused
     
-
     private(set) var container: VDChartContainer
     /// 数据源
     weak var dataSource: VDKLineChartRendererDataSource?
     var indicatorType: VDKLineChartIndicatorType = .businessAmount
     /// Style
+    var showRightView: Bool = false
     var borderWidth: CGFloat = CGFloatFromPixel(pixel: 1)
     var borderColor: UIColor = #colorLiteral(red: 0.8904301524, green: 0.88513726, blue: 0.8944990039, alpha: 1)
     let borderLayer = CAShapeLayer()
     /// ChartRenderer
+    var sharesPerHand: Int = 100
     var numberOfNodes: Int = 0
     var mainChartFrame: CGRect = .zero
     var widthOfNode: CGFloat = 5.5
@@ -211,7 +215,9 @@ public class VDKLineChartRenderer: VDChartRenderer {
         
         let lIndex = leftIndex
         let rIndex = rightIndex
+        if dataSource.numberOfNodes(in: self) == 0 { return }
         let nodes = (lIndex...rIndex).map { dataSource.klineChartRenderer(self, nodeAt: $0) }
+        sharesPerHand = dataSource.sharesPerHand(in: self)
         let result = VDStockDataHandle.calculate(nodes)
         maxPrice = result.maxPrice
         minPrice = result.minPrice
@@ -239,18 +245,22 @@ public class VDKLineChartRenderer: VDChartRenderer {
         }
         else {
             let priceForPt = (maxPrice - minPrice) / Float(mainChartFrame.height)
-            topPriceLabel.text = String(result.maxPrice)
-            centerTopPriceLabel.text = String(maxPrice - Float(candlestickChart.bounds.height) * 0.25 * priceForPt)
-            centerPriceLabel.text = String(maxPrice - Float(candlestickChart.bounds.height) * 0.5 * priceForPt)
-            centerBottomPriceLabel.text = String(maxPrice - Float(candlestickChart.bounds.height) * 0.75 * priceForPt)
-            bottomPriceLabel.text = String(result.minPrice)
+            topPriceLabel.text = String(format: "%.2f", result.maxPrice)
+            centerTopPriceLabel.text = String(format: "%.2f", maxPrice - Float(candlestickChart.bounds.height) * 0.25 * priceForPt)
+            centerPriceLabel.text = String(format: "%.2f", maxPrice - Float(candlestickChart.bounds.height) * 0.5 * priceForPt)
+            centerBottomPriceLabel.text = String(format: "%.2f", maxPrice - Float(candlestickChart.bounds.height) * 0.75 * priceForPt)
+            bottomPriceLabel.text = String(format: "%.2f", result.minPrice)
         }
         
-        let mAttStr = NSMutableAttributedString()
-        mAttStr.append(NSAttributedString(string: String(format: "MA5:%.2f", nodes.last!.MA5), attributes: [NSAttributedStringKey.foregroundColor : ma5LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
-        mAttStr.append(NSAttributedString(string: String(format: " MA10:%.2f", nodes.last!.MA10), attributes: [NSAttributedStringKey.foregroundColor : ma10LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
-        mAttStr.append(NSAttributedString(string: String(format: " MA30:%.2f", nodes.last!.MA30), attributes: [NSAttributedStringKey.foregroundColor : ma30LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
-        topInfoLabel.attributedText = mAttStr
+        if let lastNode = nodes.last {
+            let mAttStr = NSMutableAttributedString()
+            mAttStr.append(NSAttributedString(string: String(format: "MA5:%@", lastNode.MA5 == 0 ? "--" : String(format: "%.2f", lastNode.MA5)), attributes: [NSAttributedStringKey.foregroundColor : ma5LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
+            mAttStr.append(NSAttributedString(string: String(format: " MA10:%@", lastNode.MA10 == 0 ? "--" : String(format: "%.2f", lastNode.MA10)), attributes: [NSAttributedStringKey.foregroundColor : ma10LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
+            mAttStr.append(NSAttributedString(string: String(format: " MA30:%@", lastNode.MA30 == 0 ? "--" : String(format: "%.2f", lastNode.MA30)), attributes: [NSAttributedStringKey.foregroundColor : ma30LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
+            topInfoLabel.attributedText = mAttStr
+            
+            turnoverLbl.text = String(format: "%@手", VDStockDataHandle.converNumberToString(number: lastNode.businessAmount / Float(sharesPerHand), decimal: false))
+        }
         
         for i in lIndex...rIndex {
             let node = nodes[i - lIndex]
@@ -276,7 +286,16 @@ public class VDKLineChartRenderer: VDChartRenderer {
             }
         }
         
-        topTurnoverLabel.text = String(VDStockDataHandle.converNumberToString(number: result.maxBusinessAmount))
+        if xAxisDataSet.points.count > 4 {
+            let p1 = xAxisDataSet.points[0]
+            let p2 = xAxisDataSet.points[Int(floor(Double(xAxisDataSet.points.count) / 4.0 * 2)) - 1]
+            let p3 = xAxisDataSet.points[Int(floor(Double(xAxisDataSet.points.count) / 4.0 * 3)) - 1]
+            let p4 = xAxisDataSet.points[xAxisDataSet.points.count - 1]
+            //            xAxisDataSet.points.removeAll()
+            xAxisDataSet.points = [p1, p2, p3, p4]
+        }
+        
+        topTurnoverLabel.text = "\(VDStockDataHandle.converNumberToString(number: result.maxBusinessAmount / Float(sharesPerHand), decimal: false))手"
     }
     
     func rendering() {
@@ -295,13 +314,15 @@ public class VDKLineChartRenderer: VDChartRenderer {
     
     func renderingTouchTarget(point: CGPoint) {
         
+        if dataSource?.numberOfNodes(in: self) == 0 { return }
+        
         var point = CGPoint(x: point.x - borderLayer.frame.minX, y: point.y - borderLayer.frame.minY)
         isTouching = true
         touchingTargetPoint = point
         reRendering()
         
-//        if point.x < 0 || point.x > borderLayer.bounds.width { return }
-//        if point.y < 0 || point.y > borderLayer.bounds.height { return }
+        //        if point.x < 0 || point.x > borderLayer.bounds.width { return }
+        //        if point.y < 0 || point.y > borderLayer.bounds.height { return }
         if point.x < 0 {
             point.x = 0
         }
@@ -355,7 +376,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
         targetLayer.path = path.cgPath
         
         let dateBackgroundLayer = CALayer()
-//        dateBackgroundLayer.backgroundColor = UIColor.white.cgColor
+        //        dateBackgroundLayer.backgroundColor = UIColor.white.cgColor
         dateBackgroundLayer.frame = CGRect(x: 0, y: xAxisLayer.bounds.maxY - 14, width: xAxisLayer.bounds.width, height: 14)
         targetLayer.addSublayer(dateBackgroundLayer)
         
@@ -379,7 +400,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
         if dateX < 0 {
             dateX = 0
         }
-//        print(dateX)
+        //        print(dateX)
         dateTextLayer.frame = CGRect(x: dateX, y: 0, width: textWidth + 5, height: 14)
         dateBackgroundLayer.addSublayer(dateTextLayer)
         
@@ -390,7 +411,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
             priceTextLayer.contentsScale = UIScreen.main.scale
             priceTextLayer.alignmentMode = kCAAlignmentCenter
             priceTextLayer.fontSize = 10
-            priceTextLayer.string = "\(price)"
+            priceTextLayer.string = String(format: "%.2f", price)
             priceTextLayer.foregroundColor = #colorLiteral(red: 0.06666666667, green: 0.5450980392, blue: 1, alpha: 1)
             priceTextLayer.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9921568627, blue: 1, alpha: 1)
             priceTextLayer.borderColor = ThemeColor.LIGHT_LINE_COLOR_EEEEEE.cgColor
@@ -412,7 +433,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
             businessAmountTextLayer.contentsScale = UIScreen.main.scale
             businessAmountTextLayer.alignmentMode = kCAAlignmentCenter
             businessAmountTextLayer.fontSize = 10
-            let businessAmountText = String(VDStockDataHandle.converNumberToString(number: businessAmount))
+            let businessAmountText = String(format: "%@手", VDStockDataHandle.converNumberToString(number: businessAmount / Float(sharesPerHand), decimal: false))
             businessAmountTextLayer.string = businessAmountText
             businessAmountTextLayer.foregroundColor = #colorLiteral(red: 0.06666666667, green: 0.5450980392, blue: 1, alpha: 1)
             businessAmountTextLayer.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9921568627, blue: 1, alpha: 1)
@@ -427,16 +448,19 @@ public class VDKLineChartRenderer: VDChartRenderer {
             targetLayer.addSublayer(businessAmountTextLayer)
         }
         
-        let businessAmountText = VDStockDataHandle.converNumberToString(number: selectedNode.businessAmount)
-        turnoverLbl.text = "\(businessAmountText)"
+        //        let businessAmountText = VDStockDataHandle.converNumberToString(number: selectedNode.businessAmount)
+        
+        turnoverLbl.text = String(format: "%@手", VDStockDataHandle.converNumberToString(number: selectedNode.businessAmount / Float(sharesPerHand), decimal: false))
+        //        turnoverLbl.text = "\(businessAmountText)"
+        
         
         let mAttStr = NSMutableAttributedString()
-        mAttStr.append(NSAttributedString(string: String(format: "MA5:%.2f", selectedNode.MA5), attributes: [NSAttributedStringKey.foregroundColor : ma5LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
-        mAttStr.append(NSAttributedString(string: String(format: " MA10:%.2f", selectedNode.MA10), attributes: [NSAttributedStringKey.foregroundColor : ma10LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
-        mAttStr.append(NSAttributedString(string: String(format: " MA30:%.2f", selectedNode.MA30), attributes: [NSAttributedStringKey.foregroundColor : ma30LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
+        mAttStr.append(NSAttributedString(string: String(format: "MA5:%@", selectedNode.MA5 == 0 ? "--" : String(format: "%.2f", selectedNode.MA5)), attributes: [NSAttributedStringKey.foregroundColor : ma5LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
+        mAttStr.append(NSAttributedString(string: String(format: " MA10:%@", selectedNode.MA10 == 0 ? "--" : String(format: "%.2f", selectedNode.MA10)), attributes: [NSAttributedStringKey.foregroundColor : ma10LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
+        mAttStr.append(NSAttributedString(string: String(format: " MA30:%@", selectedNode.MA30 == 0 ? "--" : String(format: "%.2f", selectedNode.MA30)), attributes: [NSAttributedStringKey.foregroundColor : ma30LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
         topInfoLabel.attributedText = mAttStr
     }
-
+    
     func clearTouchTarget() {
         isTouching = false
         touchingTargetPoint = CGPoint()
@@ -449,6 +473,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
         guard let dataSource = dataSource else { return }
         let oldContentWidth = contentWidth
         numberOfNodes = dataSource.numberOfNodes(in: self)
+        sharesPerHand = dataSource.sharesPerHand(in: self)
         let newOffsetX = container.offsetX + contentWidth - oldContentWidth
         container.offsetX = max(newOffsetX, 0)
     }
@@ -459,6 +484,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
     }
     
     private func calculateXAxis(centerX: CGFloat, index: Int) {
+        if dataSource?.numberOfNodes(in: self) == 0 { return }
         if let text = dataSource?.klineChartRenderer(self, xAxisTextAt: index) {
             if index == 0 { return }
             let point = AxisPoint(centerX: centerX, text: text)
@@ -531,5 +557,5 @@ public class VDKLineChartRenderer: VDChartRenderer {
         borderLayer.path = path.cgPath
         borderLayer.lineWidth = borderWidth
     }
-
+    
 }

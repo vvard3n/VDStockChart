@@ -74,6 +74,33 @@ public class VDStockDataHandle {
                 node.DIFF = node.EMA1 - node.EMA2
                 node.DEA = nodes[index - 1].DEA * 8 / 10 + node.DIFF * 2 / 10
                 node.MACD = (node.DIFF - node.DEA) * 2
+                
+                // (今收盘-昨收盘)/昨收盘*100%
+                node.changeRate = (node.close - nodes[index - 1].close) / nodes[index - 1].close * 100
+                node.yesterdayClose = nodes[index - 1].close
+                
+                if node.open == node.close && node.high == node.low && node.open == node.high {
+                    if node.open >= node.yesterdayClose {
+                        node.isIncrease = true
+                    }
+                    else {
+                        node.isIncrease = false
+                    }
+                }
+                else {
+                    node.isIncrease = node.close >= node.open
+                }
+            }
+            else {
+                //首个节点（非精确计算）
+                node.changeRate = (node.close - node.open) / node.open * 100
+                node.yesterdayClose = node.open
+                if node.open == node.close && node.high == node.low && node.open == node.high {
+                    node.isIncrease = true
+                }
+                else {
+                    node.isIncrease = node.close >= node.open
+                }
             }
             
             (node.K, node.D, node.J) = KDJ(currentIndex: index, in: nodes)
@@ -95,7 +122,7 @@ public class VDStockDataHandle {
         }
     }
     
-    static func converNumberToString(number: Float) -> String {
+    static func converNumberToString(number: Float, decimal: Bool) -> String {
         if number >= 10000 && number < 100000000  {
             return String(format: "%.2f万", number / 10000)
         }
@@ -105,7 +132,8 @@ public class VDStockDataHandle {
         if number >= 1000000000000 {
             return String(format: "%.2f万亿", number / 1000000000000)
         }
-        return "\(number)"
+        
+        return decimal ? String(format: "%.2f", number) : String(format: "%ld", lroundf(number))
     }
     
     private static func KDJ(currentIndex: Int, in nodes: [KlineNode]) -> (K: Double, D: Double, J: Double) {
@@ -257,13 +285,18 @@ public class KlineNode {
     public var open: Float = 0
     /// 收盘价
     public var close: Float = 0
+    /// 昨收价
+    public var yesterdayClose: Float = 0
     /// 成交量
     public var businessAmount: Float = 0
+    /// 成交额
+    public var businessBalance: Float = 0
     /// 振幅
     public var amplitude: Float = -Float.greatestFiniteMagnitude
     /// 换手率
     public var turnoverRate: Float = -Float.greatestFiniteMagnitude
-    
+    /// 涨跌幅 (今收盘-昨收盘)/昨收盘*100%
+    public var changeRate: Float = 0
     /// 五日均价
     public var MA5: Float = 0
     /// 十日均价
@@ -292,7 +325,16 @@ public class KlineNode {
     public var RSI12: Double = 0
     public var RSI24: Double = 0
     
-    public var isIncrease: Bool { return close >= open }
+    public var isIncrease: Bool = false//? {
+    //        if close > open {
+    //            return true
+    //        }
+    //        else if close < open {
+    //            return false
+    //        }
+    //        else { return nil }
+    ////        return close >= open
+    //    }
     
     public init() { }
 }
@@ -310,6 +352,8 @@ public class TimeLineNode {
     public var price: Float = 0
     /// 成交量
     public var businessAmount: Float = 0
+    /// 总成交量
+    public var sumBusinessAmount: Float = 0
     
     /// 涨 跌
     public var isIncrease: Bool {

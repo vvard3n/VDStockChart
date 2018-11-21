@@ -18,9 +18,9 @@ class CandleChartDataSet {
     /// 蜡烛图坐标
     var points = [CandleChartPoint]()
     /// 涨价颜色
-    var increaseColor: UIColor = #colorLiteral(red: 0.9647058824, green: 0.3725490196, blue: 0.3490196078, alpha: 1)
+    var increaseColor: UIColor = #colorLiteral(red: 0.8980392157, green: 0.3607843137, blue: 0.3607843137, alpha: 1)
     /// 降价颜色
-    var decreaseColor: UIColor = #colorLiteral(red: 0.2745098039, green: 0.8352941176, blue: 0.5960784314, alpha: 1)
+    var decreaseColor: UIColor = #colorLiteral(red: 0.05490196078, green: 0.6823529412, blue: 0.3058823529, alpha: 1)
     /// 备注颜色
     var remarksColor: UIColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
     /// 备注字体大小
@@ -38,6 +38,9 @@ class CandleChartDataSet {
                                      barTop: CGFloat(result.maxPrice - max(node.open, node.close)) * yLength + remarksHeight,
                                      barBottom: CGFloat(result.maxPrice - min(node.open, node.close)) * yLength + remarksHeight,
                                      isIncrease: node.isIncrease)
+        if point.lineTop == point.lineBottom && point.barTop == point.barBottom && point.lineTop == point.barTop {
+            point.barBottom += 1
+        }
         if isShowRemarks {
             if node.high == result.maxHigh {
                 point.remarks = String(node.high)

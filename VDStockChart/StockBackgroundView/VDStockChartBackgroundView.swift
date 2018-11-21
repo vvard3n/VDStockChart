@@ -17,19 +17,19 @@ enum VDStockType {
 class VDStockChartBackgroundView: UIScrollView {
     
     public var stockType : VDStockType = .timeLine
-//    /// 是否允许滚动
-//    var isAllowScroll: Bool = true {
-//        didSet {
-//            if isAllowScroll { addSubview(scrollView) }
-//            else { scrollView.removeFromSuperview() }
-//        }
-//    }
-//    /// 是否允许缩放
-//    var isAllowScale: Bool = true
-//    /// 处理图表滚动
-//    private lazy var scrollView = UIScrollView()
+    //    /// 是否允许滚动
+    //    var isAllowScroll: Bool = true {
+    //        didSet {
+    //            if isAllowScroll { addSubview(scrollView) }
+    //            else { scrollView.removeFromSuperview() }
+    //        }
+    //    }
+    //    /// 是否允许缩放
+    //    var isAllowScale: Bool = true
+    //    /// 处理图表滚动
+    //    private lazy var scrollView = UIScrollView()
     func drawBackgroundLines() {
         
     }
-
+    
 }

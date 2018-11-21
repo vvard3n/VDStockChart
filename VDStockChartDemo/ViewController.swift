@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     var chartView: VDChartView!
     var priceView: VDChartPriceView!
     var stockView: VDStockCharBasicView!
+    
+    var rehabilitationType = ["none", "before", "behind"]
+    var selectedRehabilitationType: Int = 0
+    var closePrice: Double? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,75 +124,226 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: VDChartViewDelegate {
-    func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {
-//        priceView.isHidden = false
+//extension ViewController: VDChartViewDelegate {
+//    func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {
+////        priceView.isHidden = false
+////
+////        if chartView.renderer is VDKLineChartRenderer {
+////            let nodeData = kLineNodes[nodeIndex]
+////            let strArr = [String(format: "%.2f", nodeData.open), String(format: "%.2f", nodeData.high), String(format: "%.2f", nodeData.open), String(format: "%@手", VDStockDataHandle.converNumberToString(number: nodeData.businessAmount)), String(format: "%.2f", nodeData.close), String(format: "%.2f", nodeData.low), String(format: "%.2f", nodeData.open), String(format: "%.2f%%", nodeData.open)]
+////            priceView.nodeData = strArr
+////        }
+////        if chartView.renderer is VDTimeChartLineRenderer {
+////            let nodeData = timeLineNodes[nodeIndex]
+////            let strArr = [String(format: "%@", nodeData.time), String(format: "%.2f", nodeData.avgPrice), String(format: "%.2f", nodeData.price), String(format: "%.2f手", nodeData.businessAmount)]
+////            priceView.nodeData = strArr
+////        }
+//    }
 //
-//        if chartView.renderer is VDKLineChartRenderer {
-//            let nodeData = kLineNodes[nodeIndex]
-//            let strArr = [String(format: "%.2f", nodeData.open), String(format: "%.2f", nodeData.high), String(format: "%.2f", nodeData.open), String(format: "%@手", VDStockDataHandle.converNumberToString(number: nodeData.businessAmount)), String(format: "%.2f", nodeData.close), String(format: "%.2f", nodeData.low), String(format: "%.2f", nodeData.open), String(format: "%.2f%%", nodeData.open)]
-//            priceView.nodeData = strArr
-//        }
-//        if chartView.renderer is VDTimeChartLineRenderer {
-//            let nodeData = timeLineNodes[nodeIndex]
-//            let strArr = [String(format: "%@", nodeData.time), String(format: "%.2f", nodeData.avgPrice), String(format: "%.2f", nodeData.price), String(format: "%.2f手", nodeData.businessAmount)]
-//            priceView.nodeData = strArr
-//        }
-    }
-    
-    func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {
-//        priceView.isHidden = true
-    }
-}
+//    func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {
+////        priceView.isHidden = true
+//    }
+//}
+//
+//extension ViewController: VDKLineChartRendererDataSource {
+//    func sharesPerHand(in renderer: VDKLineChartRenderer) -> Int {
+//        return 100;
+//    }
+//
+//    func numberOfNodes(in renderer: VDKLineChartRenderer) -> Int {
+//        return kLineNodes.count
+//    }
+//
+//    func klineChartRenderer(_ renderer: VDKLineChartRenderer, nodeAt index: Int) -> KlineNode {
+//        return kLineNodes[index]
+//    }
+//
+//    func klineChartRenderer(_ renderer: VDKLineChartRenderer, xAxisTextAt index: Int) -> String? {
+//        let node = kLineNodes[index]
+//        let str1 = node.time[..<node.time.index(node.time.startIndex, offsetBy: 6)]
+//        if index - 1 < 0 { return String(str1) }
+//
+//        let preNode = kLineNodes[index - 1]
+//        let str2 = preNode.time[..<preNode.time.index(preNode.time.startIndex, offsetBy: 6)]
+//        if str1 != str2 { return String(str1) }
+//
+//        return nil
+//    }
+//}
+//
+//extension ViewController: VDTimeLineChartRendererDataSource {
+//    func sharesPerHand(in renderer: VDTimeChartLineRenderer) -> Int {
+//        return 100;
+//    }
+//
+//    func numberOfNodes(in renderer: VDTimeChartLineRenderer) -> Int {
+//        return timeLineNodes.count
+//    }
+//
+//    func timeLineChartRenderer(_ renderer: VDTimeChartLineRenderer, nodeAt index: Int) -> TimeLineNode {
+//        return timeLineNodes[index]
+//    }
+//
+//    func timeLineChartRenderer(_ renderer: VDTimeChartLineRenderer, xAxisTextAt index: Int) -> String? {
+//        let node = timeLineNodes[index]
+//        let str1 = node.time[..<node.time.index(node.time.startIndex, offsetBy: 6)]
+//        if index - 1 < 0 { return String(str1) }
+//
+//        let preNode = timeLineNodes[index - 1]
+//        let str2 = preNode.time[..<preNode.time.index(preNode.time.startIndex, offsetBy: 6)]
+//        if str1 != str2 { return String(str1) }
+//
+//        return nil
+//    }
+//
+//    func yesterdayClosePrice(in renderer: VDTimeChartLineRenderer) -> Float {
+//        return 3190.32
+//    }
+//}
 
-extension ViewController: VDKLineChartRendererDataSource {
-    func numberOfNodes(in renderer: VDKLineChartRenderer) -> Int {
-        return kLineNodes.count
+extension ViewController: VDStockCharBasicViewDelegate, VDStockCharBasicViewDataSource {
+    func chartViewDidChangeTab(index: Int) {
+        stockView.reloadData()
     }
     
-    func klineChartRenderer(_ renderer: VDKLineChartRenderer, nodeAt index: Int) -> KlineNode {
-        return kLineNodes[index]
+    func sharesPerHand(in renderer: Any) -> Int {
+        return 100
     }
     
-    func klineChartRenderer(_ renderer: VDKLineChartRenderer, xAxisTextAt index: Int) -> String? {
-        let node = kLineNodes[index]
-        let str1 = node.time[..<node.time.index(node.time.startIndex, offsetBy: 6)]
-        if index - 1 < 0 { return String(str1) }
+    func chartViewDidClickRehabilitationBtn(_ chartView: VDChartView, sender: UIButton, currentStatus: Int) {
+        //        self.showActivityMsg(in: self.view, text: "")
+        if currentStatus == 0 {
+            sender.setTitle("前复权", for: .normal)
+            sender.tag = 1
+            selectedRehabilitationType = 1
+        }
+        else if currentStatus == 1 {
+            sender.setTitle("后复权", for: .normal)
+            sender.tag = 2
+            selectedRehabilitationType = 2
+        }
+        else {
+            sender.setTitle("不复权", for: .normal)
+            sender.tag = 0
+            selectedRehabilitationType = 0
+        }
         
-        let preNode = kLineNodes[index - 1]
-        let str2 = preNode.time[..<preNode.time.index(preNode.time.startIndex, offsetBy: 6)]
-        if str1 != str2 { return String(str1) }
-        
+        stockView.reloadData()
+    }
+    
+    func tradingData(type: StockChartRendererType) -> StockDealInfoViewModel? {
         return nil
     }
-}
-
-extension ViewController: VDTimeLineChartRendererDataSource {
-    func numberOfNodes(in renderer: VDTimeChartLineRenderer) -> Int {
-        return timeLineNodes.count
+    
+    func numberOfNodes(type: StockChartRendererType) -> Int {
+        if type == .timeline {
+            return timeLineNodes.count
+        }
+        if type == .day {
+            return kLineNodes.count
+        }
+        if type == .week {
+            return kLineNodes.count
+        }
+        if type == .month {
+            return kLineNodes.count
+        }
+        if type == .year {
+            return kLineNodes.count
+        }
+        return 0
     }
     
-    func timeLineChartRenderer(_ renderer: VDTimeChartLineRenderer, nodeAt index: Int) -> TimeLineNode {
+    func stockChartRenderer(type: StockChartRendererType, nodeAt index: Int) -> Any {
+        if type == .timeline {
+            return timeLineNodes[index]
+        }
+        if type == .day {
+            return kLineNodes[index]
+        }
+        if type == .week {
+            return kLineNodes[index]
+        }
+        if type == .month {
+            return kLineNodes[index]
+        }
+        if type == .year {
+            return kLineNodes[index]
+        }
         return timeLineNodes[index]
     }
     
-    func timeLineChartRenderer(_ renderer: VDTimeChartLineRenderer, xAxisTextAt index: Int) -> String? {
-        let node = timeLineNodes[index]
-        let str1 = node.time[..<node.time.index(node.time.startIndex, offsetBy: 6)]
-        if index - 1 < 0 { return String(str1) }
-        
-        let preNode = timeLineNodes[index - 1]
-        let str2 = preNode.time[..<preNode.time.index(preNode.time.startIndex, offsetBy: 6)]
-        if str1 != str2 { return String(str1) }
-        
+    func stockChartRenderer(type: StockChartRendererType, xAxisTextAt index: Int) -> String? {
+        if type == .timeline {
+            let node = timeLineNodes[index]
+            let str1 = node.time[..<node.time.index(node.time.startIndex, offsetBy: 6)]
+            //            let str1 = node.time
+            if index - 1 < 0 { return String(str1) }
+            
+            let preNode = timeLineNodes[index - 1]
+            let str2 = preNode.time[..<preNode.time.index(preNode.time.startIndex, offsetBy: 6)]
+            //            let str2 = preNode.time
+            if str1 != str2 { return String(str1) }
+            
+            return nil
+        }
+        if type == .day {
+            let node = kLineNodes[index]
+            let str1 = node.time[..<node.time.index(node.time.startIndex, offsetBy: 6)]
+            if index - 1 < 0 { return String(str1) }
+            
+            let preNode = kLineNodes[index - 1]
+            let str2 = preNode.time[..<preNode.time.index(preNode.time.startIndex, offsetBy: 6)]
+            if str1 != str2 { return String(str1) }
+            
+            return nil
+        }
+        if type == .week {
+            let node = kLineNodes[index]
+            let str1 = node.time[..<node.time.index(node.time.startIndex, offsetBy: 6)]
+            if index - 1 < 0 { return String(str1) }
+            
+            let preNode = kLineNodes[index - 1]
+            let str2 = preNode.time[..<preNode.time.index(preNode.time.startIndex, offsetBy: 6)]
+            if str1 != str2 { return String(str1) }
+            
+            return nil
+        }
+        if type == .month {
+            let node = kLineNodes[index]
+            let str1 = node.time[..<node.time.index(node.time.startIndex, offsetBy: 6)]
+            if index - 1 < 0 { return String(str1) }
+            
+            let preNode = kLineNodes[index - 1]
+            let str2 = preNode.time[..<preNode.time.index(preNode.time.startIndex, offsetBy: 6)]
+            if str1 != str2 { return String(str1) }
+            
+            return nil
+        }
+        if type == .year {
+            let node = kLineNodes[index]
+            let str1 = node.time[..<node.time.index(node.time.startIndex, offsetBy: 6)]
+            if index - 1 < 0 { return String(str1) }
+            
+            let preNode = kLineNodes[index - 1]
+            let str2 = preNode.time[..<preNode.time.index(preNode.time.startIndex, offsetBy: 6)]
+            if str1 != str2 { return String(str1) }
+            
+            return nil
+        }
         return nil
     }
     
-    func yesterdayClosePrice(in renderer: VDTimeChartLineRenderer) -> Float {
-        return 3190.32
+    func chartViewDidTouchTarget(_ chartView: VDChartView, touchPoint: CGPoint, nodeIndex: Int) {
+        
     }
-}
-
-extension ViewController: VDStockCharBasicViewDataSource, VDStockCharBasicViewDelegate {
     
+    func chartViewDidCancelTouchTarget(_ chartView: VDChartView) {
+        
+    }
+    
+    func yesterdayClosePrice(in renderer: VDTimeChartLineRenderer) -> Float {
+        closePrice = 123;
+        return Float(closePrice ?? 0)
+    }
 }
