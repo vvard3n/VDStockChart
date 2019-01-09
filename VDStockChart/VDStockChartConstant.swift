@@ -86,6 +86,8 @@ struct ThemeColor {
     
     /// color 333131
     static let CONTENT_TEXT_COLOR_333131 : UIColor = #colorLiteral(red: 0.2, green: 0.1921568627, blue: 0.1921568627, alpha: 1)
+    /// color 555555
+    static let CONTENT_TEXT_COLOR_555555 : UIColor = #colorLiteral(red: 0.3333333333, green: 0.3333333333, blue: 0.3333333333, alpha: 1)
     /// color 666060
     static let CONTENT_TEXT_COLOR_666060 : UIColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
     /// color 999090

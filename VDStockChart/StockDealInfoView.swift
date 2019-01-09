@@ -16,7 +16,6 @@ class StockDealInfoView: UIView {
     var data: StockDealInfoViewModel? = nil {
         didSet {
             guard let data = data else { return }
-            //            let
             for i in 0..<10 {
 //                let labelLeft = labels[i * 3]
                 let labelCenter = labels[i * 3 + 1]
@@ -25,15 +24,15 @@ class StockDealInfoView: UIView {
                 
                 if i < 5 {
                     
-                    var color: UIColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+                    var color: UIColor = ThemeColor.CONTENT_TEXT_COLOR_555555
                     if Double(data.offerGroup[i % 5].price) ?? 0 > data.closePrice {
-                        color = ThemeColor.STOCK_UP_RED_COLOR_E55C5C
+                        color = ThemeColor.MAIN_COLOR_E63130
                     }
                     else if Double(data.offerGroup[i % 5].price) ?? 0 < data.closePrice {
                         color = ThemeColor.STOCK_DOWN_GREEN_COLOR_0EAE4E
                     }
                     
-                    var centerText = NSAttributedString(string: String(format: "%@", data.offerGroup[i % 5].price), attributes: [.foregroundColor:color, .font:UIFont.systemFont(ofSize: 10)])
+                    var centerText = NSAttributedString(string: String(format: "          %@", data.offerGroup[i % 5].price), attributes: [.foregroundColor:color, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)])
                     let amount = data.offerGroup[i % 5].amount / Double(sharesPerHand)
                     var amountStr = ""
                     if amount >= 10000 && amount < 100000000  {
@@ -48,25 +47,25 @@ class StockDealInfoView: UIView {
                     else {
                         amountStr = String(format: "%.0f", amount)
                     }
-                    var rightText = NSAttributedString(string: String(format: "%@", amountStr), attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
+                    var rightText = NSAttributedString(string: String(format: "%@", amountStr), attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)])
                     if data.offerGroup[i % 5].price == "0.00" && data.offerGroup[i % 5].amount == 0 {
-                        centerText = NSAttributedString(string: "--", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
-                        rightText = NSAttributedString(string: "--", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
+                        centerText = NSAttributedString(string: "          --", attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+                        rightText = NSAttributedString(string: "--", attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)])
                     }
                     labelCenter.attributedText = centerText
                     labelRight.attributedText = rightText
                 }
                 else {
                     
-                    var color: UIColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+                    var color: UIColor = ThemeColor.CONTENT_TEXT_COLOR_555555
                     if Double(data.bigGroup[i % 5].price) ?? 0 > data.closePrice {
-                        color = ThemeColor.STOCK_UP_RED_COLOR_E55C5C
+                        color = ThemeColor.MAIN_COLOR_E63130
                     }
                     else if Double(data.bigGroup[i % 5].price) ?? 0 < data.closePrice {
                         color = ThemeColor.STOCK_DOWN_GREEN_COLOR_0EAE4E
                     }
                     
-                    var centerText = NSAttributedString(string: String(format: "%@", data.bigGroup[i % 5].price), attributes: [.foregroundColor:color, .font:UIFont.systemFont(ofSize: 10)])
+                    var centerText = NSAttributedString(string: String(format: "          %@", data.bigGroup[i % 5].price), attributes: [.foregroundColor:color, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)])
                     let amount = data.bigGroup[i % 5].amount / Double(sharesPerHand)
                     var amountStr = ""
                     if amount >= 10000 && amount < 100000000  {
@@ -81,10 +80,10 @@ class StockDealInfoView: UIView {
                     else {
                         amountStr = String(format: "%.0f", amount)
                     }
-                    var rightText = NSAttributedString(string: String(format: "%@", amountStr), attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
+                    var rightText = NSAttributedString(string: String(format: "%@", amountStr), attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)])
                     if data.bigGroup[i % 5].price == "0.00" && data.bigGroup[i % 5].amount == 0 {
-                        centerText = NSAttributedString(string: "--", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
-                        rightText = NSAttributedString(string: "--", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
+                        centerText = NSAttributedString(string: "          --", attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+                        rightText = NSAttributedString(string: "--", attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)])
                     }
                     labelCenter.attributedText = centerText
                     labelRight.attributedText = rightText
@@ -96,18 +95,18 @@ class StockDealInfoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let centerText = NSAttributedString(string: "--", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
-        let rightText = NSAttributedString(string: "--", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)])
+        let centerText = NSAttributedString(string: "          --", attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+        let rightText = NSAttributedString(string: "--", attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)])
         
         for i in 0..<10 {
             let leftText = NSMutableAttributedString()
             if i < 5 {
-                leftText.append(NSAttributedString(string: "卖", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)]))
-                leftText.append(NSAttributedString(string: "\(5 - i)", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)]))
+                leftText.append(NSAttributedString(string: "卖", attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)]))
+                leftText.append(NSAttributedString(string: "\(5 - i)", attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)]))
             }
             else {
-                leftText.append(NSAttributedString(string: "买", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)]))
-                leftText.append(NSAttributedString(string: "\(i - 5 + 1)", attributes: [.foregroundColor:#colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1), .font:UIFont.systemFont(ofSize: 10)]))
+                leftText.append(NSAttributedString(string: "买", attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)]))
+                leftText.append(NSAttributedString(string: "\(i - 5 + 1)", attributes: [.foregroundColor:ThemeColor.CONTENT_TEXT_COLOR_555555, .font:UIFont(name: "DIN Alternate", size: 12) ?? UIFont.systemFont(ofSize: 12)]))
             }
             let labelLeft = UILabel()
             labelLeft.attributedText = leftText
@@ -117,7 +116,7 @@ class StockDealInfoView: UIView {
             
             let labelCenter = UILabel()
             labelCenter.attributedText = centerText
-            labelCenter.textAlignment = .center
+            labelCenter.textAlignment = .left
             labelCenter.tag = i
             labels.append(labelCenter)
             addSubview(labelCenter)
