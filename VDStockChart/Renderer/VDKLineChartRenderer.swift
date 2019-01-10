@@ -92,25 +92,25 @@ public class VDKLineChartRenderer: VDChartRenderer {
         self.container = container
         self.dataSource = dataSource
         
-        candlestickDataSet.remarksColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        candlestickDataSet.remarksColor = ThemeColor.CONTENT_TEXT_COLOR_555555
         
         turnoverTitleLbl.contentsScale = UIScreen.main.scale
         turnoverTitleLbl.alignmentMode = kCAAlignmentCenter
         turnoverTitleLbl.fontSize = 10
         turnoverTitleLbl.string = "成交量"
-        turnoverTitleLbl.foregroundColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        turnoverTitleLbl.foregroundColor = ThemeColor.CONTENT_TEXT_COLOR_555555.cgColor
         turnoverTitleLbl.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9921568627, blue: 1, alpha: 1)
         turnoverTitleLbl.borderColor = ThemeColor.LIGHT_LINE_COLOR_EEEEEE.cgColor
         turnoverTitleLbl.borderWidth = CGFloatFromPixel(pixel: 1)
         turnoverTitleLbl.cornerRadius = 2
         turnoverTitleLbl.masksToBounds = true
         
-        turnoverLbl.font = UIFont.systemFont(ofSize: 10)
+        turnoverLbl.font = UIFont(name: "DIN Alternate", size: 11)
         turnoverLbl.text = ""
-        turnoverLbl.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        turnoverLbl.textColor = ThemeColor.CONTENT_TEXT_COLOR_555555
         
-        topInfoLabel.font = UIFont.systemFont(ofSize: 10)
-        topInfoLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        topInfoLabel.font = UIFont(name: "DIN Alternate", size: 11)
+        topInfoLabel.textColor = ThemeColor.CONTENT_TEXT_COLOR_555555
         
         ma5LineDataSet.lineColor = #colorLiteral(red: 1, green: 0.5843137255, blue: 0.03921568627, alpha: 1)
         ma10LineDataSet.lineColor = #colorLiteral(red: 0.06666666667, green: 0.5450980392, blue: 1, alpha: 1)
@@ -122,26 +122,26 @@ public class VDKLineChartRenderer: VDChartRenderer {
         targetLayer.fillColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
         targetLayer.strokeColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
         
-        topTurnoverLabel.font = UIFont.systemFont(ofSize: 10)
-        topTurnoverLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        topTurnoverLabel.font = UIFont(name: "DIN Alternate", size: 11)
+        topTurnoverLabel.textColor = ThemeColor.CONTENT_TEXT_COLOR_555555
         
         xAxisTextBackLayer.backgroundColor = UIColor.white.cgColor
         xAxisCenterTextBackLayer.backgroundColor = UIColor.white.cgColor
         
-        topPriceLabel.font = UIFont.systemFont(ofSize: 10)
-        topPriceLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        topPriceLabel.font = UIFont(name: "DIN Alternate", size: 11)
+        topPriceLabel.textColor = ThemeColor.CONTENT_TEXT_COLOR_555555
         
-        centerTopPriceLabel.font = UIFont.systemFont(ofSize: 10)
-        centerTopPriceLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        centerTopPriceLabel.font = UIFont(name: "DIN Alternate", size: 11)
+        centerTopPriceLabel.textColor = ThemeColor.CONTENT_TEXT_COLOR_555555
         
-        centerPriceLabel.font = UIFont.systemFont(ofSize: 10)
-        centerPriceLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        centerPriceLabel.font = UIFont(name: "DIN Alternate", size: 11)
+        centerPriceLabel.textColor = ThemeColor.CONTENT_TEXT_COLOR_555555
         
-        centerBottomPriceLabel.font = UIFont.systemFont(ofSize: 10)
-        centerBottomPriceLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        centerBottomPriceLabel.font = UIFont(name: "DIN Alternate", size: 11)
+        centerBottomPriceLabel.textColor = ThemeColor.CONTENT_TEXT_COLOR_555555
         
-        bottomPriceLabel.font = UIFont.systemFont(ofSize: 10)
-        bottomPriceLabel.textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        bottomPriceLabel.font = UIFont(name: "DIN Alternate", size: 11)
+        bottomPriceLabel.textColor = ThemeColor.CONTENT_TEXT_COLOR_555555
         
         increaseBusinessAmountDataSet.fillcolor = candlestickDataSet.increaseColor
         decreaseBusinessAmountDataSet.fillcolor = candlestickDataSet.decreaseColor
@@ -254,9 +254,9 @@ public class VDKLineChartRenderer: VDChartRenderer {
         
         if let lastNode = nodes.last {
             let mAttStr = NSMutableAttributedString()
-            mAttStr.append(NSAttributedString(string: String(format: "MA5:%@", lastNode.MA5 == 0 ? "--" : String(format: "%.2f", lastNode.MA5)), attributes: [NSAttributedStringKey.foregroundColor : ma5LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
-            mAttStr.append(NSAttributedString(string: String(format: " MA10:%@", lastNode.MA10 == 0 ? "--" : String(format: "%.2f", lastNode.MA10)), attributes: [NSAttributedStringKey.foregroundColor : ma10LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
-            mAttStr.append(NSAttributedString(string: String(format: " MA30:%@", lastNode.MA30 == 0 ? "--" : String(format: "%.2f", lastNode.MA30)), attributes: [NSAttributedStringKey.foregroundColor : ma30LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
+            mAttStr.append(NSAttributedString(string: String(format: "MA5:%@", lastNode.MA5 == 0 ? "--" : String(format: "%.2f", lastNode.MA5)), attributes: [NSAttributedStringKey.foregroundColor : ma5LineDataSet.lineColor, NSAttributedStringKey.font : UIFont(name: "DIN Alternate", size: 11)]))
+            mAttStr.append(NSAttributedString(string: String(format: " MA10:%@", lastNode.MA10 == 0 ? "--" : String(format: "%.2f", lastNode.MA10)), attributes: [NSAttributedStringKey.foregroundColor : ma10LineDataSet.lineColor, NSAttributedStringKey.font : UIFont(name: "DIN Alternate", size: 11)]))
+            mAttStr.append(NSAttributedString(string: String(format: " MA30:%@", lastNode.MA30 == 0 ? "--" : String(format: "%.2f", lastNode.MA30)), attributes: [NSAttributedStringKey.foregroundColor : ma30LineDataSet.lineColor, NSAttributedStringKey.font : UIFont(name: "DIN Alternate", size: 11)]))
             topInfoLabel.attributedText = mAttStr
             
             turnoverLbl.text = String(format: "%@手", VDStockDataHandle.converNumberToString(number: lastNode.businessAmount / Float(sharesPerHand), decimal: false))
@@ -455,9 +455,9 @@ public class VDKLineChartRenderer: VDChartRenderer {
         
         
         let mAttStr = NSMutableAttributedString()
-        mAttStr.append(NSAttributedString(string: String(format: "MA5:%@", selectedNode.MA5 == 0 ? "--" : String(format: "%.2f", selectedNode.MA5)), attributes: [NSAttributedStringKey.foregroundColor : ma5LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
-        mAttStr.append(NSAttributedString(string: String(format: " MA10:%@", selectedNode.MA10 == 0 ? "--" : String(format: "%.2f", selectedNode.MA10)), attributes: [NSAttributedStringKey.foregroundColor : ma10LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
-        mAttStr.append(NSAttributedString(string: String(format: " MA30:%@", selectedNode.MA30 == 0 ? "--" : String(format: "%.2f", selectedNode.MA30)), attributes: [NSAttributedStringKey.foregroundColor : ma30LineDataSet.lineColor, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10)]))
+        mAttStr.append(NSAttributedString(string: String(format: "MA5:%@", selectedNode.MA5 == 0 ? "--" : String(format: "%.2f", selectedNode.MA5)), attributes: [NSAttributedStringKey.foregroundColor : ma5LineDataSet.lineColor, NSAttributedStringKey.font : UIFont(name: "DIN Alternate", size: 11)]))
+        mAttStr.append(NSAttributedString(string: String(format: " MA10:%@", selectedNode.MA10 == 0 ? "--" : String(format: "%.2f", selectedNode.MA10)), attributes: [NSAttributedStringKey.foregroundColor : ma10LineDataSet.lineColor, NSAttributedStringKey.font : UIFont(name: "DIN Alternate", size: 11)]))
+        mAttStr.append(NSAttributedString(string: String(format: " MA30:%@", selectedNode.MA30 == 0 ? "--" : String(format: "%.2f", selectedNode.MA30)), attributes: [NSAttributedStringKey.foregroundColor : ma30LineDataSet.lineColor, NSAttributedStringKey.font : UIFont(name: "DIN Alternate", size: 11)]))
         topInfoLabel.attributedText = mAttStr
     }
     

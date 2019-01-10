@@ -18,9 +18,9 @@ class CandleChartDataSet {
     /// 蜡烛图坐标
     var points = [CandleChartPoint]()
     /// 涨价颜色
-    var increaseColor: UIColor = #colorLiteral(red: 0.8980392157, green: 0.3607843137, blue: 0.3607843137, alpha: 1)
+    var increaseColor: UIColor = ThemeColor.MAIN_COLOR_E63130
     /// 降价颜色
-    var decreaseColor: UIColor = #colorLiteral(red: 0.05490196078, green: 0.6823529412, blue: 0.3058823529, alpha: 1)
+    var decreaseColor: UIColor = ThemeColor.STOCK_DOWN_GREEN_COLOR_0EAE4E
     /// 备注颜色
     var remarksColor: UIColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
     /// 备注字体大小
