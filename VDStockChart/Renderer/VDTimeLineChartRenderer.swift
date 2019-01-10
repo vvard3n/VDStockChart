@@ -255,7 +255,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
             let change = lastNode.price - yesterdayClosePrice
             var changeStr = String()
             var textColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
-            let mattStr = NSMutableAttributedString(attributedString: NSAttributedString(string: showRightView ? String(format: "均价:%.2f", lastNode.avgPrice) : "", attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 10), NSAttributedStringKey.foregroundColor : #colorLiteral(red: 1, green: 0.5843137255, blue: 0.03921568627, alpha: 1)]))
+            let mattStr = NSMutableAttributedString(attributedString: NSAttributedString(string: showRightView ? String(format: "均价:%.2f", lastNode.avgPrice) : "", attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 10), NSAttributedStringKey.foregroundColor : #colorLiteral(red: 1, green: 0.5843137255, blue: 0.03921568627, alpha: 1)]))
             if change > 0 {
                 changeStr = String(format: "+%.2f", change)
                 textColor = ThemeColor.STOCK_UP_RED_COLOR_E55C5C
