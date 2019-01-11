@@ -42,6 +42,10 @@ public class VDStockDataHandle {
             maxRSI = max(maxRSI, $0.RSI6, $0.RSI12, $0.RSI24)
         }
         
+        if maxPrice == minPrice {
+            maxPrice += 1
+        }
+        
         return KlineCalculateResult(minPrice: minPrice, maxPrice: maxPrice, minLow: minLow, maxHigh: maxHigh, maxBusinessAmount: maxBusinessAmount, minBusinessAmount: minBusinessAmount, minMACD: minMACD, maxMACD: maxMACD, minKDJ: minKDJ, maxKDJ: maxKDJ, minWR: minWR, maxWR: maxWR, minRSI: minRSI, maxRSI: maxRSI)
     }
     

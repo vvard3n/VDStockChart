@@ -224,12 +224,12 @@ public class VDKLineChartRenderer: VDChartRenderer {
         maxBusinessAmount = result.maxBusinessAmount
         minBusinessAmount = result.minBusinessAmount
         
-        let yLength = maLineChart.bounds.height / CGFloat(result.maxPrice - result.minPrice)
-        let businessAmountYLength = barLineChart.bounds.height / CGFloat(result.maxBusinessAmount)
-        let MACDYLength = barLineChart.bounds.height / CGFloat(abs(result.maxMACD - result.minMACD))
-        let KDJYLength = bottomLineChart.bounds.height / CGFloat(result.maxKDJ - result.minKDJ)
-        let WRYLength = bottomLineChart.bounds.height / CGFloat(result.maxWR - result.minWR)
-        let RSIYLength = bottomLineChart.bounds.height / CGFloat(result.maxRSI - result.minRSI)
+        let yLength = maLineChart.bounds.height / (result.maxPrice - result.minPrice > 0 ? CGFloat(result.maxPrice - result.minPrice) : maLineChart.bounds.height)
+        let businessAmountYLength = barLineChart.bounds.height / (result.maxBusinessAmount > 0 ? CGFloat(result.maxBusinessAmount) : barLineChart.bounds.height)
+        let MACDYLength = barLineChart.bounds.height / (abs(result.maxMACD - result.minMACD) > 0 ? CGFloat(abs(result.maxMACD - result.minMACD)) : barLineChart.bounds.height)
+        let KDJYLength = bottomLineChart.bounds.height / (result.maxKDJ - result.minKDJ > 0 ? CGFloat(result.maxKDJ - result.minKDJ) : bottomLineChart.bounds.height)
+        let WRYLength = bottomLineChart.bounds.height / (result.maxWR - result.minWR > 0 ? CGFloat(result.maxWR - result.minWR) : bottomLineChart.bounds.height)
+        let RSIYLength = bottomLineChart.bounds.height / (result.maxRSI - result.minRSI > 0 ? CGFloat(result.maxRSI - result.minRSI) : bottomLineChart.bounds.height)
         
         candlestickDataSet.barWidth = widthOfNode * container.scale
         candlestickDataSet.gap = gapOfNode * container.scale
@@ -405,8 +405,8 @@ public class VDKLineChartRenderer: VDChartRenderer {
         dateBackgroundLayer.addSublayer(dateTextLayer)
         
         if point.y < candlestickChart.bounds.height {
-            let priceForPt = (maxPrice - minPrice) / Float(mainChartFrame.height)
-            let price = maxPrice - priceForPt * Float(point.y)
+            let priceForPt = (maxPrice - minPrice) / Float(mainChartFrame.height - 14 * 2)
+            let price = maxPrice - priceForPt * Float(point.y) + 14 * priceForPt
             let priceTextLayer = CATextLayer()
             priceTextLayer.contentsScale = UIScreen.main.scale
             priceTextLayer.alignmentMode = kCAAlignmentCenter
