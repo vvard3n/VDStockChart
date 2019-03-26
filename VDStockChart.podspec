@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   s.name         = "VDStockChart"
   s.version      = "1.1.7"
   s.summary      = "a simple stock chart. kline, timeline, stock line."
+  s.swift_version = '5.0'
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?

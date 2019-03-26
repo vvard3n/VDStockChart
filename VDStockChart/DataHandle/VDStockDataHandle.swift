@@ -133,8 +133,8 @@ public class VDStockDataHandle {
         if number >= 100000000 && number < 1000000000000 {
             return String(format: "%.2f亿", number / 100000000)
         }
-        if number >= 1000000000000 {
-            return String(format: "%.2f万亿", number / 1000000000000)
+        if Double(number) >= Double(1000000000000) {
+            return String(format: "%.2f万亿", Float(Double(number) / Double(1000000000000)))
         }
         
         return decimal ? String(format: "%.2f", number) : String(format: "%ld", lroundf(number))
