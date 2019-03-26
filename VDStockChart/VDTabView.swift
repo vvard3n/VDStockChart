@@ -194,7 +194,7 @@ class TabSelectorLabel: UILabel {
     var textInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     
     override func drawText(in rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, textInset))
+        super.drawText(in: rect.inset(by: textInset))
     }
     
     override var intrinsicContentSize: CGSize {

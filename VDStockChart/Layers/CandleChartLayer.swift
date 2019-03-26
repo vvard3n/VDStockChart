@@ -51,10 +51,10 @@ class CandleChartLayer: BaseChartLayer {
                 if x + dataSet.remarksSize.width > bounds.width {
                     x = point.x - dataSet.remarksSize.width
                     textLayer.string = "\(point.remarks!)→"
-                    textLayer.alignmentMode = kCAAlignmentRight
+                    textLayer.alignmentMode = CATextLayerAlignmentMode.right
                 } else {
                     textLayer.string = "←\(point.remarks!)"
-                    textLayer.alignmentMode = kCAAlignmentLeft
+                    textLayer.alignmentMode = CATextLayerAlignmentMode.left
                 }
                 textLayer.frame = CGRect(x: x, y: point.remarksLocation == .top ? point.lineTop - dataSet.remarksSize.height : point.lineBottom, width: dataSet.remarksSize.width, height: dataSet.remarksSize.height)
                 

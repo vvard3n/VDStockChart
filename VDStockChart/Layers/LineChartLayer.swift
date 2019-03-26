@@ -25,7 +25,7 @@ class LineChartLayer: BaseChartLayer {
         lineLayer.lineWidth = dataSet.lineWidth
         lineLayer.strokeColor = dataSet.lineColor.cgColor
         lineLayer.fillColor = UIColor.clear.cgColor
-        lineLayer.lineJoin = kCALineJoinRound
+        lineLayer.lineJoin = CAShapeLayerLineJoin.round
         
         let path = UIBezierPath()
         path.move(to: dataSet.points[0])

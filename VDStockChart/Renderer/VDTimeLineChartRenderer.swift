@@ -86,7 +86,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         rightViewBorderLayer.strokeColor = borderColor.cgColor
         
         turnoverTitleLbl.contentsScale = UIScreen.main.scale
-        turnoverTitleLbl.alignmentMode = kCAAlignmentCenter
+        turnoverTitleLbl.alignmentMode = CATextLayerAlignmentMode.center
         turnoverTitleLbl.fontSize = 10
         turnoverTitleLbl.string = "成交量"
         turnoverTitleLbl.foregroundColor = #colorLiteral(red: 0.4, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
@@ -255,7 +255,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
             let change = lastNode.price - yesterdayClosePrice
             var changeStr = String()
             var textColor = ThemeColor.CONTENT_TEXT_COLOR_555555
-            let mattStr = NSMutableAttributedString(attributedString: NSAttributedString(string: showRightView ? String(format: "均价:%.2f", lastNode.avgPrice) : "", attributes: [NSAttributedStringKey.font:UIFont(name: "DIN Alternate", size: 11) ?? UIFont.systemFont(ofSize: 11), NSAttributedStringKey.foregroundColor : #colorLiteral(red: 1, green: 0.5843137255, blue: 0.03921568627, alpha: 1)]))
+            let mattStr = NSMutableAttributedString(attributedString: NSAttributedString(string: showRightView ? String(format: "均价:%.2f", lastNode.avgPrice) : "", attributes: [NSAttributedString.Key.font:UIFont(name: "DIN Alternate", size: 11) ?? UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor : #colorLiteral(red: 1, green: 0.5843137255, blue: 0.03921568627, alpha: 1)]))
             if change > 0 {
                 changeStr = String(format: "+%.2f", change)
                 textColor = ThemeColor.MAIN_COLOR_E63130
@@ -269,7 +269,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
                 textColor = ThemeColor.STOCK_DOWN_GREEN_COLOR_0EAE4E
             }
             let changeRate = change / yesterdayClosePrice * 100
-            mattStr.append(NSAttributedString(string: String(format: " 最新:%.2f %@ %.2f%%", lastNode.price, changeStr, changeRate), attributes: [NSAttributedStringKey.font:UIFont(name: "DIN Alternate", size: 11) ?? UIFont.systemFont(ofSize: 11), NSAttributedStringKey.foregroundColor : textColor]))
+            mattStr.append(NSAttributedString(string: String(format: " 最新:%.2f %@ %.2f%%", lastNode.price, changeStr, changeRate), attributes: [NSAttributedString.Key.font:UIFont(name: "DIN Alternate", size: 11) ?? UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor : textColor]))
             topInfoLabel.attributedText = mattStr
             
             turnoverLbl.text = String(format: "%@手", VDStockDataHandle.converNumberToString(number: lastNode.sumBusinessAmount / Float(sharesPerHand), decimal: false))
@@ -416,7 +416,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         let dateText = selectedNode.time
         let dateTextLayer = CATextLayer()
         dateTextLayer.contentsScale = UIScreen.main.scale
-        dateTextLayer.alignmentMode = kCAAlignmentCenter
+        dateTextLayer.alignmentMode = CATextLayerAlignmentMode.center
         dateTextLayer.fontSize = 10
         let dateStr = "\(dateText[dateText.index(dateText.startIndex, offsetBy: 8)..<dateText.index(dateText.startIndex, offsetBy: 10)]):\(dateText[dateText.index(dateText.startIndex, offsetBy: 10)...])"
         dateTextLayer.string = dateStr
@@ -445,7 +445,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
             let price = maxPrice - priceForPt * Float(point.y)
             let priceTextLayer = CATextLayer()
             priceTextLayer.contentsScale = UIScreen.main.scale
-            priceTextLayer.alignmentMode = kCAAlignmentCenter
+            priceTextLayer.alignmentMode = CATextLayerAlignmentMode.center
             priceTextLayer.fontSize = 10
             priceTextLayer.string = String(format: "%.2f", price)
             priceTextLayer.foregroundColor = #colorLiteral(red: 0.06666666667, green: 0.5450980392, blue: 1, alpha: 1)
@@ -467,7 +467,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
             if businessAmount < 0 { businessAmount = 0 }
             let businessAmountTextLayer = CATextLayer()
             businessAmountTextLayer.contentsScale = UIScreen.main.scale
-            businessAmountTextLayer.alignmentMode = kCAAlignmentCenter
+            businessAmountTextLayer.alignmentMode = CATextLayerAlignmentMode.center
             businessAmountTextLayer.fontSize = 10
             let businessAmountText = String(format: "%@手", VDStockDataHandle.converNumberToString(number: businessAmount / Float(sharesPerHand), decimal: false))
             businessAmountTextLayer.string = businessAmountText
@@ -489,7 +489,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
         let change = selectedNode.price - yesterdayClosePrice
         var changeStr = String()
         var textColor = ThemeColor.CONTENT_TEXT_COLOR_555555
-        let mattStr = NSMutableAttributedString(attributedString: NSAttributedString(string: showRightView ? String(format: "均价:%.2f", selectedNode.avgPrice) : "", attributes: [NSAttributedStringKey.font:UIFont(name: "DIN Alternate", size: 11) ?? UIFont.systemFont(ofSize: 11), NSAttributedStringKey.foregroundColor : #colorLiteral(red: 1, green: 0.5843137255, blue: 0.03921568627, alpha: 1)]))
+        let mattStr = NSMutableAttributedString(attributedString: NSAttributedString(string: showRightView ? String(format: "均价:%.2f", selectedNode.avgPrice) : "", attributes: [NSAttributedString.Key.font:UIFont(name: "DIN Alternate", size: 11) ?? UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor : #colorLiteral(red: 1, green: 0.5843137255, blue: 0.03921568627, alpha: 1)]))
         if change > 0 {
             changeStr = String(format: "+%.2f", change)
             textColor = ThemeColor.MAIN_COLOR_E63130
@@ -503,7 +503,7 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
             textColor = ThemeColor.STOCK_DOWN_GREEN_COLOR_0EAE4E
         }
         let changeRate = change / yesterdayClosePrice * 100
-        mattStr.append(NSAttributedString(string: String(format: " 数值:%.2f %@ %.2f%%", selectedNode.price, changeStr, changeRate), attributes: [NSAttributedStringKey.font:UIFont(name: "DIN Alternate", size: 11) ?? UIFont.systemFont(ofSize: 11), NSAttributedStringKey.foregroundColor : textColor]))
+        mattStr.append(NSAttributedString(string: String(format: " 数值:%.2f %@ %.2f%%", selectedNode.price, changeStr, changeRate), attributes: [NSAttributedString.Key.font:UIFont(name: "DIN Alternate", size: 11) ?? UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor : textColor]))
         topInfoLabel.attributedText = mattStr
     }
     

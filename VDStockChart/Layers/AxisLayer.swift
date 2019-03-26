@@ -22,7 +22,7 @@ class AxisLayer: BaseChartLayer {
             
             let textLayer = CATextLayer()
             textLayer.contentsScale = UIScreen.main.scale
-            textLayer.alignmentMode = kCAAlignmentCenter
+            textLayer.alignmentMode = CATextLayerAlignmentMode.center
             textLayer.fontSize = dataSet.fontSize
             textLayer.string = point.text
             textLayer.foregroundColor = dataSet.textColor.cgColor
@@ -30,10 +30,10 @@ class AxisLayer: BaseChartLayer {
             var frame = CGRect(x: point.centerX - dataSet.textSize.width * 0.5, y: bounds.maxY - dataSet.textSize.height + dataSet.textGap, width: dataSet.textSize.width, height: dataSet.textSize.height)
             if frame.maxX > bounds.maxX {
                 frame.origin.x = point.centerX - dataSet.textSize.width
-                textLayer.alignmentMode = kCAAlignmentRight
+                textLayer.alignmentMode = CATextLayerAlignmentMode.right
             } else if frame.minX < bounds.minX {
                 frame.origin.x = point.centerX
-                textLayer.alignmentMode = kCAAlignmentLeft
+                textLayer.alignmentMode = CATextLayerAlignmentMode.left
             }
             textLayer.frame = frame
             addSublayer(textLayer)
