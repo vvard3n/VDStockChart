@@ -216,6 +216,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
         let lIndex = leftIndex
         let rIndex = rightIndex
         if dataSource.numberOfNodes(in: self) == 0 { return }
+        if lIndex > rIndex || rIndex > dataSource.numberOfNodes(in: self) - 1 { return }
         let nodes = (lIndex...rIndex).map { dataSource.klineChartRenderer(self, nodeAt: $0) }
         sharesPerHand = dataSource.sharesPerHand(in: self)
         let result = VDStockDataHandle.calculate(nodes)
