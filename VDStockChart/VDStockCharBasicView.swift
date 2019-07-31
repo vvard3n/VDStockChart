@@ -55,6 +55,22 @@ public class VDStockCharBasicView: UIView {
     var priceView: VDChartPriceView!
     var tabView: VDTabView!
     var rehabilitationBtn: UIButton!
+    public var selectedRehabilitationType = 0 {
+        didSet {
+            if selectedRehabilitationType == 0 {
+                rehabilitationBtn.setTitle("不复权", for: .normal)
+                rehabilitationBtn.tag = 0
+            }
+            else if selectedRehabilitationType == 1 {
+                rehabilitationBtn.setTitle("前复权", for: .normal)
+                rehabilitationBtn.tag = 1
+            }
+            else {
+                rehabilitationBtn.setTitle("后复权", for: .normal)
+                rehabilitationBtn.tag = 2
+            }
+        }
+    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
