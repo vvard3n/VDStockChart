@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol VDChartRenderer: class {
+public protocol VDChartRenderer: class {
     var borderLayer: CAShapeLayer { get }
     var layers: [CALayer] { get }
     var views: [UIView] { get }
@@ -47,7 +47,7 @@ extension VDChartRenderer {
         return max(min(index, numberOfNodes - 1), 0)
     }
     
-    var contentWidth: CGFloat {
+    public var contentWidth: CGFloat {
         return CGFloat(numberOfNodes) * ((widthOfNode + gapOfNode) * container.scale) - gapOfNode * container.scale
     }
     

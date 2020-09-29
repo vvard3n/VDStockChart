@@ -41,7 +41,7 @@ public protocol VDStockCharBasicViewDataSource: NSObjectProtocol {
 public class VDStockCharBasicView: UIView {
     var type: VDStockCharType = .stock
     
-    weak var delegate: VDStockCharBasicViewDelegate? = nil
+    public weak var delegate: VDStockCharBasicViewDelegate? = nil
     var dataSource: VDStockCharBasicViewDataSource? = nil
     
     //    var kLineNodes = [KlineNode]()

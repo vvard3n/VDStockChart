@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol VDChartContainer {
+public protocol VDChartContainer {
     var bounds: CGRect { get }
     var offsetX: CGFloat { get set }
     var scale: CGFloat { get }

@@ -24,24 +24,24 @@ public protocol VDKLineChartRendererDataSource: class {
 }
 
 public class VDKLineChartRenderer: VDChartRenderer {
-    var rendererType: StockChartRendererType = .day
-    var showAvgLine: Bool = false // unused
+    public var rendererType: StockChartRendererType = .day
+    public var showAvgLine: Bool = false // unused
     
-    private(set) var container: VDChartContainer
+    private(set) public var container: VDChartContainer
     /// 数据源
     weak var dataSource: VDKLineChartRendererDataSource?
     var indicatorType: VDKLineChartIndicatorType = .businessAmount
     /// Style
-    var showRightView: Bool = false
+    public var showRightView: Bool = false
     var borderWidth: CGFloat = CGFloatFromPixel(pixel: 1)
     var borderColor: UIColor = #colorLiteral(red: 0.8904301524, green: 0.88513726, blue: 0.8944990039, alpha: 1)
-    let borderLayer = CAShapeLayer()
+    public let borderLayer = CAShapeLayer()
     /// ChartRenderer
     var sharesPerHand: Int = 100
-    var numberOfNodes: Int = 0
-    var mainChartFrame: CGRect = .zero
-    var widthOfNode: CGFloat = 5.5
-    var gapOfNode: CGFloat = 1.5
+    public var numberOfNodes: Int = 0
+    public var mainChartFrame: CGRect = .zero
+    public var widthOfNode: CGFloat = 5.5
+    public var gapOfNode: CGFloat = 1.5
     /// Charts
     private let candlestickChart = CandleChartLayer()
     private var maLineChart = LineChartLayer()
@@ -86,7 +86,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
     /// status
     private var isTouching: Bool = false
     private var touchingTargetPoint: CGPoint = CGPoint()
-    internal var selectedNodeIndex: Int = -1
+    public var selectedNodeIndex: Int = -1
     
     init(container: VDChartContainer, dataSource: VDKLineChartRendererDataSource) {
         self.container = container
@@ -158,15 +158,15 @@ public class VDKLineChartRenderer: VDChartRenderer {
         RSI24DataSet.lineColor = UIColor.blue
     }
     
-    var layers: [CALayer] {
+    public var layers: [CALayer] {
         return [borderLayer, xAxisTextBackLayer, xAxisLayer, candlestickChart, maLineChart, barLineChart, bottomLineChart, targetLayer, xAxisCenterTextBackLayer, turnoverTitleLbl]
     }
     
-    var views: [UIView] {
+    public var views: [UIView] {
         return [topPriceLabel, centerTopPriceLabel, centerPriceLabel, centerBottomPriceLabel, bottomPriceLabel, turnoverLbl, topInfoLabel, topTurnoverLabel]
     }
     
-    func layout() {
+    public func layout() {
         borderLayer.frame = container.bounds.zoomOut(UIEdgeInsets(top: 20, left: 5, bottom: 20, right: 5)).zoomOut(borderWidth)
         targetLayer.frame = borderLayer.frame
         mainChartFrame = CGRect(x: borderLayer.frame.minX, y: borderLayer.frame.minY, width: borderLayer.bounds.width, height: borderLayer.bounds.height * 0.7)
@@ -192,7 +192,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
         bottomLineChart.frame = barLineChart.frame
     }
     
-    func prepareRendering() {
+    public func prepareRendering() {
         guard let dataSource = dataSource else { return }
         candlestickDataSet.points = []
         ma5LineDataSet.points = []
@@ -299,7 +299,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
         topTurnoverLabel.text = "\(VDStockDataHandle.converNumberToString(number: result.maxBusinessAmount / Float(sharesPerHand), decimal: false))手"
     }
     
-    func rendering() {
+    public func rendering() {
         renderingBorder()
         candlestickChart.draw(candlestickDataSet)
         maLineChart.draw([ma5LineDataSet, ma10LineDataSet, ma30LineDataSet])
@@ -313,7 +313,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
         rendering()
     }
     
-    func renderingTouchTarget(point: CGPoint) {
+    public func renderingTouchTarget(point: CGPoint) {
         
         if dataSource?.numberOfNodes(in: self) == 0 { return }
         
@@ -462,7 +462,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
         topInfoLabel.attributedText = mAttStr
     }
     
-    func clearTouchTarget() {
+    public func clearTouchTarget() {
         isTouching = false
         touchingTargetPoint = CGPoint()
         targetLayer.path = nil
@@ -470,7 +470,7 @@ public class VDKLineChartRenderer: VDChartRenderer {
         turnoverLbl.text = ""
     }
     
-    func reload() {
+    public func reload() {
         guard let dataSource = dataSource else { return }
         let oldContentWidth = contentWidth
         numberOfNodes = dataSource.numberOfNodes(in: self)

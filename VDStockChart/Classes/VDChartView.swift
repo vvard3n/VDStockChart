@@ -69,14 +69,14 @@ public class VDChartView: UIView, UIScrollViewDelegate, UIGestureRecognizerDeleg
     /// 处理图表滚动
     private lazy var scrollView = UIScrollView()
     /// 滚动偏移量
-    var offsetX: CGFloat {
+    public var offsetX: CGFloat {
         set { if isAllowScroll { scrollView.contentOffset.x = newValue } }
         get { return isAllowScroll ? scrollView.contentOffset.x : 0 }
     }
     /// 是否允许缩放
     var isAllowScale: Bool = true
     /// 当前缩放度
-    var scale: CGFloat = 1
+    public var scale: CGFloat = 1
     /// 最大缩放度
     var maxScale: CGFloat = 3
     /// 最小缩放度

@@ -14,7 +14,7 @@ private let locCount: Int = 4
 
 public class VDChartPriceView: UIView {
     
-    var titles: [String] = [] { //["开", "高", "幅", "", "收", "低", "量", "额"]
+    public var titles: [String] = [] { //["开", "高", "幅", "", "收", "低", "量", "额"]
         didSet {
             setupSubviews()
         }
@@ -152,7 +152,7 @@ public class VDChartPriceView: UIView {
         }
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupSubviews()

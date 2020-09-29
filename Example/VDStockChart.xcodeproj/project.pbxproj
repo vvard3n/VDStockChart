@@ -21,30 +21,6 @@
 		769BA1752522DA590051BCCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769BA1742522DA590051BCCC /* LaunchScreen.storyboard */; };
 		769BA18E2522DC570051BCCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA18C2522DC570051BCCC /* AppDelegate.swift */; };
 		769BA18F2522DC570051BCCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA18D2522DC570051BCCC /* ViewController.swift */; };
-		769BA1B12522DC650051BCCC /* StockDealInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1922522DC640051BCCC /* StockDealInfoView.swift */; };
-		769BA1B22522DC650051BCCC /* VDChartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1932522DC640051BCCC /* VDChartContainer.swift */; };
-		769BA1B32522DC650051BCCC /* VDTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1942522DC640051BCCC /* VDTabView.swift */; };
-		769BA1B42522DC650051BCCC /* VDChartPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1952522DC640051BCCC /* VDChartPriceView.swift */; };
-		769BA1B52522DC650051BCCC /* CGRect+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1982522DC650051BCCC /* CGRect+Ext.swift */; };
-		769BA1B62522DC650051BCCC /* BarLineChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA19A2522DC650051BCCC /* BarLineChartLayer.swift */; };
-		769BA1B72522DC650051BCCC /* CandleChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA19B2522DC650051BCCC /* CandleChartLayer.swift */; };
-		769BA1B82522DC650051BCCC /* AxisLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA19C2522DC650051BCCC /* AxisLayer.swift */; };
-		769BA1B92522DC650051BCCC /* LineChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA19D2522DC650051BCCC /* LineChartLayer.swift */; };
-		769BA1BA2522DC650051BCCC /* BaseChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA19E2522DC650051BCCC /* BaseChartLayer.swift */; };
-		769BA1BB2522DC650051BCCC /* AxisDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A02522DC650051BCCC /* AxisDataSet.swift */; };
-		769BA1BC2522DC650051BCCC /* CandleChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A12522DC650051BCCC /* CandleChartDataSet.swift */; };
-		769BA1BD2522DC650051BCCC /* LineChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A22522DC650051BCCC /* LineChartDataSet.swift */; };
-		769BA1BE2522DC650051BCCC /* BarLineChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A32522DC650051BCCC /* BarLineChartDataSet.swift */; };
-		769BA1BF2522DC650051BCCC /* StockInfoDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A42522DC650051BCCC /* StockInfoDataSet.swift */; };
-		769BA1C02522DC650051BCCC /* VDKLineChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A62522DC650051BCCC /* VDKLineChartRenderer.swift */; };
-		769BA1C12522DC650051BCCC /* VDChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A72522DC650051BCCC /* VDChartRenderer.swift */; };
-		769BA1C22522DC650051BCCC /* VDTimeLineChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A82522DC650051BCCC /* VDTimeLineChartRenderer.swift */; };
-		769BA1C32522DC650051BCCC /* VDStockDataHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1AA2522DC650051BCCC /* VDStockDataHandle.swift */; };
-		769BA1C42522DC650051BCCC /* VDStockCharBasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1AB2522DC650051BCCC /* VDStockCharBasicView.swift */; };
-		769BA1C52522DC650051BCCC /* VDStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1AC2522DC650051BCCC /* VDStockChartView.swift */; };
-		769BA1C62522DC650051BCCC /* VDChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1AD2522DC650051BCCC /* VDChartView.swift */; };
-		769BA1C72522DC650051BCCC /* VDStockChartConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1AE2522DC650051BCCC /* VDStockChartConstant.swift */; };
-		769BA1C82522DC650051BCCC /* VDStockChartBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1B02522DC650051BCCC /* VDStockChartBackgroundView.swift */; };
 		E31D6C200DADB450FB306C90 /* Pods_VDStockChart_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E2DF54DC3AEC06A0702068 /* Pods_VDStockChart_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,30 +56,6 @@
 		769BA1742522DA590051BCCC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		769BA18C2522DC570051BCCC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		769BA18D2522DC570051BCCC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		769BA1922522DC640051BCCC /* StockDealInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDealInfoView.swift; sourceTree = "<group>"; };
-		769BA1932522DC640051BCCC /* VDChartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDChartContainer.swift; sourceTree = "<group>"; };
-		769BA1942522DC640051BCCC /* VDTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDTabView.swift; sourceTree = "<group>"; };
-		769BA1952522DC640051BCCC /* VDChartPriceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDChartPriceView.swift; sourceTree = "<group>"; };
-		769BA1982522DC650051BCCC /* CGRect+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Ext.swift"; sourceTree = "<group>"; };
-		769BA19A2522DC650051BCCC /* BarLineChartLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarLineChartLayer.swift; sourceTree = "<group>"; };
-		769BA19B2522DC650051BCCC /* CandleChartLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandleChartLayer.swift; sourceTree = "<group>"; };
-		769BA19C2522DC650051BCCC /* AxisLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisLayer.swift; sourceTree = "<group>"; };
-		769BA19D2522DC650051BCCC /* LineChartLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartLayer.swift; sourceTree = "<group>"; };
-		769BA19E2522DC650051BCCC /* BaseChartLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartLayer.swift; sourceTree = "<group>"; };
-		769BA1A02522DC650051BCCC /* AxisDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisDataSet.swift; sourceTree = "<group>"; };
-		769BA1A12522DC650051BCCC /* CandleChartDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandleChartDataSet.swift; sourceTree = "<group>"; };
-		769BA1A22522DC650051BCCC /* LineChartDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartDataSet.swift; sourceTree = "<group>"; };
-		769BA1A32522DC650051BCCC /* BarLineChartDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarLineChartDataSet.swift; sourceTree = "<group>"; };
-		769BA1A42522DC650051BCCC /* StockInfoDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockInfoDataSet.swift; sourceTree = "<group>"; };
-		769BA1A62522DC650051BCCC /* VDKLineChartRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDKLineChartRenderer.swift; sourceTree = "<group>"; };
-		769BA1A72522DC650051BCCC /* VDChartRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDChartRenderer.swift; sourceTree = "<group>"; };
-		769BA1A82522DC650051BCCC /* VDTimeLineChartRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDTimeLineChartRenderer.swift; sourceTree = "<group>"; };
-		769BA1AA2522DC650051BCCC /* VDStockDataHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDStockDataHandle.swift; sourceTree = "<group>"; };
-		769BA1AB2522DC650051BCCC /* VDStockCharBasicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDStockCharBasicView.swift; sourceTree = "<group>"; };
-		769BA1AC2522DC650051BCCC /* VDStockChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDStockChartView.swift; sourceTree = "<group>"; };
-		769BA1AD2522DC650051BCCC /* VDChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDChartView.swift; sourceTree = "<group>"; };
-		769BA1AE2522DC650051BCCC /* VDStockChartConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDStockChartConstant.swift; sourceTree = "<group>"; };
-		769BA1B02522DC650051BCCC /* VDStockChartBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDStockChartBackgroundView.swift; sourceTree = "<group>"; };
 		7B18CFDDDC8932150D539C26 /* Pods-VDStockChart_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VDStockChart_Tests.debug.xcconfig"; path = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E04349BD84460F891E76B28 /* Pods-VDStockChart_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VDStockChart_Example.release.xcconfig"; path = "Target Support Files/Pods-VDStockChart_Example/Pods-VDStockChart_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8B1D4172314A93C33EA3DA7A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -145,20 +97,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				769BA1A92522DC650051BCCC /* DataHandle */,
-				769BA19F2522DC650051BCCC /* DataSet */,
-				769BA1962522DC650051BCCC /* Extension */,
-				769BA1992522DC650051BCCC /* Layers */,
-				769BA1A52522DC650051BCCC /* Renderer */,
-				769BA1AF2522DC650051BCCC /* StockBackgroundView */,
-				769BA1922522DC640051BCCC /* StockDealInfoView.swift */,
-				769BA1932522DC640051BCCC /* VDChartContainer.swift */,
-				769BA1952522DC640051BCCC /* VDChartPriceView.swift */,
-				769BA1AD2522DC650051BCCC /* VDChartView.swift */,
-				769BA1AB2522DC650051BCCC /* VDStockCharBasicView.swift */,
-				769BA1AE2522DC650051BCCC /* VDStockChartConstant.swift */,
-				769BA1AC2522DC650051BCCC /* VDStockChartView.swift */,
-				769BA1942522DC640051BCCC /* VDTabView.swift */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for VDStockChart */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -247,72 +185,6 @@
 				769BA1622522DA500051BCCC /* SwiftyJSON.swift */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		769BA1962522DC650051BCCC /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				769BA1972522DC650051BCCC /* UIKit */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		769BA1972522DC650051BCCC /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				769BA1982522DC650051BCCC /* CGRect+Ext.swift */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		769BA1992522DC650051BCCC /* Layers */ = {
-			isa = PBXGroup;
-			children = (
-				769BA19A2522DC650051BCCC /* BarLineChartLayer.swift */,
-				769BA19B2522DC650051BCCC /* CandleChartLayer.swift */,
-				769BA19C2522DC650051BCCC /* AxisLayer.swift */,
-				769BA19D2522DC650051BCCC /* LineChartLayer.swift */,
-				769BA19E2522DC650051BCCC /* BaseChartLayer.swift */,
-			);
-			path = Layers;
-			sourceTree = "<group>";
-		};
-		769BA19F2522DC650051BCCC /* DataSet */ = {
-			isa = PBXGroup;
-			children = (
-				769BA1A02522DC650051BCCC /* AxisDataSet.swift */,
-				769BA1A12522DC650051BCCC /* CandleChartDataSet.swift */,
-				769BA1A22522DC650051BCCC /* LineChartDataSet.swift */,
-				769BA1A32522DC650051BCCC /* BarLineChartDataSet.swift */,
-				769BA1A42522DC650051BCCC /* StockInfoDataSet.swift */,
-			);
-			path = DataSet;
-			sourceTree = "<group>";
-		};
-		769BA1A52522DC650051BCCC /* Renderer */ = {
-			isa = PBXGroup;
-			children = (
-				769BA1A62522DC650051BCCC /* VDKLineChartRenderer.swift */,
-				769BA1A72522DC650051BCCC /* VDChartRenderer.swift */,
-				769BA1A82522DC650051BCCC /* VDTimeLineChartRenderer.swift */,
-			);
-			path = Renderer;
-			sourceTree = "<group>";
-		};
-		769BA1A92522DC650051BCCC /* DataHandle */ = {
-			isa = PBXGroup;
-			children = (
-				769BA1AA2522DC650051BCCC /* VDStockDataHandle.swift */,
-			);
-			path = DataHandle;
-			sourceTree = "<group>";
-		};
-		769BA1AF2522DC650051BCCC /* StockBackgroundView */ = {
-			isa = PBXGroup;
-			children = (
-				769BA1B02522DC650051BCCC /* VDStockChartBackgroundView.swift */,
-			);
-			path = StockBackgroundView;
 			sourceTree = "<group>";
 		};
 		8AB914A26DA56625FF3322E1 /* Frameworks */ = {
@@ -502,32 +374,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				769BA18F2522DC570051BCCC /* ViewController.swift in Sources */,
-				769BA1C22522DC650051BCCC /* VDTimeLineChartRenderer.swift in Sources */,
-				769BA1BD2522DC650051BCCC /* LineChartDataSet.swift in Sources */,
-				769BA1BB2522DC650051BCCC /* AxisDataSet.swift in Sources */,
-				769BA1C52522DC650051BCCC /* VDStockChartView.swift in Sources */,
-				769BA1BE2522DC650051BCCC /* BarLineChartDataSet.swift in Sources */,
-				769BA1B42522DC650051BCCC /* VDChartPriceView.swift in Sources */,
-				769BA1B92522DC650051BCCC /* LineChartLayer.swift in Sources */,
 				769BA18E2522DC570051BCCC /* AppDelegate.swift in Sources */,
-				769BA1BF2522DC650051BCCC /* StockInfoDataSet.swift in Sources */,
-				769BA1B82522DC650051BCCC /* AxisLayer.swift in Sources */,
-				769BA1C32522DC650051BCCC /* VDStockDataHandle.swift in Sources */,
-				769BA1B32522DC650051BCCC /* VDTabView.swift in Sources */,
-				769BA1C02522DC650051BCCC /* VDKLineChartRenderer.swift in Sources */,
 				769BA16B2522DA500051BCCC /* SwiftyJSON.swift in Sources */,
-				769BA1BA2522DC650051BCCC /* BaseChartLayer.swift in Sources */,
-				769BA1C42522DC650051BCCC /* VDStockCharBasicView.swift in Sources */,
-				769BA1C82522DC650051BCCC /* VDStockChartBackgroundView.swift in Sources */,
-				769BA1C72522DC650051BCCC /* VDStockChartConstant.swift in Sources */,
-				769BA1BC2522DC650051BCCC /* CandleChartDataSet.swift in Sources */,
-				769BA1B72522DC650051BCCC /* CandleChartLayer.swift in Sources */,
-				769BA1B22522DC650051BCCC /* VDChartContainer.swift in Sources */,
-				769BA1B62522DC650051BCCC /* BarLineChartLayer.swift in Sources */,
-				769BA1B12522DC650051BCCC /* StockDealInfoView.swift in Sources */,
-				769BA1B52522DC650051BCCC /* CGRect+Ext.swift in Sources */,
-				769BA1C12522DC650051BCCC /* VDChartRenderer.swift in Sources */,
-				769BA1C62522DC650051BCCC /* VDChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

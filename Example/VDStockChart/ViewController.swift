@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VDStockChart
 
 class ViewController: UIViewController {
     

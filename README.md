@@ -22,7 +22,7 @@ pod 'VDStockChart'
 
 ## Author
 
-vvard3n@gmail.com, vvard3n@gmail.com
+vvard3n, vvard3n@gmail.com
 
 ## License
 

@@ -1,5 +1,5 @@
 PODS:
-  - VDStockChart (0.1.0)
+  - VDStockChart (1.2.8)
 
 DEPENDENCIES:
   - VDStockChart (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  VDStockChart: 553009acb42cf3a22af2768d3eb1e32e946df5c2
+  VDStockChart: 14afe231e820e4b7d37528017a0856a597a5c8aa
 
 PODFILE CHECKSUM: 79a0d3b055a213787918f498b4a5d6a0ef04071f
 

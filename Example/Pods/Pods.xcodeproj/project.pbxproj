@@ -7,69 +7,115 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002B0047C19A3EB9668E76AD5D0A3A07 /* StockDealInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69708F0928EA5EA28D5A5186FCBFCD9 /* StockDealInfoView.swift */; };
+		0145C7C6077BA5CC621EB44FEAA259A0 /* BarLineChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2965EB9A28C06F95C8BA09066C9A8E /* BarLineChartDataSet.swift */; };
+		01F51EB1243AE8B63C84809A24F7C989 /* VDChartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621C1AA8D26A00A683559DC1F10470A /* VDChartContainer.swift */; };
 		02E5FEEE4D3D5F748AB85A0BBCF19F41 /* Pods-VDStockChart_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D75D59F0955DDDBF7BE3D84DA7356C /* Pods-VDStockChart_Example-dummy.m */; };
+		09FEF027A1D54878A0E9EFB3D4C82D47 /* VDStockChartBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6837D7F4FC53E568DB2329FBE271956A /* VDStockChartBackgroundView.swift */; };
+		143B82AED5F4E50D592EBEFBFFBC7DBB /* VDStockChart-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 136F167E410D6A2881D6ECD66F4CD87C /* VDStockChart-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		25AE8015E8C067D9507EF15DF960FDD8 /* AxisLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15134159E2F20D3766865E7D19BD7B44 /* AxisLayer.swift */; };
+		2B8565833DEC47B5E48BD2C367579931 /* AxisDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF670B7F5FA939481AE870ADC4A5C4 /* AxisDataSet.swift */; };
+		3A60B34A93828BF96E96AE8EC33F1280 /* VDStockCharBasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7576F778B0E93D43A00203043C0770B8 /* VDStockCharBasicView.swift */; };
 		3B0342C83D0122AAF49E2CA95F6D9626 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		3D7A8CAD6F79F82A8A1AB6166ED45DBD /* CGRect+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F3E49EC3E19127B08DB659AC5B8D2E /* CGRect+Ext.swift */; };
+		42E75DA6A7003DF0B0AB77629400B07C /* VDStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A609B654188EAC1D78482219BA64CDD2 /* VDStockChartView.swift */; };
 		566301BE5B5E9ABB06AD7098E6A1D0F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		605E3C3B357A7FA776099B4369B3FDC5 /* BaseChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E46E410CF7A2E52E563ECEB33C6133 /* BaseChartLayer.swift */; };
+		648CE7A53DEE38C24C778673109B57EC /* LineChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED435C56DD40A8B48857E258F3326618 /* LineChartLayer.swift */; };
+		6EDC005B3D49374258D726AF940FA321 /* LineChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6065293100B3B94429BCAD4BDFE37FB3 /* LineChartDataSet.swift */; };
+		718E85321D9BB457B1F266B12D5220B8 /* CandleChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71CD437BC89D37F13F676E7049AFC2 /* CandleChartLayer.swift */; };
+		85D8EC7EC247DCC96167743BBE87E3CC /* VDKLineChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF44A06ADBD92DB249F774E51826CE01 /* VDKLineChartRenderer.swift */; };
 		865E984AC89067DDCB58AE0EA25B428C /* Pods-VDStockChart_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 76280734D9F39533DD2DF5FAB669BDBF /* Pods-VDStockChart_Tests-dummy.m */; };
-		9C41E878C806C6F0E2E3197B247C953C /* VDStockChart-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ACA809C79F9DBF860AAA20ACFE2D96ED /* VDStockChart-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB40EB1B2C0E2D21E76E9980DEF68E8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		AB437B41682D3417038B09818A843808 /* Pods-VDStockChart_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EDC298B05CEAF49EF199BBCE8450B00 /* Pods-VDStockChart_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24DA39B7F6CFEA437C3A7BEB6B95B60 /* VDStockChart-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB9887B3D59F2E25BD6A9984633A033 /* VDStockChart-dummy.m */; };
-		CCB32DBA73B13B4EB011F04BB3C0C99F /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE51D41831BFC3A07FD63706FC5765F /* ReplaceMe.swift */; };
+		ACFF8751EF1B04BFA60F491D40C90A70 /* VDStockChart-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1DDE9AF4B5A544206DF111AD2D09E9 /* VDStockChart-dummy.m */; };
+		B0BDCC04E86D2D82E589F424E9B01D23 /* CandleChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E72F0BFF08CA237E4AE7C7A5534B5 /* CandleChartDataSet.swift */; };
+		B0C38946C7507BF43E3E0E250E62AC8B /* BarLineChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AB5BB3DF6F1F704EC12E58A0FB1DFE /* BarLineChartLayer.swift */; };
+		B8DFAB665DDD44C1C00C523C00040FC9 /* VDChartPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9798839CAAC5FF03D3B9C3799679FE68 /* VDChartPriceView.swift */; };
+		D4A44A97F6BACB9E9F60D7EB94347B3A /* VDStockDataHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AB04A219192E10139B32CB0BFEEDA7 /* VDStockDataHandle.swift */; };
+		D694EE489F887ED3B6E82BFF9CF15001 /* VDTimeLineChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C1BA6C07D83323F7F47BF9D4F654B /* VDTimeLineChartRenderer.swift */; };
 		DA7CFB71FFCA163E55233146020FB972 /* Pods-VDStockChart_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 56FF2797A001D2A3D9F4E1BCE1E2FA13 /* Pods-VDStockChart_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E944B5223495C39473D3424D51512E38 /* VDChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1AAA8EBE9C8A8AFE54A29F67A776A /* VDChartView.swift */; };
+		F17D4BDB1945349C418C5A85EB4F946D /* VDChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5749DAEC56E46BDC59F67CF09AD045C3 /* VDChartRenderer.swift */; };
+		F5D156FCC0FE0616D7683130CC448E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		F9575F87538C71FDA570DAE513932A40 /* VDStockChartConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3F89BE56292CE10255C8F9553FDE4D /* VDStockChartConstant.swift */; };
+		F9BA1D73380C21086C8AB1AE540CAA31 /* StockInfoDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE78D18F047264703E781D535CAA81 /* StockInfoDataSet.swift */; };
+		FA49D1592647F5AEE1BC0BD3AA1D211E /* VDTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF4B57750B0E3B5CCA7B007919FFC07 /* VDTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		76D6B620D22C88A6A33130376CEDCF43 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1A79F89970F0DC79D0E95FF1D9B567B8;
-			remoteInfo = "Pods-VDStockChart_Example";
-		};
-		D2EECC6165671F6F2B23BFE1BB57288B /* PBXContainerItemProxy */ = {
+		031725376F62552C8D03C3D16016F2B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8C069262FEE28B8C5E1C3DCA3BAFAE65;
 			remoteInfo = VDStockChart;
 		};
+		DE76D2F7CA84C064E54482A552030C22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A79F89970F0DC79D0E95FF1D9B567B8;
+			remoteInfo = "Pods-VDStockChart_Example";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		03522357A72758A1A76A868CD2641ACD /* Pods-VDStockChart_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VDStockChart_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		08CF2F99B8C1EB713FCD610587BD6610 /* Pods-VDStockChart_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VDStockChart_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		09C1AAA8EBE9C8A8AFE54A29F67A776A /* VDChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VDChartView.swift; path = VDStockChart/Classes/VDChartView.swift; sourceTree = "<group>"; };
+		0D1DDE9AF4B5A544206DF111AD2D09E9 /* VDStockChart-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VDStockChart-dummy.m"; sourceTree = "<group>"; };
+		132E72F0BFF08CA237E4AE7C7A5534B5 /* CandleChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CandleChartDataSet.swift; sourceTree = "<group>"; };
+		136F167E410D6A2881D6ECD66F4CD87C /* VDStockChart-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VDStockChart-umbrella.h"; sourceTree = "<group>"; };
+		13F3E49EC3E19127B08DB659AC5B8D2E /* CGRect+Ext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGRect+Ext.swift"; sourceTree = "<group>"; };
+		15134159E2F20D3766865E7D19BD7B44 /* AxisLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AxisLayer.swift; sourceTree = "<group>"; };
+		17EE78D18F047264703E781D535CAA81 /* StockInfoDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StockInfoDataSet.swift; sourceTree = "<group>"; };
+		1C71CD437BC89D37F13F676E7049AFC2 /* CandleChartLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CandleChartLayer.swift; sourceTree = "<group>"; };
 		264A4087C9B9995999524A90DD8B94E5 /* Pods-VDStockChart_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VDStockChart_Tests-Info.plist"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		39EF670B7F5FA939481AE870ADC4A5C4 /* AxisDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AxisDataSet.swift; sourceTree = "<group>"; };
 		3DF687826AFCCB0ADA0437EF1B4EE709 /* Pods-VDStockChart_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VDStockChart_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		4217B0BCFD9314F08D94229E6CAF23C2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4CC3D2DE5FDFDFAE6768F3C7A5C559D7 /* VDStockChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VDStockChart.debug.xcconfig; sourceTree = "<group>"; };
+		4A3C1BA6C07D83323F7F47BF9D4F654B /* VDTimeLineChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VDTimeLineChartRenderer.swift; sourceTree = "<group>"; };
 		4D805808B7FD55C1F2BC72510DE4897A /* Pods_VDStockChart_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VDStockChart_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F897ADA79528D9C57E94D1B57CBAD26 /* Pods_VDStockChart_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VDStockChart_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FF2797A001D2A3D9F4E1BCE1E2FA13 /* Pods-VDStockChart_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VDStockChart_Tests-umbrella.h"; sourceTree = "<group>"; };
+		5749DAEC56E46BDC59F67CF09AD045C3 /* VDChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VDChartRenderer.swift; sourceTree = "<group>"; };
 		574A02858B3C3272456B05C6C6AA4151 /* VDStockChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VDStockChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60FEA14F189A38891E167C5F5D1A2F4B /* VDStockChart-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "VDStockChart-Info.plist"; sourceTree = "<group>"; };
-		61A3075F366D662FFB879B86C9371DFF /* VDStockChart.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = VDStockChart.modulemap; sourceTree = "<group>"; };
+		6065293100B3B94429BCAD4BDFE37FB3 /* LineChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LineChartDataSet.swift; sourceTree = "<group>"; };
 		6690B975AC5E520B681AB5F2841141B3 /* Pods-VDStockChart_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VDStockChart_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6837D7F4FC53E568DB2329FBE271956A /* VDStockChartBackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VDStockChartBackgroundView.swift; sourceTree = "<group>"; };
+		6A2965EB9A28C06F95C8BA09066C9A8E /* BarLineChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BarLineChartDataSet.swift; sourceTree = "<group>"; };
+		6C2DDF4CF7983D9084E02A7A2AE72931 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6EDC298B05CEAF49EF199BBCE8450B00 /* Pods-VDStockChart_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VDStockChart_Example-umbrella.h"; sourceTree = "<group>"; };
 		73024FE37B49221F6FEEEF833706D290 /* Pods-VDStockChart_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VDStockChart_Example-frameworks.sh"; sourceTree = "<group>"; };
+		7576F778B0E93D43A00203043C0770B8 /* VDStockCharBasicView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VDStockCharBasicView.swift; path = VDStockChart/Classes/VDStockCharBasicView.swift; sourceTree = "<group>"; };
 		76280734D9F39533DD2DF5FAB669BDBF /* Pods-VDStockChart_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VDStockChart_Tests-dummy.m"; sourceTree = "<group>"; };
-		7BD6100BCA023882E99124E693035FBF /* VDStockChart-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VDStockChart-prefix.pch"; sourceTree = "<group>"; };
-		7DE51D41831BFC3A07FD63706FC5765F /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = VDStockChart/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
-		8CF926FE1A8087F9463A51F7B8409F4D /* VDStockChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VDStockChart.release.xcconfig; sourceTree = "<group>"; };
+		7745903FCE6CCD33022F6ECEE95E5D8C /* VDStockChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VDStockChart.debug.xcconfig; sourceTree = "<group>"; };
+		7F1A5A6246E7E967C822E06682C150FC /* VDStockChart-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "VDStockChart-Info.plist"; sourceTree = "<group>"; };
 		905F94AEDC10E84089E606814211C8CB /* Pods-VDStockChart_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VDStockChart_Example.release.xcconfig"; sourceTree = "<group>"; };
+		90E01AAE7604E2572BF9C0AC89D2D588 /* VDStockChart.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = VDStockChart.podspec; sourceTree = "<group>"; tabWidth = 2; };
+		9798839CAAC5FF03D3B9C3799679FE68 /* VDChartPriceView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VDChartPriceView.swift; path = VDStockChart/Classes/VDChartPriceView.swift; sourceTree = "<group>"; };
 		98D75D59F0955DDDBF7BE3D84DA7356C /* Pods-VDStockChart_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VDStockChart_Example-dummy.m"; sourceTree = "<group>"; };
+		9C9B9582DDFB9D25760D9B0CB8631333 /* VDStockChart-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VDStockChart-prefix.pch"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A5AB04A219192E10139B32CB0BFEEDA7 /* VDStockDataHandle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VDStockDataHandle.swift; sourceTree = "<group>"; };
+		A609B654188EAC1D78482219BA64CDD2 /* VDStockChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VDStockChartView.swift; path = VDStockChart/Classes/VDStockChartView.swift; sourceTree = "<group>"; };
 		A7196A881F623F6C52C3A4AF2DB3A059 /* Pods-VDStockChart_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VDStockChart_Example-Info.plist"; sourceTree = "<group>"; };
-		ACA809C79F9DBF860AAA20ACFE2D96ED /* VDStockChart-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VDStockChart-umbrella.h"; sourceTree = "<group>"; };
-		B9628E422DF8B9C10437054B012E56C7 /* VDStockChart.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = VDStockChart.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AB94557075924425D936D51BCC26AA90 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B8E46E410CF7A2E52E563ECEB33C6133 /* BaseChartLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseChartLayer.swift; sourceTree = "<group>"; };
+		BE3F89BE56292CE10255C8F9553FDE4D /* VDStockChartConstant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VDStockChartConstant.swift; path = VDStockChart/Classes/VDStockChartConstant.swift; sourceTree = "<group>"; };
 		BFE8D9F1F22F394A86936809BDA03349 /* Pods-VDStockChart_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VDStockChart_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C2DF57FB046C4B09DCE4D0F36D500C52 /* Pods-VDStockChart_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VDStockChart_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C888D2C658B3800B4EEB75308F458525 /* Pods-VDStockChart_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VDStockChart_Tests.modulemap"; sourceTree = "<group>"; };
+		CCF4B57750B0E3B5CCA7B007919FFC07 /* VDTabView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VDTabView.swift; path = VDStockChart/Classes/VDTabView.swift; sourceTree = "<group>"; };
+		D621C1AA8D26A00A683559DC1F10470A /* VDChartContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VDChartContainer.swift; path = VDStockChart/Classes/VDChartContainer.swift; sourceTree = "<group>"; };
+		DF44A06ADBD92DB249F774E51826CE01 /* VDKLineChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VDKLineChartRenderer.swift; sourceTree = "<group>"; };
 		E056C27CCC1E842D2A7E66CD803F1D9B /* Pods-VDStockChart_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VDStockChart_Example.modulemap"; sourceTree = "<group>"; };
-		EAB9887B3D59F2E25BD6A9984633A033 /* VDStockChart-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VDStockChart-dummy.m"; sourceTree = "<group>"; };
+		E7CF843F0F0B33A4FE9F4CD1936E526E /* VDStockChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VDStockChart.release.xcconfig; sourceTree = "<group>"; };
+		ED435C56DD40A8B48857E258F3326618 /* LineChartLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LineChartLayer.swift; sourceTree = "<group>"; };
 		EF3840D8A3497C5A3CCE840B7A9CF363 /* Pods-VDStockChart_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VDStockChart_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F91AE0C83C1C81FACBEF42FBE47F2EED /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F69708F0928EA5EA28D5A5186FCBFCD9 /* StockDealInfoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StockDealInfoView.swift; path = VDStockChart/Classes/StockDealInfoView.swift; sourceTree = "<group>"; };
+		F7AB5BB3DF6F1F704EC12E58A0FB1DFE /* BarLineChartLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BarLineChartLayer.swift; sourceTree = "<group>"; };
+		F907FAB0EA931B872CB179C0E929FA27 /* VDStockChart.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = VDStockChart.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +127,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5CFC01A9EFA6B912DC9A10933399C7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5D156FCC0FE0616D7683130CC448E14 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CF5A834779A1E3CE01C5E98B255774ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -89,17 +143,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D8BA6D8F8F8DC4118C39AFF27D9F2A93 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AB40EB1B2C0E2D21E76E9980DEF68E8B /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		063C5BFE36C7DADD1747384860E3D877 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				13F3E49EC3E19127B08DB659AC5B8D2E /* CGRect+Ext.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		231D0B73733D95583555AD3845EEBDC8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +162,45 @@
 				574A02858B3C3272456B05C6C6AA4151 /* VDStockChart.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		28A70224F301486C13827208ECDDBF46 /* VDStockChart */ = {
+			isa = PBXGroup;
+			children = (
+				F69708F0928EA5EA28D5A5186FCBFCD9 /* StockDealInfoView.swift */,
+				D621C1AA8D26A00A683559DC1F10470A /* VDChartContainer.swift */,
+				9798839CAAC5FF03D3B9C3799679FE68 /* VDChartPriceView.swift */,
+				09C1AAA8EBE9C8A8AFE54A29F67A776A /* VDChartView.swift */,
+				7576F778B0E93D43A00203043C0770B8 /* VDStockCharBasicView.swift */,
+				BE3F89BE56292CE10255C8F9553FDE4D /* VDStockChartConstant.swift */,
+				A609B654188EAC1D78482219BA64CDD2 /* VDStockChartView.swift */,
+				CCF4B57750B0E3B5CCA7B007919FFC07 /* VDTabView.swift */,
+				65C22F9A4C265EDC9D8105E65EF65305 /* DataHandle */,
+				9045B6B852089E2FC44727EB584135A1 /* DataSet */,
+				837E8D49851A45F464786406FC805865 /* Extension */,
+				EF8F89A01807D1E372A772782539BABD /* Layers */,
+				AC9A20CF1F9EB3C70602746EE3399CDE /* Pod */,
+				C12AABFBF3030C643AE0354C0945ECA6 /* Renderer */,
+				AF7BEFC2E394E1E660915E8A8F86FBF0 /* StockBackgroundView */,
+				5B4CFE92CC2E6836562F43D765981B26 /* Support Files */,
+			);
+			name = VDStockChart;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		5B4CFE92CC2E6836562F43D765981B26 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F907FAB0EA931B872CB179C0E929FA27 /* VDStockChart.modulemap */,
+				0D1DDE9AF4B5A544206DF111AD2D09E9 /* VDStockChart-dummy.m */,
+				7F1A5A6246E7E967C822E06682C150FC /* VDStockChart-Info.plist */,
+				9C9B9582DDFB9D25760D9B0CB8631333 /* VDStockChart-prefix.pch */,
+				136F167E410D6A2881D6ECD66F4CD87C /* VDStockChart-umbrella.h */,
+				7745903FCE6CCD33022F6ECEE95E5D8C /* VDStockChart.debug.xcconfig */,
+				E7CF843F0F0B33A4FE9F4CD1936E526E /* VDStockChart.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/VDStockChart";
 			sourceTree = "<group>";
 		};
 		5EE3F97EBD3C707895BEF783383E2993 /* Pods-VDStockChart_Example */ = {
@@ -127,12 +220,43 @@
 			path = "Target Support Files/Pods-VDStockChart_Example";
 			sourceTree = "<group>";
 		};
-		722C7244B94E72D5B1CC1886676A952C /* Development Pods */ = {
+		65C22F9A4C265EDC9D8105E65EF65305 /* DataHandle */ = {
 			isa = PBXGroup;
 			children = (
-				A82A92CC24DDE9B7A8D968A972C343CB /* VDStockChart */,
+				A5AB04A219192E10139B32CB0BFEEDA7 /* VDStockDataHandle.swift */,
+			);
+			name = DataHandle;
+			path = VDStockChart/Classes/DataHandle;
+			sourceTree = "<group>";
+		};
+		6EFD2452F44A3A70527553F465A8DD08 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28A70224F301486C13827208ECDDBF46 /* VDStockChart */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		837E8D49851A45F464786406FC805865 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				063C5BFE36C7DADD1747384860E3D877 /* UIKit */,
+			);
+			name = Extension;
+			path = VDStockChart/Classes/Extension;
+			sourceTree = "<group>";
+		};
+		9045B6B852089E2FC44727EB584135A1 /* DataSet */ = {
+			isa = PBXGroup;
+			children = (
+				39EF670B7F5FA939481AE870ADC4A5C4 /* AxisDataSet.swift */,
+				6A2965EB9A28C06F95C8BA09066C9A8E /* BarLineChartDataSet.swift */,
+				132E72F0BFF08CA237E4AE7C7A5534B5 /* CandleChartDataSet.swift */,
+				6065293100B3B94429BCAD4BDFE37FB3 /* LineChartDataSet.swift */,
+				17EE78D18F047264703E781D535CAA81 /* StockInfoDataSet.swift */,
+			);
+			name = DataSet;
+			path = VDStockChart/Classes/DataSet;
 			sourceTree = "<group>";
 		};
 		9E436E25F2A79E297A2E722603F4E94A /* Targets Support Files */ = {
@@ -144,25 +268,23 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		9E4BE355C095B0F3BDFD14874E09413B /* Pod */ = {
+		AC9A20CF1F9EB3C70602746EE3399CDE /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				F91AE0C83C1C81FACBEF42FBE47F2EED /* LICENSE */,
-				4217B0BCFD9314F08D94229E6CAF23C2 /* README.md */,
-				B9628E422DF8B9C10437054B012E56C7 /* VDStockChart.podspec */,
+				6C2DDF4CF7983D9084E02A7A2AE72931 /* LICENSE */,
+				AB94557075924425D936D51BCC26AA90 /* README.md */,
+				90E01AAE7604E2572BF9C0AC89D2D588 /* VDStockChart.podspec */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		A82A92CC24DDE9B7A8D968A972C343CB /* VDStockChart */ = {
+		AF7BEFC2E394E1E660915E8A8F86FBF0 /* StockBackgroundView */ = {
 			isa = PBXGroup;
 			children = (
-				7DE51D41831BFC3A07FD63706FC5765F /* ReplaceMe.swift */,
-				9E4BE355C095B0F3BDFD14874E09413B /* Pod */,
-				E8DD6FE6D81BE702AFA261B5EBEACF60 /* Support Files */,
+				6837D7F4FC53E568DB2329FBE271956A /* VDStockChartBackgroundView.swift */,
 			);
-			name = VDStockChart;
-			path = ../..;
+			name = StockBackgroundView;
+			path = VDStockChart/Classes/StockBackgroundView;
 			sourceTree = "<group>";
 		};
 		B4A32C74D5366456DDD740821DF1E65D /* Pods-VDStockChart_Tests */ = {
@@ -189,11 +311,22 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		C12AABFBF3030C643AE0354C0945ECA6 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				5749DAEC56E46BDC59F67CF09AD045C3 /* VDChartRenderer.swift */,
+				DF44A06ADBD92DB249F774E51826CE01 /* VDKLineChartRenderer.swift */,
+				4A3C1BA6C07D83323F7F47BF9D4F654B /* VDTimeLineChartRenderer.swift */,
+			);
+			name = Renderer;
+			path = VDStockChart/Classes/Renderer;
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				722C7244B94E72D5B1CC1886676A952C /* Development Pods */,
+				6EFD2452F44A3A70527553F465A8DD08 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				231D0B73733D95583555AD3845EEBDC8 /* Products */,
 				9E436E25F2A79E297A2E722603F4E94A /* Targets Support Files */,
@@ -208,37 +341,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E8DD6FE6D81BE702AFA261B5EBEACF60 /* Support Files */ = {
+		EF8F89A01807D1E372A772782539BABD /* Layers */ = {
 			isa = PBXGroup;
 			children = (
-				61A3075F366D662FFB879B86C9371DFF /* VDStockChart.modulemap */,
-				EAB9887B3D59F2E25BD6A9984633A033 /* VDStockChart-dummy.m */,
-				60FEA14F189A38891E167C5F5D1A2F4B /* VDStockChart-Info.plist */,
-				7BD6100BCA023882E99124E693035FBF /* VDStockChart-prefix.pch */,
-				ACA809C79F9DBF860AAA20ACFE2D96ED /* VDStockChart-umbrella.h */,
-				4CC3D2DE5FDFDFAE6768F3C7A5C559D7 /* VDStockChart.debug.xcconfig */,
-				8CF926FE1A8087F9463A51F7B8409F4D /* VDStockChart.release.xcconfig */,
+				15134159E2F20D3766865E7D19BD7B44 /* AxisLayer.swift */,
+				F7AB5BB3DF6F1F704EC12E58A0FB1DFE /* BarLineChartLayer.swift */,
+				B8E46E410CF7A2E52E563ECEB33C6133 /* BaseChartLayer.swift */,
+				1C71CD437BC89D37F13F676E7049AFC2 /* CandleChartLayer.swift */,
+				ED435C56DD40A8B48857E258F3326618 /* LineChartLayer.swift */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/VDStockChart";
+			name = Layers;
+			path = VDStockChart/Classes/Layers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4B42DE5228F6C65BBA880A8A1DF7E758 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9C41E878C806C6F0E2E3197B247C953C /* VDStockChart-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A047760D47E1376CA8653F856B67F713 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DA7CFB71FFCA163E55233146020FB972 /* Pods-VDStockChart_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD5CE2BF60FEF5E946BFF864D5E1C7AF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				143B82AED5F4E50D592EBEFBFFBC7DBB /* VDStockChart-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +396,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				0DADD078B37F6039493923B03AC7E788 /* PBXTargetDependency */,
+				AA6B4EE9C7B23DAEC2BB0E4FD1033EA6 /* PBXTargetDependency */,
 			);
 			name = "Pods-VDStockChart_Example";
 			productName = "Pods-VDStockChart_Example";
@@ -274,12 +405,12 @@
 		};
 		8C069262FEE28B8C5E1C3DCA3BAFAE65 /* VDStockChart */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E6204907644E45D6CC6C6D5A5F00CC77 /* Build configuration list for PBXNativeTarget "VDStockChart" */;
+			buildConfigurationList = 912664B9ABBDBB81F234E2CC98D47037 /* Build configuration list for PBXNativeTarget "VDStockChart" */;
 			buildPhases = (
-				4B42DE5228F6C65BBA880A8A1DF7E758 /* Headers */,
-				A56904F3780F2ADD07BBA1FC8748A116 /* Sources */,
-				D8BA6D8F8F8DC4118C39AFF27D9F2A93 /* Frameworks */,
-				84EF6EF3426B94E6BF6D00B1C1D76586 /* Resources */,
+				AD5CE2BF60FEF5E946BFF864D5E1C7AF /* Headers */,
+				A13CBDD12626DE177E4104F4F0FC943A /* Sources */,
+				B5CFC01A9EFA6B912DC9A10933399C7F /* Frameworks */,
+				880B232BD30BE4272897334C200AA1D4 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -302,7 +433,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				809AC55B84160E05DBCC097E83438DE4 /* PBXTargetDependency */,
+				47F163AEB4713C6B3C0A5AE6BCB258B4 /* PBXTargetDependency */,
 			);
 			name = "Pods-VDStockChart_Tests";
 			productName = "Pods-VDStockChart_Tests";
@@ -317,11 +448,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1200;
-				TargetAttributes = {
-					8C069262FEE28B8C5E1C3DCA3BAFAE65 = {
-						LastSwiftMigration = 1200;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -344,7 +470,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		84EF6EF3426B94E6BF6D00B1C1D76586 /* Resources */ = {
+		880B232BD30BE4272897334C200AA1D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -368,12 +494,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A56904F3780F2ADD07BBA1FC8748A116 /* Sources */ = {
+		A13CBDD12626DE177E4104F4F0FC943A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCB32DBA73B13B4EB011F04BB3C0C99F /* ReplaceMe.swift in Sources */,
-				B24DA39B7F6CFEA437C3A7BEB6B95B60 /* VDStockChart-dummy.m in Sources */,
+				2B8565833DEC47B5E48BD2C367579931 /* AxisDataSet.swift in Sources */,
+				25AE8015E8C067D9507EF15DF960FDD8 /* AxisLayer.swift in Sources */,
+				0145C7C6077BA5CC621EB44FEAA259A0 /* BarLineChartDataSet.swift in Sources */,
+				B0C38946C7507BF43E3E0E250E62AC8B /* BarLineChartLayer.swift in Sources */,
+				605E3C3B357A7FA776099B4369B3FDC5 /* BaseChartLayer.swift in Sources */,
+				B0BDCC04E86D2D82E589F424E9B01D23 /* CandleChartDataSet.swift in Sources */,
+				718E85321D9BB457B1F266B12D5220B8 /* CandleChartLayer.swift in Sources */,
+				3D7A8CAD6F79F82A8A1AB6166ED45DBD /* CGRect+Ext.swift in Sources */,
+				6EDC005B3D49374258D726AF940FA321 /* LineChartDataSet.swift in Sources */,
+				648CE7A53DEE38C24C778673109B57EC /* LineChartLayer.swift in Sources */,
+				002B0047C19A3EB9668E76AD5D0A3A07 /* StockDealInfoView.swift in Sources */,
+				F9BA1D73380C21086C8AB1AE540CAA31 /* StockInfoDataSet.swift in Sources */,
+				01F51EB1243AE8B63C84809A24F7C989 /* VDChartContainer.swift in Sources */,
+				B8DFAB665DDD44C1C00C523C00040FC9 /* VDChartPriceView.swift in Sources */,
+				F17D4BDB1945349C418C5A85EB4F946D /* VDChartRenderer.swift in Sources */,
+				E944B5223495C39473D3424D51512E38 /* VDChartView.swift in Sources */,
+				85D8EC7EC247DCC96167743BBE87E3CC /* VDKLineChartRenderer.swift in Sources */,
+				3A60B34A93828BF96E96AE8EC33F1280 /* VDStockCharBasicView.swift in Sources */,
+				ACFF8751EF1B04BFA60F491D40C90A70 /* VDStockChart-dummy.m in Sources */,
+				09FEF027A1D54878A0E9EFB3D4C82D47 /* VDStockChartBackgroundView.swift in Sources */,
+				F9575F87538C71FDA570DAE513932A40 /* VDStockChartConstant.swift in Sources */,
+				42E75DA6A7003DF0B0AB77629400B07C /* VDStockChartView.swift in Sources */,
+				D4A44A97F6BACB9E9F60D7EB94347B3A /* VDStockDataHandle.swift in Sources */,
+				FA49D1592647F5AEE1BC0BD3AA1D211E /* VDTabView.swift in Sources */,
+				D694EE489F887ED3B6E82BFF9CF15001 /* VDTimeLineChartRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,83 +545,157 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0DADD078B37F6039493923B03AC7E788 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = VDStockChart;
-			target = 8C069262FEE28B8C5E1C3DCA3BAFAE65 /* VDStockChart */;
-			targetProxy = D2EECC6165671F6F2B23BFE1BB57288B /* PBXContainerItemProxy */;
-		};
-		809AC55B84160E05DBCC097E83438DE4 /* PBXTargetDependency */ = {
+		47F163AEB4713C6B3C0A5AE6BCB258B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-VDStockChart_Example";
 			target = 1A79F89970F0DC79D0E95FF1D9B567B8 /* Pods-VDStockChart_Example */;
-			targetProxy = 76D6B620D22C88A6A33130376CEDCF43 /* PBXContainerItemProxy */;
+			targetProxy = DE76D2F7CA84C064E54482A552030C22 /* PBXContainerItemProxy */;
+		};
+		AA6B4EE9C7B23DAEC2BB0E4FD1033EA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VDStockChart;
+			target = 8C069262FEE28B8C5E1C3DCA3BAFAE65 /* VDStockChart */;
+			targetProxy = 031725376F62552C8D03C3D16016F2B7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		264A9F638BB029C9415E7128794E01AD /* Release */ = {
+		04F5B9F6DC193143C9FE43C9565A77BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7745903FCE6CCD33022F6ECEE95E5D8C /* VDStockChart.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1002;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/VDStockChart/VDStockChart-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/VDStockChart/VDStockChart-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.2.9;
+				MODULEMAP_FILE = "Target Support Files/VDStockChart/VDStockChart.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.nvar.VDStockChart;
+				PRODUCT_MODULE_NAME = VDStockChart;
+				PRODUCT_NAME = VDStockChart;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0C76A54ED24EC5E4165EE6B0B0D9E818 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DF687826AFCCB0ADA0437EF1B4EE709 /* Pods-VDStockChart_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		31059FC4CDCFE28D42E245A795B024B8 /* Debug */ = {
+		108CD99701EC251A2A5E823BCAF18A14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7CF843F0F0B33A4FE9F4CD1936E526E /* VDStockChart.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1002;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/VDStockChart/VDStockChart-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/VDStockChart/VDStockChart-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.2.9;
+				MODULEMAP_FILE = "Target Support Files/VDStockChart/VDStockChart.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.nvar.VDStockChart;
+				PRODUCT_MODULE_NAME = VDStockChart;
+				PRODUCT_NAME = VDStockChart;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		11405F894A3F98E31E52CBE9141EE048 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 905F94AEDC10E84089E606814211C8CB /* Pods-VDStockChart_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VDStockChart_Example/Pods-VDStockChart_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VDStockChart_Example/Pods-VDStockChart_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4EBC741460BC710C963D24CAAB3BC925 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -538,142 +761,7 @@
 			};
 			name = Debug;
 		};
-		6A3829D8D2A160428B22DAEA565ABFE7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3DF687826AFCCB0ADA0437EF1B4EE709 /* Pods-VDStockChart_Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		78960F7F4FFB934815A273432EBB3331 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CC3D2DE5FDFDFAE6768F3C7A5C559D7 /* VDStockChart.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1001;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/VDStockChart/VDStockChart-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/VDStockChart/VDStockChart-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.2.8;
-				MODULEMAP_FILE = "Target Support Files/VDStockChart/VDStockChart.modulemap";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.nvar.VDStockChart;
-				PRODUCT_MODULE_NAME = VDStockChart;
-				PRODUCT_NAME = VDStockChart;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8C4D3446CE2A7CF8768A7CC32A0A2C4E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03522357A72758A1A76A868CD2641ACD /* Pods-VDStockChart_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A378911EF330AA882BF1D50457E858B2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 905F94AEDC10E84089E606814211C8CB /* Pods-VDStockChart_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VDStockChart_Example/Pods-VDStockChart_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VDStockChart_Example/Pods-VDStockChart_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C1955136D4792331C26A4A484F1F4343 /* Debug */ = {
+		60EE7359A265D29277EBD28E4E246FA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C2DF57FB046C4B09DCE4D0F36D500C52 /* Pods-VDStockChart_Example.debug.xcconfig */;
 			buildSettings = {
@@ -706,40 +794,99 @@
 			};
 			name = Debug;
 		};
-		E6988EE630BBC763A5FE9FF12BC0EEF7 /* Release */ = {
+		A40FB7C4B9460AE765A736AB575EEB32 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CF926FE1A8087F9463A51F7B8409F4D /* VDStockChart.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		BC66D5D672609A5AA668A41311B6E229 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03522357A72758A1A76A868CD2641ACD /* Pods-VDStockChart_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1001;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/VDStockChart/VDStockChart-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/VDStockChart/VDStockChart-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.2.8;
-				MODULEMAP_FILE = "Target Support Files/VDStockChart/VDStockChart.modulemap";
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.nvar.VDStockChart;
-				PRODUCT_MODULE_NAME = VDStockChart;
-				PRODUCT_NAME = VDStockChart;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -747,8 +894,8 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				31059FC4CDCFE28D42E245A795B024B8 /* Debug */,
-				264A9F638BB029C9415E7128794E01AD /* Release */,
+				4EBC741460BC710C963D24CAAB3BC925 /* Debug */,
+				A40FB7C4B9460AE765A736AB575EEB32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -756,8 +903,8 @@
 		4F001D26D1E79BC3380050EE8441C516 /* Build configuration list for PBXNativeTarget "Pods-VDStockChart_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C1955136D4792331C26A4A484F1F4343 /* Debug */,
-				A378911EF330AA882BF1D50457E858B2 /* Release */,
+				60EE7359A265D29277EBD28E4E246FA5 /* Debug */,
+				11405F894A3F98E31E52CBE9141EE048 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -765,17 +912,17 @@
 		831D51C933E79C3A6F43BCC9D4697981 /* Build configuration list for PBXNativeTarget "Pods-VDStockChart_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8C4D3446CE2A7CF8768A7CC32A0A2C4E /* Debug */,
-				6A3829D8D2A160428B22DAEA565ABFE7 /* Release */,
+				BC66D5D672609A5AA668A41311B6E229 /* Debug */,
+				0C76A54ED24EC5E4165EE6B0B0D9E818 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E6204907644E45D6CC6C6D5A5F00CC77 /* Build configuration list for PBXNativeTarget "VDStockChart" */ = {
+		912664B9ABBDBB81F234E2CC98D47037 /* Build configuration list for PBXNativeTarget "VDStockChart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				78960F7F4FFB934815A273432EBB3331 /* Debug */,
-				E6988EE630BBC763A5FE9FF12BC0EEF7 /* Release */,
+				04F5B9F6DC193143C9FE43C9565A77BA /* Debug */,
+				108CD99701EC251A2A5E823BCAF18A14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
