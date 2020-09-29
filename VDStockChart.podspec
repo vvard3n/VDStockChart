@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "VDStockChart"
-  s.version      = "1.1.8"
+  s.version      = "1.2.8"
   s.summary      = "a simple stock chart. kline, timeline, stock line."
   s.swift_version = '5.0'
 
