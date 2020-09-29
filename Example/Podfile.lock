@@ -1,0 +1,16 @@
+PODS:
+  - VDStockChart (0.1.0)
+
+DEPENDENCIES:
+  - VDStockChart (from `../`)
+
+EXTERNAL SOURCES:
+  VDStockChart:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  VDStockChart: 553009acb42cf3a22af2768d3eb1e32e946df5c2
+
+PODFILE CHECKSUM: 79a0d3b055a213787918f498b4a5d6a0ef04071f
+
+COCOAPODS: 1.10.0.rc.1

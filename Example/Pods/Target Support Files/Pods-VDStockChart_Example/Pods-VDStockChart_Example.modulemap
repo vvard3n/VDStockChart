@@ -1,0 +1,6 @@
+framework module Pods_VDStockChart_Example {
+  umbrella header "Pods-VDStockChart_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "VDStockChart",
+  "version": "0.1.0",
+  "summary": "A short description of VDStockChart.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/vvard3n@gmail.com/VDStockChart",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "vvard3n@gmail.com": "vvard3n@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/vvard3n@gmail.com/VDStockChart.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "VDStockChart/Classes/**/*"
+}

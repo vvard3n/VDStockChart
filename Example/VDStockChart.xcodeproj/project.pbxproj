@@ -1,0 +1,782 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0BE73986759B7C3376CE53DB /* Pods_VDStockChart_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68506F22EEC14124B5A91007 /* Pods_VDStockChart_Example.framework */; };
+		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		769BA1692522DA500051BCCC /* five_timeline.json in Resources */ = {isa = PBXBuildFile; fileRef = 769BA15E2522DA500051BCCC /* five_timeline.json */; };
+		769BA16A2522DA500051BCCC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 769BA1602522DA500051BCCC /* LICENSE */; };
+		769BA16B2522DA500051BCCC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1622522DA500051BCCC /* SwiftyJSON.swift */; };
+		769BA16C2522DA500051BCCC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 769BA1632522DA500051BCCC /* README.md */; };
+		769BA16F2522DA500051BCCC /* timeline.json in Resources */ = {isa = PBXBuildFile; fileRef = 769BA1662522DA500051BCCC /* timeline.json */; };
+		769BA1702522DA500051BCCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769BA1672522DA500051BCCC /* Main.storyboard */; };
+		769BA1712522DA500051BCCC /* day_kline.json in Resources */ = {isa = PBXBuildFile; fileRef = 769BA1682522DA500051BCCC /* day_kline.json */; };
+		769BA1752522DA590051BCCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769BA1742522DA590051BCCC /* LaunchScreen.storyboard */; };
+		769BA18E2522DC570051BCCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA18C2522DC570051BCCC /* AppDelegate.swift */; };
+		769BA18F2522DC570051BCCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA18D2522DC570051BCCC /* ViewController.swift */; };
+		769BA1B12522DC650051BCCC /* StockDealInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1922522DC640051BCCC /* StockDealInfoView.swift */; };
+		769BA1B22522DC650051BCCC /* VDChartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1932522DC640051BCCC /* VDChartContainer.swift */; };
+		769BA1B32522DC650051BCCC /* VDTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1942522DC640051BCCC /* VDTabView.swift */; };
+		769BA1B42522DC650051BCCC /* VDChartPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1952522DC640051BCCC /* VDChartPriceView.swift */; };
+		769BA1B52522DC650051BCCC /* CGRect+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1982522DC650051BCCC /* CGRect+Ext.swift */; };
+		769BA1B62522DC650051BCCC /* BarLineChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA19A2522DC650051BCCC /* BarLineChartLayer.swift */; };
+		769BA1B72522DC650051BCCC /* CandleChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA19B2522DC650051BCCC /* CandleChartLayer.swift */; };
+		769BA1B82522DC650051BCCC /* AxisLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA19C2522DC650051BCCC /* AxisLayer.swift */; };
+		769BA1B92522DC650051BCCC /* LineChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA19D2522DC650051BCCC /* LineChartLayer.swift */; };
+		769BA1BA2522DC650051BCCC /* BaseChartLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA19E2522DC650051BCCC /* BaseChartLayer.swift */; };
+		769BA1BB2522DC650051BCCC /* AxisDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A02522DC650051BCCC /* AxisDataSet.swift */; };
+		769BA1BC2522DC650051BCCC /* CandleChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A12522DC650051BCCC /* CandleChartDataSet.swift */; };
+		769BA1BD2522DC650051BCCC /* LineChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A22522DC650051BCCC /* LineChartDataSet.swift */; };
+		769BA1BE2522DC650051BCCC /* BarLineChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A32522DC650051BCCC /* BarLineChartDataSet.swift */; };
+		769BA1BF2522DC650051BCCC /* StockInfoDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A42522DC650051BCCC /* StockInfoDataSet.swift */; };
+		769BA1C02522DC650051BCCC /* VDKLineChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A62522DC650051BCCC /* VDKLineChartRenderer.swift */; };
+		769BA1C12522DC650051BCCC /* VDChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A72522DC650051BCCC /* VDChartRenderer.swift */; };
+		769BA1C22522DC650051BCCC /* VDTimeLineChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1A82522DC650051BCCC /* VDTimeLineChartRenderer.swift */; };
+		769BA1C32522DC650051BCCC /* VDStockDataHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1AA2522DC650051BCCC /* VDStockDataHandle.swift */; };
+		769BA1C42522DC650051BCCC /* VDStockCharBasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1AB2522DC650051BCCC /* VDStockCharBasicView.swift */; };
+		769BA1C52522DC650051BCCC /* VDStockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1AC2522DC650051BCCC /* VDStockChartView.swift */; };
+		769BA1C62522DC650051BCCC /* VDChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1AD2522DC650051BCCC /* VDChartView.swift */; };
+		769BA1C72522DC650051BCCC /* VDStockChartConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1AE2522DC650051BCCC /* VDStockChartConstant.swift */; };
+		769BA1C82522DC650051BCCC /* VDStockChartBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769BA1B02522DC650051BCCC /* VDStockChartBackgroundView.swift */; };
+		E31D6C200DADB450FB306C90 /* Pods_VDStockChart_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E2DF54DC3AEC06A0702068 /* Pods_VDStockChart_Tests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = VDStockChart;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		31E2DF54DC3AEC06A0702068 /* Pods_VDStockChart_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VDStockChart_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* VDStockChart_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VDStockChart_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		607FACE51AFB9204008FA782 /* VDStockChart_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VDStockChart_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		68506F22EEC14124B5A91007 /* Pods_VDStockChart_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VDStockChart_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E31F50A67575D75FFCD557F /* VDStockChart.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VDStockChart.podspec; path = ../VDStockChart.podspec; sourceTree = "<group>"; };
+		706F86C1DA6C9456034AB527 /* Pods-VDStockChart_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VDStockChart_Example.debug.xcconfig"; path = "Target Support Files/Pods-VDStockChart_Example/Pods-VDStockChart_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		769BA15E2522DA500051BCCC /* five_timeline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = five_timeline.json; sourceTree = "<group>"; };
+		769BA1602522DA500051BCCC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		769BA1622522DA500051BCCC /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		769BA1632522DA500051BCCC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		769BA1662522DA500051BCCC /* timeline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = timeline.json; sourceTree = "<group>"; };
+		769BA1672522DA500051BCCC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		769BA1682522DA500051BCCC /* day_kline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = day_kline.json; sourceTree = "<group>"; };
+		769BA1742522DA590051BCCC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		769BA18C2522DC570051BCCC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		769BA18D2522DC570051BCCC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		769BA1922522DC640051BCCC /* StockDealInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDealInfoView.swift; sourceTree = "<group>"; };
+		769BA1932522DC640051BCCC /* VDChartContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDChartContainer.swift; sourceTree = "<group>"; };
+		769BA1942522DC640051BCCC /* VDTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDTabView.swift; sourceTree = "<group>"; };
+		769BA1952522DC640051BCCC /* VDChartPriceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDChartPriceView.swift; sourceTree = "<group>"; };
+		769BA1982522DC650051BCCC /* CGRect+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Ext.swift"; sourceTree = "<group>"; };
+		769BA19A2522DC650051BCCC /* BarLineChartLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarLineChartLayer.swift; sourceTree = "<group>"; };
+		769BA19B2522DC650051BCCC /* CandleChartLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandleChartLayer.swift; sourceTree = "<group>"; };
+		769BA19C2522DC650051BCCC /* AxisLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisLayer.swift; sourceTree = "<group>"; };
+		769BA19D2522DC650051BCCC /* LineChartLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartLayer.swift; sourceTree = "<group>"; };
+		769BA19E2522DC650051BCCC /* BaseChartLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartLayer.swift; sourceTree = "<group>"; };
+		769BA1A02522DC650051BCCC /* AxisDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisDataSet.swift; sourceTree = "<group>"; };
+		769BA1A12522DC650051BCCC /* CandleChartDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandleChartDataSet.swift; sourceTree = "<group>"; };
+		769BA1A22522DC650051BCCC /* LineChartDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartDataSet.swift; sourceTree = "<group>"; };
+		769BA1A32522DC650051BCCC /* BarLineChartDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarLineChartDataSet.swift; sourceTree = "<group>"; };
+		769BA1A42522DC650051BCCC /* StockInfoDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockInfoDataSet.swift; sourceTree = "<group>"; };
+		769BA1A62522DC650051BCCC /* VDKLineChartRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDKLineChartRenderer.swift; sourceTree = "<group>"; };
+		769BA1A72522DC650051BCCC /* VDChartRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDChartRenderer.swift; sourceTree = "<group>"; };
+		769BA1A82522DC650051BCCC /* VDTimeLineChartRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDTimeLineChartRenderer.swift; sourceTree = "<group>"; };
+		769BA1AA2522DC650051BCCC /* VDStockDataHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDStockDataHandle.swift; sourceTree = "<group>"; };
+		769BA1AB2522DC650051BCCC /* VDStockCharBasicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDStockCharBasicView.swift; sourceTree = "<group>"; };
+		769BA1AC2522DC650051BCCC /* VDStockChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDStockChartView.swift; sourceTree = "<group>"; };
+		769BA1AD2522DC650051BCCC /* VDChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDChartView.swift; sourceTree = "<group>"; };
+		769BA1AE2522DC650051BCCC /* VDStockChartConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDStockChartConstant.swift; sourceTree = "<group>"; };
+		769BA1B02522DC650051BCCC /* VDStockChartBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDStockChartBackgroundView.swift; sourceTree = "<group>"; };
+		7B18CFDDDC8932150D539C26 /* Pods-VDStockChart_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VDStockChart_Tests.debug.xcconfig"; path = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		7E04349BD84460F891E76B28 /* Pods-VDStockChart_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VDStockChart_Example.release.xcconfig"; path = "Target Support Files/Pods-VDStockChart_Example/Pods-VDStockChart_Example.release.xcconfig"; sourceTree = "<group>"; };
+		8B1D4172314A93C33EA3DA7A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		9B709B9841B28F69C612D67F /* Pods-VDStockChart_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VDStockChart_Tests.release.xcconfig"; path = "Target Support Files/Pods-VDStockChart_Tests/Pods-VDStockChart_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		ED70F57A649D0BCFEBB9AA94 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		607FACCD1AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BE73986759B7C3376CE53DB /* Pods_VDStockChart_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE21AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E31D6C200DADB450FB306C90 /* Pods_VDStockChart_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09465A5BEE540EB3B60568E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				706F86C1DA6C9456034AB527 /* Pods-VDStockChart_Example.debug.xcconfig */,
+				7E04349BD84460F891E76B28 /* Pods-VDStockChart_Example.release.xcconfig */,
+				7B18CFDDDC8932150D539C26 /* Pods-VDStockChart_Tests.debug.xcconfig */,
+				9B709B9841B28F69C612D67F /* Pods-VDStockChart_Tests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		607FACC71AFB9204008FA782 = {
+			isa = PBXGroup;
+			children = (
+				769BA1A92522DC650051BCCC /* DataHandle */,
+				769BA19F2522DC650051BCCC /* DataSet */,
+				769BA1962522DC650051BCCC /* Extension */,
+				769BA1992522DC650051BCCC /* Layers */,
+				769BA1A52522DC650051BCCC /* Renderer */,
+				769BA1AF2522DC650051BCCC /* StockBackgroundView */,
+				769BA1922522DC640051BCCC /* StockDealInfoView.swift */,
+				769BA1932522DC640051BCCC /* VDChartContainer.swift */,
+				769BA1952522DC640051BCCC /* VDChartPriceView.swift */,
+				769BA1AD2522DC650051BCCC /* VDChartView.swift */,
+				769BA1AB2522DC650051BCCC /* VDStockCharBasicView.swift */,
+				769BA1AE2522DC650051BCCC /* VDStockChartConstant.swift */,
+				769BA1AC2522DC650051BCCC /* VDStockChartView.swift */,
+				769BA1942522DC640051BCCC /* VDTabView.swift */,
+				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				607FACD21AFB9204008FA782 /* Example for VDStockChart */,
+				607FACE81AFB9204008FA782 /* Tests */,
+				607FACD11AFB9204008FA782 /* Products */,
+				09465A5BEE540EB3B60568E3 /* Pods */,
+				8AB914A26DA56625FF3322E1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		607FACD11AFB9204008FA782 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD01AFB9204008FA782 /* VDStockChart_Example.app */,
+				607FACE51AFB9204008FA782 /* VDStockChart_Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		607FACD21AFB9204008FA782 /* Example for VDStockChart */ = {
+			isa = PBXGroup;
+			children = (
+				769BA18C2522DC570051BCCC /* AppDelegate.swift */,
+				769BA18D2522DC570051BCCC /* ViewController.swift */,
+				769BA1682522DA500051BCCC /* day_kline.json */,
+				769BA15E2522DA500051BCCC /* five_timeline.json */,
+				769BA1672522DA500051BCCC /* Main.storyboard */,
+				769BA1742522DA590051BCCC /* LaunchScreen.storyboard */,
+				769BA15F2522DA500051BCCC /* SwiftyJSON */,
+				769BA1662522DA500051BCCC /* timeline.json */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				607FACD31AFB9204008FA782 /* Supporting Files */,
+			);
+			name = "Example for VDStockChart";
+			path = VDStockChart;
+			sourceTree = "<group>";
+		};
+		607FACD31AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD41AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACE81AFB9204008FA782 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACE91AFB9204008FA782 /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		607FACE91AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACEA1AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				6E31F50A67575D75FFCD557F /* VDStockChart.podspec */,
+				ED70F57A649D0BCFEBB9AA94 /* README.md */,
+				8B1D4172314A93C33EA3DA7A /* LICENSE */,
+			);
+			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		769BA15F2522DA500051BCCC /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				769BA1602522DA500051BCCC /* LICENSE */,
+				769BA1612522DA500051BCCC /* Source */,
+				769BA1632522DA500051BCCC /* README.md */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		769BA1612522DA500051BCCC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				769BA1622522DA500051BCCC /* SwiftyJSON.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		769BA1962522DC650051BCCC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				769BA1972522DC650051BCCC /* UIKit */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		769BA1972522DC650051BCCC /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				769BA1982522DC650051BCCC /* CGRect+Ext.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		769BA1992522DC650051BCCC /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				769BA19A2522DC650051BCCC /* BarLineChartLayer.swift */,
+				769BA19B2522DC650051BCCC /* CandleChartLayer.swift */,
+				769BA19C2522DC650051BCCC /* AxisLayer.swift */,
+				769BA19D2522DC650051BCCC /* LineChartLayer.swift */,
+				769BA19E2522DC650051BCCC /* BaseChartLayer.swift */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		769BA19F2522DC650051BCCC /* DataSet */ = {
+			isa = PBXGroup;
+			children = (
+				769BA1A02522DC650051BCCC /* AxisDataSet.swift */,
+				769BA1A12522DC650051BCCC /* CandleChartDataSet.swift */,
+				769BA1A22522DC650051BCCC /* LineChartDataSet.swift */,
+				769BA1A32522DC650051BCCC /* BarLineChartDataSet.swift */,
+				769BA1A42522DC650051BCCC /* StockInfoDataSet.swift */,
+			);
+			path = DataSet;
+			sourceTree = "<group>";
+		};
+		769BA1A52522DC650051BCCC /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				769BA1A62522DC650051BCCC /* VDKLineChartRenderer.swift */,
+				769BA1A72522DC650051BCCC /* VDChartRenderer.swift */,
+				769BA1A82522DC650051BCCC /* VDTimeLineChartRenderer.swift */,
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
+		769BA1A92522DC650051BCCC /* DataHandle */ = {
+			isa = PBXGroup;
+			children = (
+				769BA1AA2522DC650051BCCC /* VDStockDataHandle.swift */,
+			);
+			path = DataHandle;
+			sourceTree = "<group>";
+		};
+		769BA1AF2522DC650051BCCC /* StockBackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				769BA1B02522DC650051BCCC /* VDStockChartBackgroundView.swift */,
+			);
+			path = StockBackgroundView;
+			sourceTree = "<group>";
+		};
+		8AB914A26DA56625FF3322E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68506F22EEC14124B5A91007 /* Pods_VDStockChart_Example.framework */,
+				31E2DF54DC3AEC06A0702068 /* Pods_VDStockChart_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		607FACCF1AFB9204008FA782 /* VDStockChart_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "VDStockChart_Example" */;
+			buildPhases = (
+				A445F0F8E73D672ABECC5184 /* [CP] Check Pods Manifest.lock */,
+				607FACCC1AFB9204008FA782 /* Sources */,
+				607FACCD1AFB9204008FA782 /* Frameworks */,
+				607FACCE1AFB9204008FA782 /* Resources */,
+				D3AA7D92A34D3DFDA339BC80 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VDStockChart_Example;
+			productName = VDStockChart;
+			productReference = 607FACD01AFB9204008FA782 /* VDStockChart_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		607FACE41AFB9204008FA782 /* VDStockChart_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "VDStockChart_Tests" */;
+			buildPhases = (
+				F5ED99DE1FD0944DF86612CF /* [CP] Check Pods Manifest.lock */,
+				607FACE11AFB9204008FA782 /* Sources */,
+				607FACE21AFB9204008FA782 /* Frameworks */,
+				607FACE31AFB9204008FA782 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
+			);
+			name = VDStockChart_Tests;
+			productName = Tests;
+			productReference = 607FACE51AFB9204008FA782 /* VDStockChart_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		607FACC81AFB9204008FA782 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = CocoaPods;
+				TargetAttributes = {
+					607FACCF1AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 1200;
+					};
+					607FACE41AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 1200;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+				};
+			};
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "VDStockChart" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 607FACC71AFB9204008FA782;
+			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				607FACCF1AFB9204008FA782 /* VDStockChart_Example */,
+				607FACE41AFB9204008FA782 /* VDStockChart_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		607FACCE1AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				769BA1752522DA590051BCCC /* LaunchScreen.storyboard in Resources */,
+				769BA1702522DA500051BCCC /* Main.storyboard in Resources */,
+				769BA16F2522DA500051BCCC /* timeline.json in Resources */,
+				769BA1692522DA500051BCCC /* five_timeline.json in Resources */,
+				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				769BA16C2522DA500051BCCC /* README.md in Resources */,
+				769BA16A2522DA500051BCCC /* LICENSE in Resources */,
+				769BA1712522DA500051BCCC /* day_kline.json in Resources */,
+				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A445F0F8E73D672ABECC5184 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VDStockChart_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3AA7D92A34D3DFDA339BC80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VDStockChart_Example/Pods-VDStockChart_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/VDStockChart/VDStockChart.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VDStockChart.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VDStockChart_Example/Pods-VDStockChart_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5ED99DE1FD0944DF86612CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VDStockChart_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		607FACCC1AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				769BA18F2522DC570051BCCC /* ViewController.swift in Sources */,
+				769BA1C22522DC650051BCCC /* VDTimeLineChartRenderer.swift in Sources */,
+				769BA1BD2522DC650051BCCC /* LineChartDataSet.swift in Sources */,
+				769BA1BB2522DC650051BCCC /* AxisDataSet.swift in Sources */,
+				769BA1C52522DC650051BCCC /* VDStockChartView.swift in Sources */,
+				769BA1BE2522DC650051BCCC /* BarLineChartDataSet.swift in Sources */,
+				769BA1B42522DC650051BCCC /* VDChartPriceView.swift in Sources */,
+				769BA1B92522DC650051BCCC /* LineChartLayer.swift in Sources */,
+				769BA18E2522DC570051BCCC /* AppDelegate.swift in Sources */,
+				769BA1BF2522DC650051BCCC /* StockInfoDataSet.swift in Sources */,
+				769BA1B82522DC650051BCCC /* AxisLayer.swift in Sources */,
+				769BA1C32522DC650051BCCC /* VDStockDataHandle.swift in Sources */,
+				769BA1B32522DC650051BCCC /* VDTabView.swift in Sources */,
+				769BA1C02522DC650051BCCC /* VDKLineChartRenderer.swift in Sources */,
+				769BA16B2522DA500051BCCC /* SwiftyJSON.swift in Sources */,
+				769BA1BA2522DC650051BCCC /* BaseChartLayer.swift in Sources */,
+				769BA1C42522DC650051BCCC /* VDStockCharBasicView.swift in Sources */,
+				769BA1C82522DC650051BCCC /* VDStockChartBackgroundView.swift in Sources */,
+				769BA1C72522DC650051BCCC /* VDStockChartConstant.swift in Sources */,
+				769BA1BC2522DC650051BCCC /* CandleChartDataSet.swift in Sources */,
+				769BA1B72522DC650051BCCC /* CandleChartLayer.swift in Sources */,
+				769BA1B22522DC650051BCCC /* VDChartContainer.swift in Sources */,
+				769BA1B62522DC650051BCCC /* BarLineChartLayer.swift in Sources */,
+				769BA1B12522DC650051BCCC /* StockDealInfoView.swift in Sources */,
+				769BA1B52522DC650051BCCC /* CGRect+Ext.swift in Sources */,
+				769BA1C12522DC650051BCCC /* VDChartRenderer.swift in Sources */,
+				769BA1C62522DC650051BCCC /* VDChartView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE11AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* VDStockChart_Example */;
+			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607FACDF1AFB9204008FA782 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		607FACED1AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
+			};
+			name = Debug;
+		};
+		607FACEE1AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		607FACF01AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 706F86C1DA6C9456034AB527 /* Pods-VDStockChart_Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1000;
+				INFOPLIST_FILE = VDStockChart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.nvar.VDStockChartDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		607FACF11AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E04349BD84460F891E76B28 /* Pods-VDStockChart_Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1000;
+				INFOPLIST_FILE = VDStockChart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.nvar.VDStockChartDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		607FACF31AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B18CFDDDC8932150D539C26 /* Pods-VDStockChart_Tests.debug.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VDStockChart_Example.app/VDStockChart_Example";
+			};
+			name = Debug;
+		};
+		607FACF41AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B709B9841B28F69C612D67F /* Pods-VDStockChart_Tests.release.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VDStockChart_Example.app/VDStockChart_Example";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "VDStockChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACED1AFB9204008FA782 /* Debug */,
+				607FACEE1AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "VDStockChart_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF01AFB9204008FA782 /* Debug */,
+				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "VDStockChart_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF31AFB9204008FA782 /* Debug */,
+				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
+}

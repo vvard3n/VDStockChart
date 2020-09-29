@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'VDStockChart_Example' do
+  pod 'VDStockChart', :path => '../'
+
+  target 'VDStockChart_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

@@ -1,0 +1,6 @@
+framework module VDStockChart {
+  umbrella header "VDStockChart-umbrella.h"
+
+  export *
+  module * { export * }
+}
