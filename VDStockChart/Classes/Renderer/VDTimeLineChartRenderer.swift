@@ -183,6 +183,10 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
     
     public func prepareRendering() {
         guard let dataSource = dataSource else { return }
+        
+        rightView.sharesPerHand = sharesPerHand
+        rightView.data = dataSource.timeLineChartRendererRightData(self)
+        
         //清空计算的绘制位置
         timeLineDataSet.points = []
         avgTimeLineDataSet.points = []
@@ -317,9 +321,6 @@ public class VDTimeChartLineRenderer: VDChartRenderer {
             }
             calculateBusinessAmount(result: result, node: node, x: lineX, yLength: businessAmountYLength, width: widthOfNode)
         }
-        
-        rightView.sharesPerHand = sharesPerHand
-        rightView.data = dataSource.timeLineChartRendererRightData(self)
     }
     
     public func rendering() {
